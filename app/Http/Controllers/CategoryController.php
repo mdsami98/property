@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.categories.index', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:categories,title|regex:/^[a-zA-Z][a-zA-Z\\s]+$/'
+        ]);
+
+        $input = $request->all();
+       Category::create($input);
+
+        return redirect()->route('admin.category.index');
+
     }
 
     /**
@@ -55,9 +66,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.categories.edit', [
+            'category' => $category
+        ]);
+
     }
 
     /**
@@ -67,9 +82,18 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'title' => 'required|unique:categories,title|regex:/^[a-zA-Z][a-zA-Z\\s]+$/'
+        ]);
+        $category = Category::findOrFail($id);
+        $input = $request->all();
+
+        $category->update($input);
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -78,8 +102,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('admin.category.index');
     }
 }

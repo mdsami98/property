@@ -58737,3 +58737,39 @@ a.hover-white-8:hover, a.hover-white-8:focus {
 .mx-wd-1350 {
   max-width: 1350px;
 }
+
+.admin-btn a {background-color: #ddd;color: #000;}
+
+.title {
+    margin-bottom: 25px;
+    text-align: center;
+    padding-bottom:20px;
+    border-bottom:1px solid #ddd
+
+}
+
+.admin-action .edit a, .admin-action .delete button,.admin-action [type="submit"] {
+    border: none;
+    display: inline-block;
+    background-color: none;
+    background: none;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 16px;
+    background-color: #ddd;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.admin-action .edit a{
+    background-color:#2ECC71;
+}
+.admin-action .delete input,.admin-action [type="submit"]{
+    background-color: #D50202
+}
+
+.admin-action .edit, .admin-action .delete {
+    display: inline-block;
+    margin-right: 5px;
+}
