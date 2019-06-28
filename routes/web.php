@@ -14,13 +14,18 @@
 Route::get('/', function () {
     return view('frontEnd.home.home');
 });
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index');
-});
-Route::get('/table', function () {
-    return view('admin.table');
-});
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
+
+  Route::get('/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
+
+
+});
+

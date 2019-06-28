@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,6 +20,26 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    public function redirectTo(){
+        $role_id = Auth::user()->role->id;
+
+        switch ($role_id) {
+            case '1':
+                return '/';
+                break;
+            case '2':
+                return 'Agent Page';
+                break;
+            case '3':
+                return '/admin/dashboard';
+                break;
+            default:
+                return '/login';
+                break;
+        }
+
+    }
 
     /**
      * Where to redirect users after login.
