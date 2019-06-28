@@ -20,3 +20,7 @@ Route::get('/admin/dashboard', function () {
 Route::get('/table', function () {
     return view('admin.table');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
