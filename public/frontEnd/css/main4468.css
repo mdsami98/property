@@ -276,6 +276,7 @@ textarea {
   height: 24px;
   color: #394041;
   border-radius: 0;
+    width: 350px;
 }
 
 input[type="number"]:focus,
@@ -7823,4 +7824,11 @@ input[type="text"].ui-autocomplete-loading {
 }
 .widget p.interact a{
   margin-right: 10px;
+}
+.height{
+    height: 50px;
+}
+
+span.invalid-feedback.text-danger {
+    color: red;
 }

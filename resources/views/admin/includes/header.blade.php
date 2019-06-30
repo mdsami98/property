@@ -141,7 +141,7 @@
             </div><!-- dropdown -->
             <div class="dropdown">
                 <a href="#" class="nav-link nav-link-profile" data-toggle="dropdown">
-                    <span class="logged-name hidden-md-down">Katherine</span>
+                    <span class="logged-name hidden-md-down">{{Auth::user() ? Auth::user()->name : ''}}</span>
                     <img src="{{asset('admin/')}}/img/img1.jpg" class="wd-32 rounded-circle" alt="">
                     <span class="square-10 bg-success"></span>
                 </a>
@@ -152,7 +152,17 @@
                         <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>
                         <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>
                         <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>
-                        <li><a href="#"><i class="icon ion-power"></i> Sign Out</a></li>
+                        <li>
+                            <a href="{{route('login')}}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+
+                                <i class="icon ion-power"></i>
+                                Log Out</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </li>
                     </ul>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->

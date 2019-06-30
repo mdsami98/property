@@ -35,7 +35,23 @@
                     <a href="#">
                         <i class="fa fa-star"></i>Favorites
                     </a>
-                    <a class="last" href="#login-modal" data-toggle="modal"><i class="fa fa-sign-in"></i>Login / Register</a>
+                    @auth()
+
+                        <a class="last" href="{{route('login')}}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                        data-toggle="modal">
+                        <i class="fa fa-sign-in"></i>Logout</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
+                    @endauth
+
+                    @guest()
+                        <a class="last" href="{{route('login')}}" data-toggle="modal"><i class="fa fa-sign-in"></i>Login</a>
+                    @endguest
+
+
                 </div>
 
             </div>
