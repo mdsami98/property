@@ -17,21 +17,22 @@
         <a href="{{route('admin.category.index')}}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
-                <span class="menu-item-label">Table</span>
+                <span class="menu-item-label">Category</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-                <span class="menu-item-label">UI Elements</span>
+                <span class="menu-item-label">Post</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="accordion.html" class="nav-link">Accordion</a></li>
-            <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
+            <li class="nav-item"><a href="{{route('admin.post.create')}}" class="nav-link">Add Post</a></li>
+            <li class="nav-item"><a href="{{route('admin.post.index')}}" class="nav-link">All Post</a></li>
 
         </ul>
+
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
