@@ -57,6 +57,7 @@ class PostController extends Controller
         $post->bathroom = $request->bathroom;
         $post->garage = $request->garage;
         $post->description = $request->description;
+        $post->address = $request->address;
 
         $post->save();
 
@@ -68,10 +69,10 @@ class PostController extends Controller
                 $name = time().$image->getClientOriginalName();
 
                 $image->move('img', $name);
-                $input['test_post_id']= $post->id;
+                $input['post_id']= $post->id;
                 $post_image = PostImage::create([
                     'photo' => $name,
-                    'test_post_id' => $post->id,
+                    'post_id' => $post->id,
 
                 ]);
 

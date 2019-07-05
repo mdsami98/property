@@ -416,116 +416,59 @@
                                 <div id="home-properties-wrapper">
 
                                     <div id="home-properties" class="property-items-container clearfix">
+
+                                    @if($posts)
+
+                                        @foreach($posts as $post)
+
                                         <div class="span6 ">
                                             <article class="property-item clearfix">
-                                                <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
+                                                <h4><a href="property.html">{{$post->title}}</a></h4>
 
                                                 <figure>
+
+                                                    @php($i=1)
+                                                    @foreach($post->photos as $postphoto)
                                                     <a href="property.html">
-                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
+                                                        @if($i > 0)
+                                                            <img src="{{$postphoto ? asset('img/'.$postphoto->photo) : 'http://via.placeholder.com/640x360'}}" alt="Property Image">
+                                                        @endif
+
+{{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
                                                     </a>
+                                                        @php($i--)
+
+                                                    @endforeach
 
                                                     <figcaption class="for-rent">For Rent</figcaption>
                                                 </figure>
 
                                                 <div class="detail">
                                                     <h5 class="price">
-                                                        $7,500 Per Month<small> - Single Family Home</small>            </h5>
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh&hellip;</p>
+                                                        {{$post->price}} Tk. Per Month<small></small>            </h5>
+                                                    <p>{{$post->description}}&hellip;</p>
                                                     <a class="more-details" href="property.html">More Details <i class="fa fa-caret-right"></i></a>
                                                 </div>
 
                                                 <div class="property-meta">
-                                                    <span>4800&nbsp;sq ft</span>
-                                                    <span>4&nbsp;Bedrooms</span>
-                                                    <span>3&nbsp;Bathrooms</span>
-                                                    <span>2&nbsp;Garages</span>
+                                                    <span>{{$post->area}}&nbsp;sq ft</span>
+                                                    <span>{{$post->badroom}}&nbsp;Bedrooms</span>
+                                                    <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
+                                                    <span>{{$post->garage}}&nbsp;Garages</span>
                                                 </div>
-                                            </article>
-                                        </div>
-                                        <div class="span6 ">
-                                            <article class="property-item clearfix">
-                                                <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
-
-                                                <figure>
-                                                    <a href="property.html">
-                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                                    </a>
-
-                                                    <figcaption class="for-rent">For Rent</figcaption>
-                                                </figure>
-
-                                                <div class="detail">
-                                                    <h5 class="price">
-                                                        $7,500 Per Month<small> - Single Family Home</small>            </h5>
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh&hellip;</p>
-                                                    <a class="more-details" href="property.html">More Details <i class="fa fa-caret-right"></i></a>
-                                                </div>
-
                                                 <div class="property-meta">
-                                                    <span>4800&nbsp;sq ft</span>
-                                                    <span>4&nbsp;Bedrooms</span>
-                                                    <span>3&nbsp;Bathrooms</span>
-                                                    <span>2&nbsp;Garages</span>
+                                                    <span>Address : {{$post->address}}</span>
                                                 </div>
                                             </article>
                                         </div>
-                                        <div class="span6 ">
-                                            <article class="property-item clearfix">
-                                                <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
+                                            @endforeach
 
-                                                <figure>
-                                                    <a href="property.html">
-                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                                    </a>
+                                        @endif
 
-                                                    <figcaption class="for-rent">For Rent</figcaption>
-                                                </figure>
 
-                                                <div class="detail">
-                                                    <h5 class="price">
-                                                        $7,500 Per Month<small> - Single Family Home</small>            </h5>
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh&hellip;</p>
-                                                    <a class="more-details" href="property.html">More Details <i class="fa fa-caret-right"></i></a>
-                                                </div>
 
-                                                <div class="property-meta">
-                                                    <span>4800&nbsp;sq ft</span>
-                                                    <span>4&nbsp;Bedrooms</span>
-                                                    <span>3&nbsp;Bathrooms</span>
-                                                    <span>2&nbsp;Garages</span>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div class="span6 ">
-                                            <article class="property-item clearfix">
-                                                <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
+{{--                                        <div class="clearfix"></div>--}}
 
-                                                <figure>
-                                                    <a href="property.html">
-                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                                    </a>
-
-                                                    <figcaption class="for-rent">For Rent</figcaption>
-                                                </figure>
-
-                                                <div class="detail">
-                                                    <h5 class="price">
-                                                        $7,500 Per Month<small> - Single Family Home</small>            </h5>
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh&hellip;</p>
-                                                    <a class="more-details" href="property.html">More Details <i class="fa fa-caret-right"></i></a>
-                                                </div>
-
-                                                <div class="property-meta">
-                                                    <span>4800&nbsp;sq ft</span>
-                                                    <span>4&nbsp;Bedrooms</span>
-                                                    <span>3&nbsp;Bathrooms</span>
-                                                    <span>2&nbsp;Garages</span>
-                                                </div>
-                                            </article>
-                                        </div>
-
-                                        <div class="clearfix"></div>
 
 
 

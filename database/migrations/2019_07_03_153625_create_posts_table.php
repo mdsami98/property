@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->integer('bathroom')->unsigned();
             $table->integer('garage')->unsigned()->nullable();
             $table->text('description');
+            $table->text('address');
             $table->string('map')->nullable();
             $table->tinyInteger('publication_status')->default(0);
             $table->timestamps();

@@ -73,7 +73,7 @@
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('price', 'Price:') !!}<span class="tx-danger">*</span>
-                                    {!! Form::number('price', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Area( sqrt)']) !!}
+                                    {!! Form::number('price', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Price (Tk.)']) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
@@ -122,6 +122,19 @@
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
+
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('address', 'Address:') !!}
+                                    {!! Form::text('address', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Address']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('address') ? $errors->first('address') : ''}}
+                                </span>
+                            </div>
 
 
                             <div class="d-flex mg-b-20">

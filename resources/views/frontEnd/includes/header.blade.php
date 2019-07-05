@@ -107,14 +107,6 @@
                                     <li><a href="property-gallery-var.html">Gallery &#8211; Variation</a></li>
                                 </ul>
                             </li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="gallery.html">Gallery</a>
-                                <ul>
-                                    <li><a href="gallery-two-col.html">2 Columns Gallery</a></li>
-                                    <li><a href="gallery.html">3 Columns Gallery</a></li>
-                                    <li><a href="gallery-four-col.html">4 Columns Gallery</a></li>
-                                </ul>
-                            </li>
                             <li><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="agents.html">Agents</a></li>
@@ -135,13 +127,12 @@
                             </li>
                             <li><a href="#">Types</a>
                                 <ul>
-                                    <li><a href="simple-family-home.html">Single Family Home</a></li>
-                                    <li><a href="apartment-building.html">Apartment Building</a></li>
-                                    <li><a href="apartment.html">Apartment</a></li>
-                                    <li><a href="office.html">Office</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="villa.html">Villa</a></li>
-                                    <li><a href="condominium.html">Condominium</a></li>
+
+                                @if($categories)
+                                    @foreach($categories as $category)
+                                    <li><a href="simple-family-home.html">{{$category->title}}</a></li>
+                                        @endforeach
+                                @endif
                                 </ul>
                             </li>
                             <li><a href="contact-us.html">Contact us</a></li>

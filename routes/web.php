@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontEnd.home.home');
-});
+//Route::get('/', function () {
+//    return view('frontEnd.home.home');
+//});
+
+Route::get('/', 'IndexController@index')->name('user.home');
 
 
 Auth::routes();
