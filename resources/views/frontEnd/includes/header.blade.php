@@ -130,8 +130,8 @@
 
                                 @if($categories)
                                     @foreach($categories as $category)
-                                    <li><a href="simple-family-home.html">{{$category->title}}</a></li>
-                                        @endforeach
+                                        <li><a href="simple-family-home.html">{{$category->title}}</a></li>
+                                    @endforeach
                                 @endif
                                 </ul>
                             </li>
