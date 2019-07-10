@@ -8,6 +8,12 @@
                 <a class="breadcrumb-item" href="index-2.html">Dashboard</a>
                 <a class="breadcrumb-item" href="{{route('admin.category.index')}}">All category</a>
                 <span class="breadcrumb-item active">Add Category</span>
+
+                <span class="message text-center">
+                    @if(Session::has('message'))
+                        {{ Session::get('message') }}
+                    @endif
+                </span>
             </nav>
         </div><!-- br-pageheader -->
 
@@ -82,6 +88,18 @@
                                     {{$errors->has('price') ? $errors->first('price') : ''}}
                                 </span>
                             </div>
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('phn_number', 'Phone Number:') !!}<span class="tx-danger">*</span>
+                                    {!! Form::text('phn_number', $value = null, ['class' => 'form-control wd-300', 'placeholder' => '+8801XXXXXXXXXX']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('price') ? $errors->first('price') : ''}}
+                                </span>
+                            </div>
 
 
 
@@ -136,17 +154,30 @@
                                 </span>
                             </div>
 
-
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-
-                                    <input type="file" name="image[]" class="form-control" multiple="multiple">
+                                    {!! Form::label('publication_status', 'Select status:', ['class' => 'col-lg-6 control-label']) !!}
+                                    {!!  Form::select('publication_status', ['0' => 'Unpublished', '1' => 'Published'],null,['class' => 'form-control wd-300' ]) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
                             <div class="d-flex mg-b-10">
                                 <span class="text-danger">
-                                    {{$errors->has('image[]') ? "The post Image Field Is requerd" : ''}}
+                                    {{$errors->has('address') ? $errors->first('address') : ''}}
+                                </span>
+                            </div>
+
+
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('image', 'Upload image:') !!}
+                                    <input type="file" name="image" class="form-control" multiple="multiple">
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('image') ? "The post Image Field Is requerd" : ''}}
                                 </span>
                             </div>
 

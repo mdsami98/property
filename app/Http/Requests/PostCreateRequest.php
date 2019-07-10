@@ -25,15 +25,15 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'title' =>'required|unique:posts,title|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
-//            'image[]' => 'required',
+            'image' => 'required',
             'category_id' => 'required',
             'area' => 'required',
             'price' => 'required',
             'bedroom' => 'required',
             'bathroom' => 'required',
-            'garage' => 'required',
             'description' => 'required',
             'address' => 'required',
+            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
         ];
     }
 }

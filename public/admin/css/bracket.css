@@ -58773,3 +58773,29 @@ a.hover-white-8:hover, a.hover-white-8:focus {
     display: inline-block;
     margin-right: 5px;
 }
+
+.edit a {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 5px 8px;
+    margin-top: 0px;
+    color: #333;
+    font-weight: bold;
+}
+
+.postDetails h6 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.br-pageheader {
+    position: relative;
+}
+
+.br-pageheader .message {
+    position: absolute;
+    left: 50%;
+    color: green;
+    font-weight: bold;
+    margin-left: -25%;
+}

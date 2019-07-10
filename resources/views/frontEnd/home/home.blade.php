@@ -427,18 +427,16 @@
 
                                                 <figure>
 
-                                                    @php($i=1)
-                                                    @foreach($post->photos as $postphoto)
                                                     <a href="property.html">
-                                                        @if($i > 0)
-                                                            <img src="{{$postphoto ? asset('img/'.$postphoto->photo) : 'http://via.placeholder.com/640x360'}}" alt="Property Image">
-                                                        @endif
+
+                                                            <img src="{{url('postimages',$post->image)}}" alt="Property Image">
+
 
 {{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
                                                     </a>
-                                                        @php($i--)
 
-                                                    @endforeach
+
+
 
                                                     <figcaption class="for-rent">For Rent</figcaption>
                                                 </figure>
@@ -452,7 +450,7 @@
 
                                                 <div class="property-meta">
                                                     <span>{{$post->area}}&nbsp;sq ft</span>
-                                                    <span>{{$post->badroom}}&nbsp;Bedrooms</span>
+                                                    <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
                                                     <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
                                                     <span>{{$post->garage}}&nbsp;Garages</span>
                                                 </div>

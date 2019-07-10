@@ -8,6 +8,11 @@
                 <a class="breadcrumb-item" href="index-2.html">Dashboard</a>
                 <a class="breadcrumb-item" href="#">Tables</a>
                 <span class="breadcrumb-item active">All posts</span>
+                <span class="message text-center">
+                    @if(Session::has('message'))
+                        {{ Session::get('message') }}
+                    @endif
+                </span>
             </nav>
         </div><!-- br-pageheader -->
 
@@ -28,6 +33,7 @@
                                         <th class="wd-5p">Id</th>
                                         <th class="wd-15p">Name</th>
                                         <th class="wd-20p">Created By</th>
+                                        <th class="wd-20p">Add image</th>
                                         <th class="wd-20p">Publication</th>
                                         <th class="wd-20p">Action</th>
                                     </tr>
@@ -40,21 +46,24 @@
                                                 <td>{{$i++}}</td>
                                                 <td>{{$post->title}}</td>
                                                 <td>{{$post->user->name}}</td>
+                                                <td><div class="edit">
+                                                        <a href="{{route('admin.image.show' , $post->id)}}">Add images</a>
+                                                    </div></td>
                                                 <td>Unpublished</td>
                                                 <td>
                                                     <div class="admin-action">
                                                         <div class="edit">
-                                                            <a href="{{route('admin.post.edit', $post->id)}}">View</a>
+                                                            <a href="{{route('admin.post.show', $post->id)}}">View</a>
                                                         </div>
                                                         <div class="edit">
                                                             <a href="{{route('admin.post.edit', $post->id)}}">Edit</a>
                                                         </div>
-                                                        <div class="delete">
-                                                            {!! Form::open(['method' => 'DELETE', 'action' => ['PostController@destroy', $post->id]]) !!}
+{{--                                                        <div class="delete">--}}
+{{--                                                            {!! Form::open(['method' => 'DELETE', 'action' => ['PostController@destroy', $post->id]]) !!}--}}
 
-                                                            {!! Form::submit('Delete' , ['class' => '']) !!}
-                                                            {!! Form::close()  !!}
-                                                        </div>
+{{--                                                            {!! Form::submit('Delete' , ['class' => '']) !!}--}}
+{{--                                                            {!! Form::close()  !!}--}}
+{{--                                                        </div>--}}
                                                     </div>
                                                 </td>
                                             </tr>

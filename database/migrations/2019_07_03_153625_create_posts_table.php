@@ -22,12 +22,14 @@ class CreatePostsTable extends Migration
             $table->string('slug',128)->nullable();
             $table->decimal('price')->unsigned();
             $table->decimal('area');
+            $table->text('phn_number');
             $table->integer('bedroom')->unsigned();
             $table->integer('bathroom')->unsigned();
             $table->integer('garage')->unsigned()->nullable();
             $table->text('description');
             $table->text('address');
             $table->string('map')->nullable();
+            $table->string('image');
             $table->tinyInteger('publication_status')->default(0);
             $table->timestamps();
         });

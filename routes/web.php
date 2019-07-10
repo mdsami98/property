@@ -29,6 +29,7 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::get('/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
   Route::resource('/category', 'CategoryController');
   Route::resource('/post', 'PostController');
+  Route::resource('/post/image', 'PostImageController');
 
 
 });

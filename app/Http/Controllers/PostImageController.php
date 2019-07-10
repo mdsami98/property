@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\PostCreateRequest;
 use App\Post;
 use App\PostImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
-class PostController extends Controller
+class PostImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('admin.posts.index', [
-            'posts' => $posts,
-        ]);
-
+        //
     }
 
     /**
@@ -32,10 +24,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $category = Category::pluck('title' , 'id')->all();
-        return view('admin.posts.create', [
-            'category' => $category,
-        ]);
+    {
+        //
     }
 
     /**
@@ -44,37 +34,29 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostCreateRequest $request)
+    public function store(Request $request)
     {
-
-        $formInput=$request->all();
-
-        $formInput['user_id']=Auth::user()->id;
-
+        $inputData=$request->all();
         if($request->file('image')){
-            $image=$request->file('image');
-            if($image->isValid()){
-                $fileName=time().'-'.str::slug($formInput['title'],"-").'.'.$image->getClientOriginalExtension();
+            $images=$request->file('image');
+            foreach ($images as $image){
+                if($image->isValid()){
+                    $extension=$image->getClientOriginalExtension();
+                    $fileName=rand(100,999999).time().'.'.$extension;
+                    $image->move('postimages', $fileName);
 
-
-                $image->move('postimages', $fileName);
-                $formInput['image']=$fileName;
+                    $inputData['image']=$fileName;
+                    PostImage::create($inputData);
+                }
             }
         }
-
-        Post::create($formInput);
-
-
-        return redirect()->route('admin.post.create')->with('message', 'Post Create successfully!');
-
-
-
+        return back()->with('message','Add Images Successed');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -83,20 +65,19 @@ class PostController extends Controller
 
         $postImages = PostImage::where('post_id','=', $id)->get();
 
-        return view('admin.posts.singlepost', [
+        return view('admin.posts.addimage', [
             'post' => $post,
             'postImages' => $postImages,
         ]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
     }
@@ -105,10 +86,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -116,14 +97,16 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-
-        $post->delete();
-        return redirect()->route('admin.post.index');
+        $delete=PostImage::findOrFail($id);
+        $image_large=public_path().'/postimages/'.$delete->image;
+        if($delete->delete()){
+            unlink($image_large);
+        }
+        return back()->with('message','Delete Success!');
     }
 }
