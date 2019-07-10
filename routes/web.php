@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
 
   Route::get('/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
+  Route::get('/admin/post/published/{id}', 'AdminController@publication')->name('post.publication');
   Route::resource('/category', 'CategoryController');
   Route::resource('/post', 'PostController');
   Route::resource('/post/image', 'PostImageController');
