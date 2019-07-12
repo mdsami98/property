@@ -7837,3 +7837,8 @@ span.invalid-feedback.text-danger {
     height: 150px;
     width: 244px;
 }
+
+#property-detail-flexslider .flexslider .slides img {
+
+    width: 100%;
+}

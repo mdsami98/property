@@ -16,6 +16,9 @@
 //});
 
 Route::get('/', 'IndexController@index')->name('user.home');
+Route::get('/property/{id}', 'IndexController@singleView')->name('user.singleView');
+
+
 
 
 Auth::routes();

@@ -423,7 +423,7 @@
 
                                         <div class="span6 ">
                                             <article class="property-item clearfix">
-                                                <h4><a href="property.html">{{$post->title}}</a></h4>
+                                                <h4><a href="{{route('user.singleView',['id'=> $post->id])}}">{{$post->title}}</a></h4>
 
                                                 <figure>
 
@@ -444,8 +444,8 @@
                                                 <div class="detail">
                                                     <h5 class="price">
                                                         {{$post->price}} Tk. Per Month<small></small>            </h5>
-                                                    <p>{{$post->description}}&hellip;</p>
-                                                    <a class="more-details" href="property.html">More Details <i class="fa fa-caret-right"></i></a>
+                                                    <p>{{str_limit($post->description, 100)}}&hellip;</p>
+                                                    <a class="more-details" href="{{route('user.singleView',['id'=> $post->id])}}">More Details <i class="fa fa-caret-right"></i></a>
                                                 </div>
 
                                                 <div class="property-meta">
@@ -473,6 +473,8 @@
                                     </div><!-- end of #home-properties -->
 
                                 </div><!-- end of #home-properties-wrapper -->
+
+{{--                                {{$posts->render()}}--}}
 
                                 <div class='pagination'><a href='#' class='real-btn current' >1</a>
                                     <a href='#' class='real-btn' >2</a>
