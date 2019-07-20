@@ -5,8 +5,7 @@
     <div class="br-mainpanel">
         <div class="br-pageheader pd-y-15 pd-l-20">
             <nav class="breadcrumb pd-0 mg-0 tx-12">
-                <a class="breadcrumb-item" href="index-2.html">Dashboard</a>
-                <a class="breadcrumb-item" href="#">Tables</a>
+                <a class="breadcrumb-item" href="{{route('admin.dashboard')}}">Dashboard</a>
                 <span class="breadcrumb-item active">All posts</span>
                 <span class="message text-center">
                     @if(Session::has('message'))
@@ -49,7 +48,14 @@
                                                 <td><div class="edit">
                                                         <a href="{{route('admin.image.show' , $post->id)}}">Add images</a>
                                                     </div></td>
-                                                <td>Unpublished</td>
+                                                <td>
+
+                                                    @if($post->publication_status == 1)
+                                                        <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-success">Published</a>
+                                                    @else
+                                                        <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-danger">Unbublished</a>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="admin-action">
                                                         <div class="edit">

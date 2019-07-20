@@ -24,7 +24,7 @@ class PostCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' =>'required|unique:posts,title|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
+            'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
             'image' => 'required',
             'category_id' => 'required',
             'area' => 'required',

@@ -45,8 +45,15 @@
                                     @else
                                     <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-danger">Unbublished</a>
                                 @endif
-                                <a href="" class="btn btn-info">Edit</a>
-                                <a href="" class="btn btn-info">Delete</a>
+                                <a href="{{route('admin.post.edit', $post->id)}}" class="btn btn-info">Edit</a>
+
+                                    {!! Form::open(['method' => 'DELETE', 'action' => ['PostController@destroy', $post->id]]) !!}
+
+
+                                    <button type="submit" class="btn btn-info">Delete</button>
+
+
+                                    {!! Form::close()  !!}
                             </div>
 
                         </div>

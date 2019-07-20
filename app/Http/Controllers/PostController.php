@@ -65,7 +65,7 @@ class PostController extends Controller
         Post::create($formInput);
 
 
-        return redirect()->route('admin.post.create')->with('message', 'Post Create successfully!');
+        return redirect()->route('admin.post.index')->with('message', 'Post Create successfully!');
 
 
 
@@ -96,9 +96,15 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $category = Category::pluck('title' , 'id')->all();
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.edit',[
+            'post' => $post,
+            'category' => $category
+        ]);
     }
 
     /**
@@ -108,9 +114,47 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $update_post = Post::findOrFail($id);
+
+        $this->validate($request,[
+            'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
+            'category_id' => 'required',
+            'area' => 'required',
+            'price' => 'required',
+            'bedroom' => 'required',
+            'bathroom' => 'required',
+            'description' => 'required',
+            'address' => 'required',
+            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
+        ]);
+
+
+
+
+        $formInput=$request->all();
+
+        if($request->file('image')){
+            $image=$request->file('image');
+            if($image->isValid()){
+                $fileName=time().'-'.str::slug($formInput['title'],"-").'.'.$image->getClientOriginalExtension();
+
+
+                $image->move('postimages', $fileName);
+                $formInput['image']=$fileName;
+            }
+        }
+
+        else{
+            $formInput['image']=$update_post['image'];
+        }
+
+        $update_post->update($formInput);
+        return redirect()->route('admin.post.index')->with('message','Update Post Successfully!');
+
+
+
     }
 
     /**
@@ -121,9 +165,15 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $delete = Post::findOrFail($id);
 
-        $post->delete();
+        $delete->delete();
+
+        $image_large=public_path().'/postimages/'.$delete->image;
+
+        if($delete->delete()){
+            unlink($image_large);
+        }
         return redirect()->route('admin.post.index');
     }
 }

@@ -5,8 +5,8 @@
     <div class="br-mainpanel">
         <div class="br-pageheader pd-y-15 pd-l-20">
             <nav class="breadcrumb pd-0 mg-0 tx-12">
-                <a class="breadcrumb-item" href="">Dashboard</a>
-                <a class="breadcrumb-item" href="{{route('admin.post.index')}}">All posts</a>
+                <a class="breadcrumb-item" href="{{route('admin.dashboard')}}">Dashboard</a>
+                <a class="breadcrumb-item" href="{{route('admin.category.index')}}">All category</a>
                 <span class="breadcrumb-item active">Add Category</span>
 
                 <span class="message text-center">
@@ -20,13 +20,17 @@
         <div class="br-pagebody">
             <div class="br-section-wrapper">
                 <div class="container">
-                    {!! Form::open(['method' => 'POST', 'action' => 'PostController@store', 'enctype'=> 'multipart/form-data']) !!}
+                    {!! Form::model($post, ['route' => ['admin.post.update', $post->id],'enctype' => 'multipart/form-data', 'method' => 'PATCH']) !!}
                     <div class="row">
                         <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-                                    <label id="name">Post Name: <span class="tx-danger">*</span></label>
-                                    <input id="name" type="text" name="title" class="form-control wd-300" placeholder="Enter Category Name" required>
+
+                                    {!! Form::label('title', 'Product Name:', ['class' => '']) !!}<span class="tx-danger">*</span>
+
+                                    {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Enter Category Name']) !!}
+
+
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
@@ -105,7 +109,7 @@
 
 
                         </div>
-{{--                        End row--}}
+                        {{--                        End row--}}
                         <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
