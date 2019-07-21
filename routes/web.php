@@ -18,6 +18,8 @@
 Route::get('/', 'IndexController@index')->name('user.home');
 Route::get('/property/{id}', 'IndexController@singleView')->name('user.singleView');
 
+Route::resource('/profile', 'ProfileController');
+
 
 
 

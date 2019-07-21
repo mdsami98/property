@@ -7842,3 +7842,9 @@ span.invalid-feedback.text-danger {
 
     width: 100%;
 }
+span.text-danger {
+    color: red;
+}
+.option-bar.large input, .option-bar.large textarea {
+    width: 80%;
+}

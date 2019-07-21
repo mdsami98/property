@@ -135,6 +135,18 @@
                                 @endif
                                 </ul>
                             </li>
+                            @auth()
+                            <li><a href="property.html">Profile</a>
+                                <ul>
+                                    <li><a href="property-default-var.html">My property</a></li>
+                                    <li><a href="{{route('profile.show', Auth::user()->id)}}">My profile</a></li>
+
+                                </ul>
+                            </li>
+                            @endauth
+
+
+
                             <li><a href="contact-us.html">Contact us</a></li>
                         </ul>
                     </div>
