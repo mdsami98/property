@@ -21,6 +21,9 @@ Route::get('/property/{id}', 'IndexController@singleView')->name('user.singleVie
 Route::resource('/profile', 'ProfileController');
 
 
+Route::post('/search/property', 'SearchController@search')->name('search.property');
+
+
 
 
 Auth::routes();

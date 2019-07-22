@@ -198,247 +198,144 @@
                     <section class="widget advance-search">
                         <h4 class="title search-heading">Find Your Home<i class="fa fa-search"></i></h4>
                         <div class="as-form-wrap">
-                            <form class="advance-search-form clearfix" action="#" method="get">
-                                <div class="option-bar large">
-                                    <label for="keyword-txt">
-                                        Keyword	</label>
-                                    <input type="text" name="keyword" id="keyword-txt"
-                                           value=""
-                                           placeholder="Any"/>
-                                </div><div class="option-bar large">
-                                    <label for="property-id-txt">
-                                        Property ID	</label>
-                                    <input type="text" name="property-id" id="property-id-txt"
-                                           value=""
-                                           placeholder="Any" />
-                                </div>	<div class="option-bar large">
-                                    <label for="location">
-                                        Location		</label>
-                                    <span class="selectwrap">
-            <select name="location" id="location" class="search-select"></select>
+                            {!! Form::open(['method' => 'POST', 'action' => 'SearchController@search']) !!}
+
+
+                            <div class="option-bar large">
+                                <label for="location">
+                                    Location		</label>
+                                <span class="selectwrap">
+                <select name="location" id="location" class="search-select"></select>
         </span>
-                                </div>
-                                <div class="option-bar large">
-                                    <label for="select-status">
-                                        Property Status	</label>
-                                    <span class="selectwrap">
-        <select name="status" id="select-status" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="for-rent">For Rent</option><option value="for-sale">For Sale</option>        </select>
+                            </div>
+                            <div class="option-bar large">
+                                <label for="select-status">
+                                    Property Category	</label>
+                                <span class="selectwrap">
+        <select name="category" id="select-status" class="search-select">
+
+
+            @if($categories)
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
+            @endif
+
+        </select>
     </span>
-                                </div><div class="option-bar large">
-                                    <label for="select-property-type">
-                                        Property Type	</label>
-                                    <span class="selectwrap">
-        <select name="type" id="select-property-type" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="commercial"> Commercial</option><option value="office">-  Office</option><option value="shop">-  Shop</option><option value="residential"> Residential</option><option value="apartment">-  Apartment</option><option value="apartment-building">-  Apartment Building</option><option value="condominium">-  Condominium</option><option value="single-family-home">-  Single Family Home</option><option value="villa">-  Villa</option>        </select>
-    </span>
-                                </div><div class="option-bar small">
-                                    <label for="select-bedrooms">
-                                        Min Beds	</label>
-                                    <span class="selectwrap">
+                            </div>
+
+                            <div class="option-bar large">
+                                <label for="select-bedrooms">
+                                    Min Beds	</label>
+                                <span class="selectwrap">
         <select name="bedrooms" id="select-bedrooms" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>        </select>
+            <option value="0" selected="selected">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
     </span>
-                                </div><div class="option-bar small">
-                                    <label for="select-bathrooms">
-                                        Min Baths	</label>
-                                    <span class="selectwrap">
+                            </div>
+                            <div class="option-bar large">
+                                <label for="select-bathrooms">
+                                    Min Baths	</label>
+                                <span class="selectwrap">
         <select name="bathrooms" id="select-bathrooms" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>        </select>
+            <option value="0" selected="selected">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
     </span>
-                                </div><div class="option-bar small price-for-others">
-                                    <label for="select-min-price">
-                                        Min Price	</label>
-                                    <span class="selectwrap">
-        <select name="min-price" id="select-min-price" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="1000">$1,000</option><option value="5000">$5,000</option><option value="10000">$10,000</option><option value="50000">$50,000</option><option value="100000">$100,000</option><option value="200000">$200,000</option><option value="300000">$300,000</option><option value="400000">$400,000</option><option value="500000">$500,000</option><option value="600000">$600,000</option><option value="700000">$700,000</option><option value="800000">$800,000</option><option value="900000">$900,000</option><option value="1000000">$1,000,000</option><option value="1500000">$1,500,000</option><option value="2000000">$2,000,000</option><option value="2500000">$2,500,000</option><option value="5000000">$5,000,000</option>        </select>
+                            </div><div class="option-bar large price-for-others">
+                                <label for="select-min-price">
+                                    Min Price	</label>
+                                <span class="selectwrap">
+        <select name="min_price" id="select-min-price" class="search-select">
+            <option value="1000" selected="selected">Any</option>
+            <option value="5000">5,000 Tk</option>
+            <option value="10000">10,000 Tk</option>
+            <option value="15000">15,000 Tk</option>
+            <option value="20000">20,000 Tk</option>
+            <option value="30000">30,000 Tk</option>
+            <option value="40000">40,000 Tk</option>
+            <option value="50000">50,000 Tk</option>
+            <option value="60000">60,000 Tk</option>
+            <option value="70000">70,000 Tk</option>
+            <option value="80000">80,000 Tk</option>
+        </select>
     </span>
-                                </div>
+                            </div>
 
-                                <div class="option-bar small price-for-others">
-                                    <label for="select-max-price">
-                                        Max Price	</label>
-                                    <span class="selectwrap">
-        <select name="max-price" id="select-max-price" class="search-select">
-            <option value="any" selected="selected">Any</option><option value="5000">$5,000</option><option value="10000">$10,000</option><option value="50000">$50,000</option><option value="100000">$100,000</option><option value="200000">$200,000</option><option value="300000">$300,000</option><option value="400000">$400,000</option><option value="500000">$500,000</option><option value="600000">$600,000</option><option value="700000">$700,000</option><option value="800000">$800,000</option><option value="900000">$900,000</option><option value="1000000">$1,000,000</option><option value="1500000">$1,500,000</option><option value="2000000">$2,000,000</option><option value="2500000">$2,500,000</option><option value="5000000">$5,000,000</option><option value="10000000">$10,000,000</option>        </select>
-    </span>
-                                </div>
+                            <div class="option-bar large price-for-others">
+                                <label for="select-max-price">
+                                    Max Price	</label>
+                                <span class="selectwrap">
+                                    <select name="max_price" id="select-max-price" class="search-select">
+                                        <option value="70000" selected="selected">Any</option>
+                                        <option value="10000">10,000 Tk</option>
+                                        <option value="15000">15,000 Tk</option>
+                                        <option value="20000">20,000 Tk</option>
+                                        <option value="30000">30,000 Tk</option>
+                                        <option value="40000">40,000 Tk</option>
+                                        <option value="50000">50,000 Tk</option>
+                                        <option value="60000">60,000 Tk</option>
+                                        <option value="70000">70,000 Tk</option>
+                                        <option value="80000">80,000 Tk</option>
+                                        <option value="90000">90,000 Tk</option>
+                                        <option value="100000">100,000 Tk</option>
+                                        <option value="120000">120,000 Tk</option>
+                                        <option value="150000">150,000 Tk</option>
+                                    </select>
+                                    </span>
+                            </div>
 
-                                <div class="option-bar small price-for-rent hide-fields">
-                                    <label for="select-min-price-for-rent">
-                                        Min Price	</label>
-                                    <span class="selectwrap">
-        <select name="min-price" id="select-min-price-for-rent" class="search-select" disabled="disabled">
-            <option value="any" selected="selected">Any</option><option value="500">$500</option><option value="1000">$1,000</option><option value="2000">$2,000</option><option value="3000">$3,000</option><option value="4000">$4,000</option><option value="5000">$5,000</option><option value="7500">$7,500</option><option value="10000">$10,000</option><option value="15000">$15,000</option><option value="20000">$20,000</option><option value="25000">$25,000</option><option value="30000">$30,000</option><option value="40000">$40,000</option><option value="50000">$50,000</option><option value="75000">$75,000</option><option value="100000">$100,000</option>        </select>
-    </span>
-                                </div>
+                            <div class="option-bar large price-for-others">
+                                <label for="select-max-price">
+                                    Min Area (sqf)	</label>
+                                <span class="selectwrap">
+                                    <select name="min_area" id="select-max-area" class="search-select">
+                                        <option value="0" selected="selected">Any</option>
+                                        <option value="1200">1200 sqf</option>
+                                        <option value="1500">1500 sqf</option>
+                                        <option value="1800">1800 sqf</option>
+                                        <option value="2000">2000 sqf</option>
+                                        <option value="2200">2200 sqf</option>
+                                        <option value="2500">2500 sqf</option>
+                                        <option value="3000">3000 sqf</option>
+                                        <option value="3500">3500 sqf</option>
+                                        <option value="4000">4000 sqf</option>
+                                        <option value="4500">4500 sqf</option>
+                                        <option value="5000">5000 sqf</option>
+                                        <option value="6000">6000 sqf</option>
+                                    </select>
+                                    </span>
+                            </div>
 
-                                <div class="option-bar small price-for-rent hide-fields">
-                                    <label for="select-max-price-for-rent">
-                                        Max Price	</label>
-                                    <span class="selectwrap">
-        <select name="max-price" id="select-max-price-for-rent" class="search-select" disabled="disabled">
-            <option value="any" selected="selected">Any</option><option value="1000">$1,000</option><option value="2000">$2,000</option><option value="3000">$3,000</option><option value="4000">$4,000</option><option value="5000">$5,000</option><option value="7500">$7,500</option><option value="10000">$10,000</option><option value="15000">$15,000</option><option value="20000">$20,000</option><option value="25000">$25,000</option><option value="30000">$30,000</option><option value="40000">$40,000</option><option value="50000">$50,000</option><option value="75000">$75,000</option><option value="100000">$100,000</option><option value="150000">$150,000</option>        </select>
-    </span>
-                                </div><div class="option-bar small">
-                                    <label for="min-area">
-                                        Min Area		<span>(sq ft)</span>
-                                    </label>
-                                    <input type="text" name="min-area" id="min-area" pattern="[0-9]+"
-                                           value=""
-                                           placeholder="Any"
-                                           title="Only provide digits!" />
-                                </div>
 
-                                <div class="option-bar small">
-                                    <label for="max-area">
-                                        Max Area		<span>(sq ft)</span>
-                                    </label>
-                                    <input type="text" name="max-area" id="max-area" pattern="[0-9]+"
-                                           value=""
-                                           placeholder="Any"
-                                           title="Only provide digits!" />
-                                </div><div class="option-bar">
-                                    <input type="submit" value="Search" class="real-btn btn">
-                                </div>	<div class="clearfix"></div>
+                            <div class="option-bar">
+                                <input type="submit" value="Search" class="real-btn btn">
+                            </div>	<div class="clearfix"></div>
 
-                                <div class="more-option-trigger">
-                                    <a href="#">
-                                        <i class="fa fa-plus-square-o"></i>
-                                        Looking for certain features		</a>
-                                </div>
 
-                                <div class="more-options-wrapper clearfix collapsed">
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-2-stories"
-                                               name="features[]"
-                                               value="2-stories"
-                                        />
-                                        <label for="feature-2-stories">2 Stories <small>(6)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-26-ceilings"
-                                               name="features[]"
-                                               value="26-ceilings"
-                                        />
-                                        <label for="feature-26-ceilings">26' Ceilings <small>(1)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-central-heating"
-                                               name="features[]"
-                                               value="central-heating"
-                                        />
-                                        <label for="feature-central-heating">Central Heating <small>(7)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-dual-sinks"
-                                               name="features[]"
-                                               value="dual-sinks"
-                                        />
-                                        <label for="feature-dual-sinks">Dual Sinks <small>(7)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-electric-range"
-                                               name="features[]"
-                                               value="electric-range"
-                                        />
-                                        <label for="feature-electric-range">Electric Range <small>(10)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-emergency-exit"
-                                               name="features[]"
-                                               value="emergency-exit"
-                                        />
-                                        <label for="feature-emergency-exit">Emergency Exit <small>(7)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-fire-alarm"
-                                               name="features[]"
-                                               value="fire-alarm"
-                                        />
-                                        <label for="feature-fire-alarm">Fire Alarm <small>(5)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-fire-place"
-                                               name="features[]"
-                                               value="fire-place"
-                                        />
-                                        <label for="feature-fire-place">Fire Place <small>(9)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-home-theater"
-                                               name="features[]"
-                                               value="home-theater"
-                                        />
-                                        <label for="feature-home-theater">Home Theater <small>(3)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-hurricane-shutters"
-                                               name="features[]"
-                                               value="hurricane-shutters"
-                                        />
-                                        <label for="feature-hurricane-shutters">Hurricane Shutters <small>(1)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-laundry-room"
-                                               name="features[]"
-                                               value="laundry-room"
-                                        />
-                                        <label for="feature-laundry-room">Laundry Room <small>(6)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-lawn"
-                                               name="features[]"
-                                               value="lawn"
-                                        />
-                                        <label for="feature-lawn">Lawn <small>(6)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-marble-floors"
-                                               name="features[]"
-                                               value="marble-floors"
-                                        />
-                                        <label for="feature-marble-floors">Marble Floors <small>(8)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-next-to-busway"
-                                               name="features[]"
-                                               value="next-to-busway"
-                                        />
-                                        <label for="feature-next-to-busway">NEXT To Busway <small>(2)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-swimming-pool"
-                                               name="features[]"
-                                               value="swimming-pool"
-                                        />
-                                        <label for="feature-swimming-pool">Swimming Pool <small>(6)</small></label>
-                                    </div>
-                                    <div class="option-bar">
-                                        <input type="checkbox"
-                                               id="feature-wifi"
-                                               name="features[]"
-                                               value="wifi"
-                                        />
-                                        <label for="feature-wifi">Wifi <small>(6)</small></label>
-                                    </div>
-                                </div>
-                            </form>
+
+
+                            {!! Form::close() !!}
                         </div>
                     </section>
 
