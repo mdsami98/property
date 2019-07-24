@@ -28,7 +28,7 @@
 
                                     {!! Form::label('title', 'Product Name:', ['class' => '']) !!}<span class="tx-danger">*</span>
 
-                                    {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Enter Category Name']) !!}
+                                    {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Enter post Name']) !!}
 
 
                                 </div><!-- form-group -->
@@ -57,7 +57,7 @@
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('type_id', 'Select Type:') !!}<span class="tx-danger">*</span>
 
-                                    {!! Form::select('type_id',array(0 =>'Choose Category') + $category,null, ['class' => 'form-control wd-300']) !!}
+                                    {!! Form::select('type_id',array(0 =>'Choose Type') + $type,null, ['class' => 'form-control wd-300']) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->

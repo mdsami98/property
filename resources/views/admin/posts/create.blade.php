@@ -26,7 +26,7 @@
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     <label id="name">Post Name: <span class="tx-danger">*</span></label>
-                                    <input id="name" type="text" name="title" class="form-control wd-300" placeholder="Enter Category Name" required>
+                                    <input id="name" type="text" name="title" class="form-control wd-300" placeholder="Enter Post Name" required>
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
@@ -53,7 +53,7 @@
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('type_id', 'Select Type:') !!}<span class="tx-danger">*</span>
 
-                                    {!! Form::select('type_id',array(0 =>'Choose Category') + $category,null, ['class' => 'form-control wd-300']) !!}
+                                    {!! Form::select('type_id',array(0 =>'Choose Type') + $type,null, ['class' => 'form-control wd-300']) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->

@@ -7,6 +7,7 @@ use App\Http\Requests\PostCreateRequest;
 use App\Post;
 use App\PostImage;
 use App\Profile;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -33,9 +34,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $category = Category::pluck('title' , 'id')->all();
+    {
+        $category = Category::pluck('title' , 'id')->all();
+        $type = Type::pluck('title' , 'id')->all();
         return view('admin.posts.create', [
             'category' => $category,
+            'type' => $type,
         ]);
     }
 
