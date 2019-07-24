@@ -66,74 +66,92 @@
                                 <label for="select-status">
                                     Property Category	</label>
                                 <span class="selectwrap">
-        <select name="category" id="select-status" class="search-select">
+                                    <select name="category" id="select-status" class="search-select">
 
 
-            @if($categories)
-                @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->title}}</option>
-                @endforeach
-            @endif
+                                        @if($categories)
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                            @endforeach
+                                        @endif
 
-        </select>
-    </span>
+                                    </select>
+                                </span>
+                            </div>
+
+
+                            <div class="option-bar large">
+                                <label for="select-status">
+                                    Property Type	</label>
+                                <span class="selectwrap">
+                                        <select name="type" id="select-status" class="search-select">
+
+
+                                            @if($types)
+                                                @foreach($types as $type)
+                                                    <option value="{{$type->id}}">{{$type->title}}</option>
+                                                @endforeach
+                                            @endif
+
+                                        </select>
+                                    </span>
                             </div>
 
                             <div class="option-bar small">
                                 <label for="select-bedrooms">
                                     Min Beds	</label>
                                 <span class="selectwrap">
-        <select name="bedrooms" id="select-bedrooms" class="search-select">
-            <option value="0" selected="selected">Any</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-    </span>
+                                    <select name="bedrooms" id="select-bedrooms" class="search-select">
+                                        <option value="0" selected="selected">Any</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </span>
                             </div>
                             <div class="option-bar small">
                                 <label for="select-bathrooms">
                                     Min Baths	</label>
                                 <span class="selectwrap">
-        <select name="bathrooms" id="select-bathrooms" class="search-select">
-            <option value="0" selected="selected">Any</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-    </span>
+                                    <select name="bathrooms" id="select-bathrooms" class="search-select">
+                                        <option value="0" selected="selected">Any</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </span>
                             </div><div class="option-bar small price-for-others">
                                 <label for="select-min-price">
                                     Min Price	</label>
                                 <span class="selectwrap">
-        <select name="min_price" id="select-min-price" class="search-select">
-            <option value="1000" selected="selected">Any</option>
-            <option value="5000">5,000 Tk</option>
-            <option value="10000">10,000 Tk</option>
-            <option value="15000">15,000 Tk</option>
-            <option value="20000">20,000 Tk</option>
-            <option value="30000">30,000 Tk</option>
-            <option value="40000">40,000 Tk</option>
-            <option value="50000">50,000 Tk</option>
-            <option value="60000">60,000 Tk</option>
-            <option value="70000">70,000 Tk</option>
-            <option value="80000">80,000 Tk</option>
-        </select>
-    </span>
+                                    <select name="min_price" id="select-min-price" class="search-select">
+                                        <option value="1000" selected="selected">Any</option>
+                                        <option value="5000">5,000 Tk</option>
+                                        <option value="10000">10,000 Tk</option>
+                                        <option value="15000">15,000 Tk</option>
+                                        <option value="20000">20,000 Tk</option>
+                                        <option value="30000">30,000 Tk</option>
+                                        <option value="40000">40,000 Tk</option>
+                                        <option value="50000">50,000 Tk</option>
+                                        <option value="60000">60,000 Tk</option>
+                                        <option value="70000">70,000 Tk</option>
+                                        <option value="80000">80,000 Tk</option>
+                                    </select>
+                                </span>
                             </div>
 
                             <div class="option-bar small price-for-others">
@@ -223,12 +241,12 @@
 
 
 
-                                                            <figcaption class="for-rent">For Rent</figcaption>
+                                                            <figcaption class="for-rent">For {{$post->type->title}}</figcaption>
                                                         </figure>
 
                                                         <div class="detail">
                                                             <h5 class="price">
-                                                                {{$post->price}} Tk. Per Month<small></small>            </h5>
+                                                                {{$post->price}} {{$post->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small>            </h5>
                                                             <p>{{str_limit($post->description, 100)}}&hellip;</p>
                                                             <a class="more-details" href="{{route('user.singleView',['id'=> $post->id])}}">More Details <i class="fa fa-caret-right"></i></a>
                                                         </div>

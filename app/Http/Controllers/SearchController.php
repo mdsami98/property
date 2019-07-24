@@ -10,8 +10,9 @@ class SearchController extends Controller
     public function search(Request $request){
 
 
-
-       $p_category= $request->category;
+//        return $request->all();
+        $p_category= $request->category;
+        $p_type= $request->type;
         $bedrooms= $request->bedrooms;
         $bathrooms= $request->bathrooms;
         $min_price = $request->min_price;
@@ -20,7 +21,8 @@ class SearchController extends Controller
 
 
 
-        $posts = Post::where('category_id', $p_category)
+        $posts = Post::where('category_id','=' ,$p_category)
+                            ->where('type_id','=', $p_type)
                             ->where('bedroom', '>=', $bedrooms)
                             ->where('bathroom', '>=', $bathrooms)
                             ->where('price', '>=', $min_price)

@@ -227,17 +227,34 @@
                                 <label for="select-status">
                                     Property Category	</label>
                                 <span class="selectwrap">
-        <select name="category" id="select-status" class="search-select">
+                                    <select name="category" id="select-status" class="search-select">
 
 
-            @if($categories)
-                @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->title}}</option>
-                @endforeach
-            @endif
+                                        @if($categories)
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                            @endforeach
+                                        @endif
 
-        </select>
-    </span>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="option-bar large">
+                                <label for="select-status">
+                                    Property Type	</label>
+                                <span class="selectwrap">
+                                        <select name="type" id="select-status" class="search-select">
+
+
+                                            @if($types)
+                                                @foreach($types as $type)
+                                                    <option value="{{$type->id}}">{{$type->title}}</option>
+                                                @endforeach
+                                            @endif
+
+                                        </select>
+                                    </span>
                             </div>
 
                             <div class="option-bar large">
