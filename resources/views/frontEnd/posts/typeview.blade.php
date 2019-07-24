@@ -55,34 +55,34 @@
                             {!! Form::open(['method' => 'POST', 'action' => 'SearchController@search']) !!}
 
 
-                                <div class="option-bar large">
-                                    <label for="location">
-                                        Location		</label>
-                                    <span class="selectwrap">
+                            <div class="option-bar large">
+                                <label for="location">
+                                    Location		</label>
+                                <span class="selectwrap">
                 <select name="location" id="location" class="search-select"></select>
         </span>
-                                </div>
-                                <div class="option-bar large">
-                                    <label for="select-status">
-                                        Property Category	</label>
-                                    <span class="selectwrap">
+                            </div>
+                            <div class="option-bar large">
+                                <label for="select-status">
+                                    Property Category	</label>
+                                <span class="selectwrap">
         <select name="category" id="select-status" class="search-select">
 
 
             @if($categories)
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->title}}</option>
-                    @endforeach
+                @endforeach
             @endif
 
         </select>
     </span>
-                                </div>
+                            </div>
 
-                                <div class="option-bar small">
-                                    <label for="select-bedrooms">
-                                        Min Beds	</label>
-                                    <span class="selectwrap">
+                            <div class="option-bar small">
+                                <label for="select-bedrooms">
+                                    Min Beds	</label>
+                                <span class="selectwrap">
         <select name="bedrooms" id="select-bedrooms" class="search-select">
             <option value="0" selected="selected">Any</option>
             <option value="1">1</option>
@@ -97,11 +97,11 @@
             <option value="10">10</option>
         </select>
     </span>
-                                </div>
-                                <div class="option-bar small">
-                                    <label for="select-bathrooms">
-                                        Min Baths	</label>
-                                    <span class="selectwrap">
+                            </div>
+                            <div class="option-bar small">
+                                <label for="select-bathrooms">
+                                    Min Baths	</label>
+                                <span class="selectwrap">
         <select name="bathrooms" id="select-bathrooms" class="search-select">
             <option value="0" selected="selected">Any</option>
             <option value="1">1</option>
@@ -116,10 +116,10 @@
             <option value="10">10</option>
         </select>
     </span>
-                                </div><div class="option-bar small price-for-others">
-                                    <label for="select-min-price">
-                                        Min Price	</label>
-                                    <span class="selectwrap">
+                            </div><div class="option-bar small price-for-others">
+                                <label for="select-min-price">
+                                    Min Price	</label>
+                                <span class="selectwrap">
         <select name="min_price" id="select-min-price" class="search-select">
             <option value="1000" selected="selected">Any</option>
             <option value="5000">5,000 Tk</option>
@@ -134,12 +134,12 @@
             <option value="80000">80,000 Tk</option>
         </select>
     </span>
-                                </div>
+                            </div>
 
-                                <div class="option-bar small price-for-others">
-                                    <label for="select-max-price">
-                                        Max Price	</label>
-                                    <span class="selectwrap">
+                            <div class="option-bar small price-for-others">
+                                <label for="select-max-price">
+                                    Max Price	</label>
+                                <span class="selectwrap">
                                     <select name="max_price" id="select-max-price" class="search-select">
                                         <option value="70000" selected="selected">Any</option>
                                         <option value="10000">10,000 Tk</option>
@@ -157,7 +157,7 @@
                                         <option value="150000">150,000 Tk</option>
                                     </select>
                                     </span>
-                                </div>
+                            </div>
 
                             <div class="option-bar small price-for-others">
                                 <label for="select-max-price">
@@ -183,8 +183,8 @@
 
 
                             <div class="option-bar">
-                                    <input type="submit" value="Search" class="real-btn btn">
-                                </div>	<div class="clearfix"></div>
+                                <input type="submit" value="Search" class="real-btn btn">
+                            </div>	<div class="clearfix"></div>
 
 
 
@@ -202,55 +202,55 @@
 
                                     <div id="home-properties" class="property-items-container clearfix">
 
-                                    @if($posts)
+                                        @if($posts)
 
-                                        @foreach($posts as $post)
+                                            @foreach($posts as $post)
 
-                                        <div class="span6 ">
-                                            <article class="property-item clearfix">
-                                                <h4><a href="{{route('user.singleView',['id'=> $post->id])}}">{{$post->title}}</a></h4>
+                                                <div class="span6 ">
+                                                    <article class="property-item clearfix">
+                                                        <h4><a href="{{route('user.singleView',['id'=> $post->id])}}">{{$post->title}}</a></h4>
 
-                                                <figure>
+                                                        <figure>
 
-                                                    <a href="property.html">
+                                                            <a href="property.html">
 
-                                                            <img src="{{url('postimages',$post->image)}}" alt="Property Image">
-
-
-{{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
-                                                    </a>
+                                                                <img src="{{url('postimages',$post->image)}}" alt="Property Image">
 
 
+                                                                {{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
+                                                            </a>
 
 
-                                                    <figcaption class="for-rent">For {{$post->type->title}}</figcaption>
-                                                </figure>
 
-                                                <div class="detail">
-                                                    <h5 class="price">
-                                                        {{$post->price}} {{$post->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small>            </h5>
-                                                    <p>{{str_limit($post->description, 100)}}&hellip;</p>
-                                                    <a class="more-details" href="{{route('user.singleView',['id'=> $post->id])}}">More Details <i class="fa fa-caret-right"></i></a>
+
+                                                            <figcaption class="for-rent">For {{$post->type->title}}</figcaption>
+                                                        </figure>
+
+                                                        <div class="detail">
+                                                            <h5 class="price">
+                                                                {{$post->price}} {{$post->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small>            </h5>
+                                                            <p>{{str_limit($post->description, 100)}}&hellip;</p>
+                                                            <a class="more-details" href="{{route('user.singleView',['id'=> $post->id])}}">More Details <i class="fa fa-caret-right"></i></a>
+                                                        </div>
+
+                                                        <div class="property-meta">
+                                                            <span>{{$post->area}}&nbsp;sq ft</span>
+                                                            <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
+                                                            <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
+                                                            <span>{{$post->garage}}&nbsp;Garages</span>
+                                                        </div>
+                                                        <div class="property-meta">
+                                                            <span>Address : {{$post->address}}</span>
+                                                        </div>
+                                                    </article>
                                                 </div>
-
-                                                <div class="property-meta">
-                                                    <span>{{$post->area}}&nbsp;sq ft</span>
-                                                    <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
-                                                    <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
-                                                    <span>{{$post->garage}}&nbsp;Garages</span>
-                                                </div>
-                                                <div class="property-meta">
-                                                    <span>Address : {{$post->address}}</span>
-                                                </div>
-                                            </article>
-                                        </div>
                                             @endforeach
 
                                         @endif
 
 
 
-{{--                                        <div class="clearfix"></div>--}}
+                                        {{--                                        <div class="clearfix"></div>--}}
 
 
 
@@ -259,7 +259,7 @@
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-{{--                                {{$posts->render()}}--}}
+                                {{--                                {{$posts->render()}}--}}
 
                                 <div class='pagination'><a href='#' class='real-btn current' >1</a>
                                     <a href='#' class='real-btn' >2</a>

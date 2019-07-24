@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use App\PostImage;
 use App\Profile;
@@ -31,6 +32,25 @@ class IndexController extends Controller
             'postImages' => $postImages,
             'profile' => $profile,
         ]);
+    }
+
+    public function categoryView($id){
+
+        $posts = Post::where('category_id', $id)->get();
+
+        return view('frontEnd.posts.categoryview', [
+            'posts' => $posts,
+        ]);
+
+    }
+    public function typeView($id){
+
+        $posts = Post::where('type_id', $id)->get();
+
+        return view('frontEnd.posts.typeview', [
+            'posts' => $posts,
+        ]);
+
     }
 
 }

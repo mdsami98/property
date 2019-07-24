@@ -55,9 +55,9 @@
                             <div class="wrap clearfix">
                                 <h4 class="title"> Property ID : RH1001 </h4>
                                 <h5 class="price">
-                                    <span class="status-label"> For Rent            </span>
+                                    <span class="status-label"> For {{$post->type->title}}           </span>
                                     <span>
-                                    {{$post->price}}Tk.  Per Month<small> - Villa</small>
+                                    {{$post->price}}{{$post->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small> - {{$post->category->title}}</small>
                                 </span>
                                 </h5>
                             </div>

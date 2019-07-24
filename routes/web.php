@@ -18,6 +18,10 @@
 Route::get('/', 'IndexController@index')->name('user.home');
 Route::get('/property/{id}', 'IndexController@singleView')->name('user.singleView');
 
+Route::get('/property/category/{id}', 'IndexController@categoryView')->name('user.categoryView');
+Route::get('/property/type/{id}', 'IndexController@typeView')->name('user.typeView');
+
+
 Route::resource('/profile', 'ProfileController');
 
 

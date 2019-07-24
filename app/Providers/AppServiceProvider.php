@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Type;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
         $categories = Category::select('id','title')->get();
 
         view()->share('categories', $categories);
+
+        $types = Type::select('id','title')->get();
+
+        view()->share('types', $types);
     }
 }

@@ -26,7 +26,7 @@
                                 <h6>Post Name : {{$post->title}}</h6>
                                 <h6>Awner : {{$post->user->name}}</h6>
                                 <h6>Category : {{$post->category->title}}</h6>
-                                <h6>Purpose : Rent</h6>
+                                <h6>Purpose : {{$post->type->title}}</h6>
                                 <h6>Phone Number : {{$post->phn_number}}</h6>
                                 <h6>Price : {{$post->price}} Tk.</h6>
                             </div>

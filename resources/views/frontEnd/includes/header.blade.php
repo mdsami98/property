@@ -100,13 +100,6 @@
                                     <li><a href="grid-listing-with-google-map.html">Grid Listing with Google Map</a></li>
                                 </ul>
                             </li>
-                            <li><a href="property.html">Property</a>
-                                <ul>
-                                    <li><a href="property-default-var.html">Default &#8211; Variation</a></li>
-                                    <li><a href="property-agent-in-sidebar.html">Agent in Sidebar &#8211; Variation</a></li>
-                                    <li><a href="property-gallery-var.html">Gallery &#8211; Variation</a></li>
-                                </ul>
-                            </li>
                             <li><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="agents.html">Agents</a></li>
@@ -125,12 +118,22 @@
                                     <li><a href="columns.html">Columns</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Types</a>
+                            <li><a href="#">Category</a>
                                 <ul>
 
                                 @if($categories)
                                     @foreach($categories as $category)
-                                        <li><a href="simple-family-home.html">{{$category->title}}</a></li>
+                                        <li><a href="{{route('user.categoryView', $category->id)}}">{{$category->title}}</a></li>
+                                    @endforeach
+                                @endif
+                                </ul>
+                            </li>
+                            <li><a href="#">Type</a>
+                                <ul>
+
+                                @if($types)
+                                    @foreach($types as $type)
+                                        <li><a href="{{route('user.typeView', $type->id)}}">{{$type->title}}</a></li>
                                     @endforeach
                                 @endif
                                 </ul>
