@@ -110,11 +110,14 @@ class PostController extends Controller
 
 
         $category = Category::pluck('title' , 'id')->all();
+
+        $type = Type::pluck('title' , 'id')->all();
         $post = Post::findOrFail($id);
 
         return view('admin.posts.edit',[
             'post' => $post,
             'category' => $category,
+            'type' => $type,
 
         ]);
     }
@@ -133,6 +136,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
             'category_id' => 'required',
+            'type_id' => 'required',
             'area' => 'required',
             'price' => 'required',
             'bedroom' => 'required',

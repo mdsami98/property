@@ -27,6 +27,7 @@ class PostCreateRequest extends FormRequest
             'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
             'image' => 'required',
             'category_id' => 'required',
+            'type_id' => 'required',
             'area' => 'required',
             'price' => 'required',
             'bedroom' => 'required',
