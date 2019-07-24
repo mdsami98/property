@@ -4,6 +4,7 @@ namespace App;
 use App\PostImage;
 use App\User;
 use App\Category;
+use App\Profile;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -33,4 +34,6 @@ class Post extends Model
     public function photos(){
         return $this->hasMany('App\PostImage');
     }
+
+
 }

@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Requests\PostCreateRequest;
 use App\Post;
 use App\PostImage;
+use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -81,11 +82,14 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+
+
         $postImages = PostImage::where('post_id','=', $id)->get();
 
         return view('admin.posts.singlepost', [
             'post' => $post,
             'postImages' => $postImages,
+
         ]);
 
     }
@@ -98,12 +102,16 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+
+
+
         $category = Category::pluck('title' , 'id')->all();
         $post = Post::findOrFail($id);
 
         return view('admin.posts.edit',[
             'post' => $post,
-            'category' => $category
+            'category' => $category,
+
         ]);
     }
 

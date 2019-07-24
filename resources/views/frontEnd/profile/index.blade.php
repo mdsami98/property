@@ -36,7 +36,7 @@
                                     <div class="span3">
                                         <figure class="agent-pic">
                                             <a href="#">
-                                                <img src="{{url('profileImage',$profile->image)}}" alt="author">
+                                                <img src="{{url('profileImage' ,$profile->image)}}" alt="author">
                                             </a>
                                         </figure>
                                     </div>

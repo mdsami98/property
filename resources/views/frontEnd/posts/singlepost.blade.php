@@ -128,9 +128,10 @@
 
                             <div class="left-box">
                                 <h3>{{$post->user->name}}</h3>
+
                                 <figure>
                                     <a href="#">
-                                        <img src="images/temp-images/agent-john.jpg" alt="Agent">
+                                        <img src="{{url('profileImage' ,$profile->image)}}" alt="Agent">
                                     </a>
                                 </figure>
                                 <ul class="contacts-list">
@@ -184,6 +185,20 @@
                                     <div id="message-container"></div>
                                 </form>
                             </div>
+
+
+                        </div>
+
+
+                        <div class="agent-detail clearfix">
+
+                            <h3>Comments</h3>
+
+
+
+
+
+
                         </div>
                     </div>
 
