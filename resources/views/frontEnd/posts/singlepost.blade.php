@@ -130,8 +130,11 @@
                                 <h3>{{$post->user->name}}</h3>
 
                                 <figure>
-                                    <a href="#">
-                                        <img src="{{url('profileImage' ,$profile->image)}}" alt="Agent">
+                                    <a href="">
+
+                                        @if($post->user->profile->image)
+                                        <img src="{{url('profileImage',$post->user->profile->image)}}" alt="Agent">
+                                            @endif
                                     </a>
                                 </figure>
                                 <ul class="contacts-list">
@@ -147,7 +150,7 @@
                                             <circle class="circle" fill-rule="evenodd" clip-rule="evenodd" cx="10.5" cy="19.5" r="1.5"/>
                                             <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M12 2.999H8.999C8.447 3 8 3.4 8 4c0 0.6 0.4 1 1 1H12 c0.552 0 1-0.448 1-1C13 3.4 12.6 3 12 2.999z"/>
 </svg>
-                                        Mobile : 0200-123-4567
+                                        Mobile : {{$post->user->profile->phone_no}}
                                     </li>
                                     <li class="fax">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
@@ -190,16 +193,11 @@
                         </div>
 
 
-                        <div class="agent-detail clearfix">
-
-                            <h3>Comments</h3>
 
 
 
 
 
-
-                        </div>
                     </div>
 
                 </div><!-- End Main Content -->
@@ -376,6 +374,71 @@
             </div>
 
 
+
+
+        </div>
+
+        <div class="row">
+            <div class="span9">
+
+                @if(Auth::check())
+                <div class="well">
+
+
+                    {!! Form::open(['method' => 'POST', 'action' => 'PostCommentController@store']) !!}
+
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
+
+                    {!! Form::label('commentBody', 'Type Tour Comment:') !!}
+
+                    {!! Form::textarea('commentBody',null, ['class' => 'form-control wd-500']) !!}
+                    <br>
+
+                        <input type="submit" value="Submit" class="real-btn btn">
+                    {!! Form::close() !!}
+                </div>
+
+                @endif
+
+                @if(count($comments) > 0)
+
+                    @foreach($comments  as $comment)
+
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img height="64px" class="media-object" src="{{url('profileImage',$comment->authorImage)}}" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{$comment->author}}
+                            <small>{{$comment->created_at->format('l j F Y')}}</small>
+                        </h4>
+                        {{$comment->commentBody}}
+                        <!-- Nested Comment -->
+
+                        <!-- End Nested Comment -->
+                    </div>
+                </div>
+
+                        @endforeach
+
+                    @endif
+
+
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://placehold.it/64x64" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Nested Start Bootstrap
+                                <small>August 25, 2014 at 9:30 PM</small>
+                            </h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+
+
+                <hr>
+            </div>
         </div>
     </div>
 @stop

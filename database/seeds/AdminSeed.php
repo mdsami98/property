@@ -2,6 +2,7 @@
 
 use App\Role;
 use App\User;
+use App\Type;
 use Illuminate\Database\Seeder;
 
 class AdminSeed extends Seeder
@@ -13,6 +14,14 @@ class AdminSeed extends Seeder
      */
     public function run()
     {
+
+        $type = Type::create([
+            'title' => 'Rent',
+        ]);
+        $type = Type::create([
+            'title' => 'Sale',
+        ]);
+
         $role = Role::create([
             'name' => 'Customer',
             'description' => 'Customer Role'
@@ -28,6 +37,12 @@ class AdminSeed extends Seeder
         $user = User::create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
+            'password' => bcrypt('12345678'),
+            'role_id' => $role->id,
+        ]);
+        $user = User::create([
+            'name' => 'Admin2',
+            'email' => 'admin2@admin.com',
             'password' => bcrypt('12345678'),
             'role_id' => $role->id,
         ]);

@@ -20,17 +20,19 @@ class IndexController extends Controller
     }
     public function singleView($id){
 
-        $user = Auth::user()->id;
 
-        $profile = Profile::where('user_id' , $user)->first();
+
+
 
         $post =Post::findOrFail($id);
+
+        $comments = $post->comments;
 
         $postImages = PostImage::where('post_id','=', $id )->get();
         return view('frontEnd.posts.singlepost', [
             'post' => $post,
             'postImages' => $postImages,
-            'profile' => $profile,
+            'comments' => $comments,
         ]);
     }
 

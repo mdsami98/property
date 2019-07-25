@@ -30,6 +30,9 @@ Route::post('/search/property', 'SearchController@search')->name('search.propert
 
 
 
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -44,6 +47,10 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::resource('/type', 'TypeController');
   Route::resource('/post', 'PostController');
   Route::resource('/post/image', 'PostImageController');
+
+
+  Route::resource('admin/comments', 'PostCommentController');
+  Route::resource('admin/comment/replies', 'CommentRepliesController');
 
 
 });

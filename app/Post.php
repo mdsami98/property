@@ -6,6 +6,7 @@ use App\User;
 use App\Category;
 use App\Profile;
 use App\Type;
+use App\Comment;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -37,6 +38,10 @@ class Post extends Model
 
     public function photos(){
         return $this->hasMany('App\PostImage');
+    }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
     }
 
 

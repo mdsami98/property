@@ -7848,5 +7848,8 @@ span.text-danger {
 .option-bar.large input, .option-bar.large textarea {
     width: 80%;
 }
-
+img.media-object {
+    height: 64px;
+    width: 64px;
+}
 

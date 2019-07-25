@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2019 at 11:50 PM
+-- Generation Time: Jul 25, 2019 at 11:47 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -41,7 +41,54 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'home', '2019-07-10 10:34:18', '2019-07-10 10:34:18');
+(1, 'Home', 'home', '2019-07-25 15:34:40', '2019-07-25 15:34:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `publication_ststus` tinyint(4) NOT NULL DEFAULT 0,
+  `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `authorImage` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `commentBody` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `publication_ststus`, `author`, `authorImage`, `email`, `commentBody`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'gfth frdh', '2019-07-25 15:41:22', '2019-07-25 15:41:22'),
+(3, 1, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'dgd gd', '2019-07-25 15:44:27', '2019-07-25 15:44:27'),
+(4, 2, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'dgdf gdfg', '2019-07-25 15:46:10', '2019-07-25 15:46:10'),
+(5, 2, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'sf df gfdrsf', '2019-07-25 15:46:33', '2019-07-25 15:46:33'),
+(6, 2, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'dgd g', '2019-07-25 15:46:39', '2019-07-25 15:46:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_replies`
+--
+
+CREATE TABLE `comment_replies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` bigint(20) UNSIGNED NOT NULL,
+  `publication_ststus` tinyint(4) NOT NULL DEFAULT 0,
+  `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `authorImage` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `commentBody` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -61,13 +108,16 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2019_07_03_151720_create_admin_post_controllers_table', 2),
-(46, '2014_10_12_000000_create_users_table', 3),
-(47, '2014_10_12_100000_create_password_resets_table', 3),
-(48, '2019_06_28_151928_create_roles_table', 3),
-(49, '2019_06_28_160521_create_categories_table', 3),
-(50, '2019_07_03_153625_create_posts_table', 3),
-(51, '2019_07_03_153659_create_post_images_table', 3),
-(52, '2019_07_21_202425_create_profiles_table', 4);
+(76, '2014_10_12_000000_create_users_table', 3),
+(77, '2014_10_12_100000_create_password_resets_table', 3),
+(78, '2019_06_28_151928_create_roles_table', 3),
+(79, '2019_06_28_160521_create_categories_table', 3),
+(80, '2019_07_03_153625_create_posts_table', 3),
+(81, '2019_07_03_153659_create_post_images_table', 3),
+(82, '2019_07_21_202425_create_profiles_table', 3),
+(83, '2019_07_24_145650_create_types_table', 3),
+(84, '2019_07_24_203738_create_comments_table', 3),
+(85, '2019_07_24_203829_create_comment_replies_table', 3);
 
 -- --------------------------------------------------------
 
@@ -114,8 +164,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `type_id`, `title`, `slug`, `price`, `area`, `phn_number`, `bedroom`, `bathroom`, `garage`, `description`, `address`, `map`, `image`, `publication_status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0, 'This is for test edit', 'this-is-for-test', '15000.00', '1800.00', '01781501769', 3, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has', 'Sector 7, Road 1', NULL, '1563655650-this-is-for-test-edit.jpg', 1, '2019-07-10 10:35:59', '2019-07-20 14:47:30'),
-(2, 1, 1, 0, 'Single view Test test', NULL, '25000.00', '2500.00', '01781501769', 4, 3, 2, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Sector 7, House 10, Road 9', NULL, '1562962387-single-view-test.jpg', 1, '2019-07-12 14:13:07', '2019-07-20 15:02:48');
+(1, 2, 1, 1, 'This is for test', NULL, '25896.00', '1800.00', '01781501769', 4, 3, 2, 'industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'sector 9', NULL, '1564090610-this-is-for-test.jpg', 1, '2019-07-25 15:36:50', '2019-07-25 15:36:50'),
+(2, 1, 1, 2, 'This is second test', NULL, '100069.00', '2200.00', '01763151056', 5, 3, 1, 'industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'fd fz', NULL, '1564091145-this-is-second-test.jpg', 1, '2019-07-25 15:45:45', '2019-07-25 15:45:45');
 
 -- --------------------------------------------------------
 
@@ -130,16 +180,6 @@ CREATE TABLE `post_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `post_images`
---
-
-INSERT INTO `post_images` (`id`, `post_id`, `image`, `created_at`, `updated_at`) VALUES
-(1, 1, '2702851562777159.jpg', '2019-07-10 10:45:59', '2019-07-10 10:45:59'),
-(4, 1, '9521651562792430.jpg', '2019-07-10 15:00:30', '2019-07-10 15:00:30'),
-(5, 2, '2306041562962437.jpg', '2019-07-12 14:13:57', '2019-07-12 14:13:57'),
-(6, 2, '7269811562962461.jpg', '2019-07-12 14:14:21', '2019-07-12 14:14:21');
 
 -- --------------------------------------------------------
 
@@ -163,7 +203,8 @@ CREATE TABLE `profiles` (
 --
 
 INSERT INTO `profiles` (`id`, `user_id`, `phone_no`, `image`, `address`, `about_text`, `created_at`, `updated_at`) VALUES
-(1, 1, '01781501769', '1563745484-admin.jpg', 'sfj s ryfrryrfy  dfgdf gdfg', 'Lorem ipsum e fsff ea ediiiitttt', '2019-07-21 15:16:05', '2019-07-21 15:49:35');
+(1, 2, '01781501769', '1564090782-admin2.jpg', 'das', 'scsdf sf', '2019-07-25 15:39:42', '2019-07-25 15:39:42'),
+(2, 1, '01781501769', '1564090863-admin.jpg', 'sdfsdfdrg', 'dgdfbsdfgb', '2019-07-25 15:41:03', '2019-07-25 15:41:03');
 
 -- --------------------------------------------------------
 
@@ -184,9 +225,30 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Customer', 'Customer Role', '2019-07-10 10:34:01', '2019-07-10 10:34:01'),
-(2, 'Agent', 'Agent Role', '2019-07-10 10:34:01', '2019-07-10 10:34:01'),
-(3, 'Admin', 'Admin Role', '2019-07-10 10:34:01', '2019-07-10 10:34:01');
+(1, 'Customer', 'Customer Role', '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
+(2, 'Agent', 'Agent Role', '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
+(3, 'Admin', 'Admin Role', '2019-07-25 15:33:13', '2019-07-25 15:33:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `types`
+--
+
+CREATE TABLE `types` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Rent', '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
+(2, 'Sale', '2019-07-25 15:33:13', '2019-07-25 15:33:13');
 
 -- --------------------------------------------------------
 
@@ -213,8 +275,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `is_active`, `name`, `email`, `email_verified_at`, `verify_token`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 'Admin', 'admin@admin.com', NULL, NULL, '$2y$10$gjJc/NOrO3yPC3DYX8vF/u.UHaIZrUYmb4Hqv19MB.H9y/oUdn8oi', NULL, '2019-07-10 10:34:01', '2019-07-10 10:34:01'),
-(2, 1, 1, 'Samiul Islam', 'mdsami9898@gmail.com', NULL, NULL, '$2y$10$Njy74eUW9qWB6AwzSdCQcuyEfPqPjAqLWr/9/YfuBLJgTkS9VJ/Hu', NULL, '2019-07-21 15:18:56', '2019-07-21 15:18:56');
+(1, 3, 1, 'Admin', 'admin@admin.com', NULL, NULL, '$2y$10$ZuIAnjF4TsPzHojHEm8NHuEchiYcPvVSvoMiBjsJiKN7buP6eb/yi', NULL, '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
+(2, 3, 1, 'Admin2', 'admin2@admin.com', NULL, NULL, '$2y$10$79WyonWhYuwPXDGvyTDCOeKd79RETIk1Mp.YTPuFYRlVdZiYcctYi', NULL, '2019-07-25 15:33:13', '2019-07-25 15:33:13');
 
 --
 -- Indexes for dumped tables
@@ -225,6 +287,20 @@ INSERT INTO `users` (`id`, `role_id`, `is_active`, `name`, `email`, `email_verif
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comments_post_id_foreign` (`post_id`);
+
+--
+-- Indexes for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_replies_comment_id_foreign` (`comment_id`);
 
 --
 -- Indexes for table `migrations`
@@ -242,7 +318,8 @@ ALTER TABLE `password_resets`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `posts_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `post_images`
@@ -263,6 +340,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -280,28 +363,40 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -310,10 +405,38 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `types`
+--
+ALTER TABLE `types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  ADD CONSTRAINT `comment_replies_comment_id_foreign` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

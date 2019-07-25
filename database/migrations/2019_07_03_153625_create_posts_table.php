@@ -32,6 +32,9 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->tinyInteger('publication_status')->default(0);
             $table->timestamps();
+
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

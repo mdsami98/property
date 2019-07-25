@@ -34,6 +34,7 @@
                                         <th class="wd-20p">Created By</th>
                                         <th class="wd-20p">Add image</th>
                                         <th class="wd-20p">Publication</th>
+                                        <th class="wd-20p">Comment</th>
                                         <th class="wd-20p">Action</th>
                                     </tr>
                                     </thead>
@@ -49,20 +50,27 @@
                                                         <a href="{{route('admin.image.show' , $post->id)}}">Add images</a>
                                                     </div></td>
                                                 <td>
-
+                                                    <div class="admin-action">
+                                                        <div class="edit">
                                                     @if($post->publication_status == 1)
                                                         <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-success">Published</a>
                                                     @else
-                                                        <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-danger">Unbublished</a>
+                                                        <a href="{{route('admin.post.publication', $post->id)}}" class="btn btn-danger" style="background-color: red">Unbublished</a>
                                                     @endif
+                                                        </div>
+                                                    </div>
                                                 </td>
+                                                <td>
+                                                    <div class="edit">
+                                                        <a href="{{route('admin.comments.show', $post->id)}}">View Comment</a>
+                                                    </div></td>
                                                 <td>
                                                     <div class="admin-action">
                                                         <div class="edit">
                                                             <a href="{{route('admin.post.show', $post->id)}}">View</a>
                                                         </div>
                                                         <div class="edit">
-                                                            <a href="{{route('admin.post.edit', $post->id)}}">Edit</a>
+{{--                                                            <a href="{{route('admin.post.edit', $post->id)}}">Edit</a>--}}
                                                         </div>
 {{--                                                        <div class="delete">--}}
 {{--                                                            {!! Form::open(['method' => 'DELETE', 'action' => ['PostController@destroy', $post->id]]) !!}--}}
