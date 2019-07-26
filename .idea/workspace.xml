@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontEnd/css/main4468.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontEnd/css/main4468.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/includes/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/includes/scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+            <state relative-caret-position="220">
+              <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
@@ -39,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="387" column="109" lean-forward="true" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
+            <state relative-caret-position="9675">
+              <caret line="387" column="109" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -48,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="625">
               <caret line="34" column="62" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="62" />
             </state>
           </provider>
@@ -57,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            <state relative-caret-position="575">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -410,12 +405,13 @@
       <workItem from="1563998931193" duration="6128000" />
       <workItem from="1564084569643" duration="7048000" />
       <workItem from="1564135748364" duration="598000" />
-      <workItem from="1564152732096" duration="5868000" />
+      <workItem from="1564152732096" duration="6467000" />
+      <workItem from="1564171007390" duration="1453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113889000" />
+    <option name="totallyTimeSpent" value="115941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -423,7 +419,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.19062027" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.19364598" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -741,16 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Comment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -798,26 +784,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="34" column="62" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="62" />
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="387" column="109" lean-forward="true" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
+        <state relative-caret-position="9675">
+          <caret line="387" column="109" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+        <state relative-caret-position="625">
+          <caret line="34" column="62" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
           <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
+            <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
