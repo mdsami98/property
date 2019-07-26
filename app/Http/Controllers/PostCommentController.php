@@ -69,7 +69,7 @@ class PostCommentController extends Controller
     public function createReply(Request $request){
 
         $user = Auth::user();
-    
+
 
 
         $data = [
@@ -77,7 +77,7 @@ class PostCommentController extends Controller
             'post_id' =>$request->post_id,
             'author' =>$user->name,
             'email' =>$user->email,
-            'authorImage' =>$authorImage,
+            'authorImage' =>$user->profile->image,
             'commentBody' =>$request->commentBody
         ];
 
