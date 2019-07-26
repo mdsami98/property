@@ -385,7 +385,7 @@
                 <div class="well">
 
 
-                    {!! Form::open(['method' => 'POST', 'action' => 'PostCommentController@store']) !!}
+                    {!! Form::open(['method' => 'POST', 'action' => 'PostCommentController@createReply']) !!}
 
                     <input type="hidden" name="post_id" value="{{$post->id}}">
 
@@ -409,11 +409,53 @@
                         <img height="64px" class="media-object" src="{{url('profileImage',$comment->authorImage)}}" alt="">
                     </a>
                     <div class="media-body">
+                        <div class="comment-box">
                         <h4 class="media-heading">{{$comment->author}}
-                            <small>{{$comment->created_at->format('l j F Y')}}</small>
+                            <small>{{$comment->created_at->format('l j F Y H:i:s')}}</small>
                         </h4>
-                        {{$comment->commentBody}}
+                        <p>{{$comment->commentBody}}</p>
+                        <button class="toggle-reply pull-right btn btn-info">Reply</button>
+
+                        <div class="reply-box">
+                            {!! Form::open(['method' => 'POST', 'action' => 'CommentRepliesController@createReply']) !!}
+
+                            <input type="hidden" name="comment_id" value="{{$comment->id}}">
+
+                            {!! Form::label('commentBody', 'Type Tour Comment:') !!}
+
+                            {!! Form::textarea('commentBody',null, ['class' => 'form-control wd-500', 'rows'=>1]) !!}
+                            <br>
+
+                            <input type="submit" value="Submit" class="real-btn btn">
+                            {!! Form::close() !!}
+                        </div>
+
+                        </div>
+
                         <!-- Nested Comment -->
+
+
+                        @if(count($comment->replies) > 0)
+
+                            @foreach($comment->replies as $reply)
+
+                        <div class="media nested-reply">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="{{url('profileImage',$reply->authorImage)}}" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{$reply->author}}
+                                    <small>{{$reply->created_at->format('l j F Y H:i:s')}}</small>
+                                </h4>
+                                {{$reply->commentBody}}
+                            </div>
+                        </div>
+
+                            @endforeach
+
+                        @endif
+
+
 
                         <!-- End Nested Comment -->
                     </div>
@@ -423,22 +465,22 @@
 
                     @endif
 
-
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="http://placehold.it/64x64" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Nested Start Bootstrap
-                                <small>August 25, 2014 at 9:30 PM</small>
-                            </h4>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-
-
                 <hr>
             </div>
         </div>
     </div>
+@stop
+
+@section('custom_script')
+
+    <script>
+
+        $(".media-body .toggle-reply").click(function () {
+
+            $(this).next().slideToggle("slow");
+
+        });
+
+    </script>
+
 @stop

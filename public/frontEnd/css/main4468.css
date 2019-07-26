@@ -7853,3 +7853,27 @@ img.media-object {
     width: 64px;
 }
 
+.reply-box {
+    display: none;
+}
+
+
+.media.nested-reply {
+    margin-top: 35px;
+
+}
+
+.reply-box {
+    margin-top: 40px;
+}
+
+.reply-box textarea {
+    width: 80%;
+    height: 50px;
+}
+
+.well textarea {
+    width: 90%;
+    height: 100px;
+}
+

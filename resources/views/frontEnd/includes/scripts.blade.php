@@ -23,3 +23,5 @@
 <script type='text/javascript' src='{{asset('frontEnd/')}}/js/jquery-twitterFetcher8794.js?ver=15.1'></script>
 <script type='text/javascript' src='{{asset('frontEnd/')}}/js/bootstrap.min11b8.js?ver=4.5'></script>
 <script type='text/javascript' src='{{asset('frontEnd/')}}/js/custom4468.js?ver=2.5.5'></script>
+
+@yield('custom_script')

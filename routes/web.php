@@ -29,6 +29,12 @@ Route::post('/search/property', 'SearchController@search')->name('search.propert
 
 
 
+Route::group(['middleware'=> 'auth'], function () {
+
+    Route::post('/comment/replies', 'CommentRepliesController@createReply');
+    Route::post('/comment', 'PostCommentController@createReply');
+});
+
 
 
 

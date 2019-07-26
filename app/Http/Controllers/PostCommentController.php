@@ -64,8 +64,26 @@ class PostCommentController extends Controller
 
            return redirect()->back();
 
+    }
 
+    public function createReply(Request $request){
 
+        $user = Auth::user();
+
+   
+
+        $data = [
+
+            'post_id' =>$request->post_id,
+            'author' =>$user->name,
+            'email' =>$user->email,
+            'authorImage' =>$user->profile->image,
+            'commentBody' =>$request->commentBody
+        ];
+
+        Comment::create($data);
+
+        return redirect()->back();
 
 
     }
