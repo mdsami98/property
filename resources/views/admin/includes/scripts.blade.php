@@ -19,6 +19,8 @@
 <script src="{{asset('admin/')}}/js/ResizeSensor.js"></script>
 <script src="{{asset('admin/')}}/js/dashboard.js"></script>
 
+<script src="{{asset('admin/')}}/js/toster.js"></script>
+
 
 
 
@@ -55,10 +57,15 @@
     });
 </script>
 
+
+<script>
+    @if(Session::has('message'))
+    toastr.success("{{Session::get('message')}}")
+    @endif
+
+</script>
+
 @yield('custom_script')
 
-</body>
 
-<!-- Mirrored from themetrace.com/templates/bracket/app/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 17:51:58 GMT -->
-</html>
 

@@ -10,6 +10,7 @@ use App\Profile;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -69,7 +70,7 @@ class PostController extends Controller
 
         Post::create($formInput);
 
-
+        Session::flash('message', 'You successfully created a post');
         return redirect()->route('admin.post.index')->with('message', 'Post Create successfully!');
 
 
@@ -167,6 +168,9 @@ class PostController extends Controller
         }
 
         $update_post->update($formInput);
+
+        Session::flash('message', 'You successfully update the post');
+
         return redirect()->route('admin.post.index')->with('message','Update Post Successfully!');
 
 
@@ -190,6 +194,8 @@ class PostController extends Controller
         if($delete->delete()){
             unlink($image_large);
         }
+
+        Session::flash('message', 'You successfully delete the post');
         return redirect()->route('admin.post.index');
     }
 }

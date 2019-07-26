@@ -9,11 +9,7 @@
                 <a class="breadcrumb-item" href="{{route('admin.post.index')}}">All posts</a>
                 <span class="breadcrumb-item active">Add Category</span>
 
-                <span class="message text-center">
-                    @if(Session::has('message'))
-                        {{ Session::get('message') }}
-                    @endif
-                </span>
+
             </nav>
         </div><!-- br-pageheader -->
 

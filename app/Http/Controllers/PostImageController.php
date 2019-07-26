@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\PostImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PostImageController extends Controller
 {
@@ -50,7 +51,10 @@ class PostImageController extends Controller
                 }
             }
         }
-        return back()->with('message','Add Images Successed');
+
+        Session::flash('message', 'You successfully added image the post');
+
+        return back();
     }
 
     /**
@@ -107,6 +111,8 @@ class PostImageController extends Controller
         if($delete->delete()){
             unlink($image_large);
         }
-        return back()->with('message','Delete Success!');
+
+        Session::flash('message', 'You successfully deleted image to the post');
+        return back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TypeController extends Controller
 {
@@ -45,6 +46,8 @@ class TypeController extends Controller
 
         $input = $request->all();
         Type::create($input);
+
+        Session::flash('message', 'You successfully create a type');
 
         return redirect()->route('admin.type.index');
     }
@@ -91,6 +94,8 @@ class TypeController extends Controller
 
         $type->update($input);
 
+        Session::flash('message', 'You successfully update the type');
+
         return redirect()->route('admin.type.index');
     }
 
@@ -104,6 +109,9 @@ class TypeController extends Controller
     {
         $type = Type::findOrFail($id);
         $type->delete();
+
+        Session::flash('message', 'You successfully delete the type');
+
         return redirect()->route('admin.type.index');
     }
 }

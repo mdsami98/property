@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -44,7 +45,7 @@ class CategoryController extends Controller
 
         $input = $request->all();
        Category::create($input);
-
+        Session::flash('message', 'You successfully created a category');
         return redirect()->route('admin.category.index');
 
     }
@@ -93,6 +94,8 @@ class CategoryController extends Controller
 
         $category->update($input);
 
+        Session::flash('message', 'You successfully updated the category');
+
         return redirect()->route('admin.category.index');
     }
 
@@ -106,6 +109,8 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+
+        Session::flash('message', 'You successfully deleted the category');
         return redirect()->route('admin.category.index');
     }
 }

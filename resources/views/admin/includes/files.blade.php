@@ -46,5 +46,8 @@
     <link href="{{asset('admin/')}}/lib/select2/css/select2.min.css" rel="stylesheet">
 
     <!-- Bracket CSS -->
+
+    <link rel="stylesheet" href="{{asset('admin/')}}/css/toster.css">
     <link rel="stylesheet" href="{{asset('admin/')}}/css/bracket.css">
+
 </head>
