@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2019 at 11:47 PM
+-- Generation Time: Jul 26, 2019 at 11:22 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -41,7 +41,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'home', '2019-07-25 15:34:40', '2019-07-25 15:34:40');
+(3, 'Home', 'home', '2019-07-26 14:54:35', '2019-07-26 14:54:35');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,9 @@ INSERT INTO `comments` (`id`, `post_id`, `publication_ststus`, `author`, `author
 (3, 1, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'dgd gd', '2019-07-25 15:44:27', '2019-07-25 15:44:27'),
 (4, 2, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'dgdf gdfg', '2019-07-25 15:46:10', '2019-07-25 15:46:10'),
 (5, 2, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'sf df gfdrsf', '2019-07-25 15:46:33', '2019-07-25 15:46:33'),
-(6, 2, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'dgd g', '2019-07-25 15:46:39', '2019-07-25 15:46:39');
+(6, 2, 0, 'Admin2', '1564090782-admin2.jpg', 'admin2@admin.com', 'dgd g', '2019-07-25 15:46:39', '2019-07-25 15:46:39'),
+(7, 1, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'f type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lo', '2019-07-26 10:58:42', '2019-07-26 10:58:42'),
+(8, 1, 0, 'Samiul', '1564160732-samiul.jpg', 'mdsami9898@gmail.com', 'fhf fgh fh', '2019-07-26 11:09:22', '2019-07-26 11:09:22');
 
 -- --------------------------------------------------------
 
@@ -89,6 +91,16 @@ CREATE TABLE `comment_replies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comment_replies`
+--
+
+INSERT INTO `comment_replies` (`id`, `comment_id`, `publication_ststus`, `author`, `authorImage`, `email`, `commentBody`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'fh fhf', '2019-07-26 10:10:06', '2019-07-26 10:10:06'),
+(2, 1, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'fgfdgx', '2019-07-26 10:22:17', '2019-07-26 10:22:17'),
+(3, 7, 0, 'Admin', '1564090863-admin.jpg', 'admin@admin.com', 'dgdfgdfg', '2019-07-26 10:58:54', '2019-07-26 10:58:54'),
+(4, 3, 0, 'Samiul', '1564160732-samiul.jpg', 'mdsami9898@gmail.com', 'dgfdgdfg dg', '2019-07-26 11:05:58', '2019-07-26 11:05:58');
 
 -- --------------------------------------------------------
 
@@ -204,7 +216,8 @@ CREATE TABLE `profiles` (
 
 INSERT INTO `profiles` (`id`, `user_id`, `phone_no`, `image`, `address`, `about_text`, `created_at`, `updated_at`) VALUES
 (1, 2, '01781501769', '1564090782-admin2.jpg', 'das', 'scsdf sf', '2019-07-25 15:39:42', '2019-07-25 15:39:42'),
-(2, 1, '01781501769', '1564090863-admin.jpg', 'sdfsdfdrg', 'dgdfbsdfgb', '2019-07-25 15:41:03', '2019-07-25 15:41:03');
+(2, 1, '01781501769', '1564090863-admin.jpg', 'sdfsdfdrg', 'dgdfbsdfgb', '2019-07-25 15:41:03', '2019-07-25 15:41:03'),
+(3, 3, '01763151056', '1564160732-samiul.jpg', 'Sector 7', 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to', '2019-07-26 11:05:32', '2019-07-26 11:05:32');
 
 -- --------------------------------------------------------
 
@@ -276,7 +289,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role_id`, `is_active`, `name`, `email`, `email_verified_at`, `verify_token`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 'Admin', 'admin@admin.com', NULL, NULL, '$2y$10$ZuIAnjF4TsPzHojHEm8NHuEchiYcPvVSvoMiBjsJiKN7buP6eb/yi', NULL, '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
-(2, 3, 1, 'Admin2', 'admin2@admin.com', NULL, NULL, '$2y$10$79WyonWhYuwPXDGvyTDCOeKd79RETIk1Mp.YTPuFYRlVdZiYcctYi', NULL, '2019-07-25 15:33:13', '2019-07-25 15:33:13');
+(2, 3, 1, 'Admin2', 'admin2@admin.com', NULL, NULL, '$2y$10$79WyonWhYuwPXDGvyTDCOeKd79RETIk1Mp.YTPuFYRlVdZiYcctYi', NULL, '2019-07-25 15:33:13', '2019-07-25 15:33:13'),
+(3, 1, 1, 'Samiul', 'mdsami9898@gmail.com', NULL, NULL, '$2y$10$P8TZXg3LtuAr/9HsrC/q/eg06S1tCLxPKypAc9LGsx56wOqliVhKm', NULL, '2019-07-26 11:03:20', '2019-07-26 11:03:20'),
+(4, 1, 1, 'samiul Islam', 'test@gmail.com', NULL, NULL, '$2y$10$cnST2dRpiV07coHyj9379OYMIGmnxPt54Py6iM4w6j3UZ5vRadzQm', NULL, '2019-07-26 14:09:45', '2019-07-26 14:09:45');
 
 --
 -- Indexes for dumped tables
@@ -360,19 +375,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `comment_replies`
 --
 ALTER TABLE `comment_replies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -390,13 +405,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -408,13 +423,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
