@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Profile;
 use App\Type;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,5 +33,9 @@ class AppServiceProvider extends ServiceProvider
         $types = Type::select('id','title')->get();
 
         view()->share('types', $types);
+
+        $profile = Profile::select('id','image')->get();
+
+        view()->share('profile', $profile);
     }
 }

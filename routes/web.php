@@ -23,9 +23,14 @@ Route::get('/property/type/{id}', 'IndexController@typeView')->name('user.typeVi
 
 
 Route::resource('/profile', 'ProfileController');
-
+Route::post('/profile/phone', 'ProfileController@addNumber')->name('profile.addnumber');
+Route::post('/profile/address', 'ProfileController@addAddress')->name('profile.addaddress');
+Route::post('/profile/about', 'ProfileController@addAbout')->name('profile.addabout');
+Route::post('/profile/image', 'ProfileController@addImage')->name('profile.addimage');
 
 Route::post('/search/property', 'SearchController@search')->name('search.property');
+
+
 
 
 

@@ -163,4 +163,85 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function addNumber(Request $request){
+
+        $this->validate($request, [
+
+            'phone_no' => 'required|min:11|numeric',
+
+        ]);
+        $profile = Profile::findOrFail($request->profile_id);
+        $data = [
+            'phone_no' => $request->phone_no,
+
+        ];
+
+        $profile->update($data);
+
+        return redirect()->back();
+
+
+    }
+
+    public function addAddress(Request $request){
+        $profile = Profile::findOrFail($request->profile_id);
+
+        $data = [
+            'address' => $request->address,
+
+        ];
+
+        $profile->update($data);
+
+        return redirect()->back();
+    }
+
+    public function addAbout(Request $request){
+
+        $profile = Profile::findOrFail($request->profile_id);
+
+        $data = [
+            'about_text' => $request->about_text,
+
+        ];
+
+        $profile->update($data);
+
+        return redirect()->back();
+
+    }
+
+    public function addImage(Request $request){
+
+        $profile = Profile::findOrFail($request->profile_id);
+
+
+        if($request->file('image')){
+            $image=$request->file('image');
+            if($image->isValid()){
+                $fileName=time().'-'.'.'.$image->getClientOriginalExtension();
+
+
+                $image->move('profileImage', $fileName);
+
+                $formInput= [
+                    'image' => $fileName
+                ];
+            }
+        }
+
+        else{
+
+            $formInput= [
+                'image' =>$profile['image']
+            ];
+        }
+
+        $profile->update($formInput);
+
+        return redirect()->back();
+    }
+
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Profile;
 use App\Role;
 use App\User;
 use App\Type;
@@ -40,11 +41,10 @@ class AdminSeed extends Seeder
             'password' => bcrypt('12345678'),
             'role_id' => $role->id,
         ]);
-        $user = User::create([
-            'name' => 'Admin2',
-            'email' => 'admin2@admin.com',
-            'password' => bcrypt('12345678'),
-            'role_id' => $role->id,
+
+        $profile = Profile::create([
+            'user_id' => '1',
+            'image' => 'profile.jpg',
         ]);
 
 

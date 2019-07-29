@@ -41,7 +41,7 @@
                         <!-- loop ends here -->
                         <a href="#" class="media-list-link read">
                             <div class="media pd-x-20 pd-y-15">
-                                <img src="{{asset('admin/')}}/img/img4.jpg" class="wd-40 rounded-circle" alt="">
+                                <img src="" class="wd-40 rounded-circle" alt="">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center justify-content-between mg-b-5">
                                         <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Samantha Francis</p>
@@ -142,7 +142,7 @@
             <div class="dropdown">
                 <a href="#" class="nav-link nav-link-profile" data-toggle="dropdown">
                     <span class="logged-name hidden-md-down">{{Auth::user() ? Auth::user()->name : ''}}</span>
-                    <img src="{{asset('admin/')}}/img/img1.jpg" class="wd-32 rounded-circle" alt="">
+                    <img src="{{url('profileImage' ,Auth::user()->profile->image)}}" class="wd-32 rounded-circle" alt="">
                     <span class="square-10 bg-success"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">

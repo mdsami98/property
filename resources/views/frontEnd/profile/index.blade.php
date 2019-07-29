@@ -5,7 +5,7 @@
     <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url({{asset('frontEnd/')}}/images/temp-images/banner.jpg); background-size: cover; ">
         <div class="container">
             <div class="wrap clearfix">
-                <h1 class="page-title"><span>Agents Listing</span></h1>
+                <h1 class="page-title"><span>My profile</span></h1>
                 <p>View List of All Real Homes Agents</p>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="main">
 
                     <section class="listing-layout">
-                        <h3 class="title-heading">User Profile</h3>
+                        <h3 class="title-heading">My Profile</h3>
 
                         <div class="list-container">
                             <article class="about-agent clearfix">
@@ -39,12 +39,37 @@
                                                 <img src="{{url('profileImage' ,$profile->image)}}" alt="author">
                                             </a>
                                         </figure>
+
+                                        {!! Form::open(['method' => 'POST', 'action' => 'ProfileController@addImage','enctype' => 'multipart/form-data']) !!}
+
+                                        <input type="hidden" value="{{$profile->id}}" name="profile_id">
+                                        <input type="file" placeholder="change Image" name="image">
+                                        <br><br>
+                                        <input type="submit" id="login-button" name="submit" value="Change image" class="real-btn login-btn" />
+
+
+                                        {!! Form::close() !!}
                                     </div>
 
                                     <div class="span9">
 
-                                        <div class="agent-content">
-                                            <p>{{$profile->about_text}}</p>
+                                        <div class="agent-content about">
+                                            <h4>About Myself</h4>
+                                            <p>
+                                                @if($profile->about_text)
+                                                    {{$profile->about_text}}
+                                            </p>
+                                                    <span><a href="#about-modal" class="pull-right" data-toggle="modal">Edit</a></span>
+                                                @else
+                                                    <p>
+                                                    {{$profile->about_text}}
+                                                    </p><span><a href="#about-modal" class="" data-toggle="modal">Click here to Write About yourself</a></span>
+
+                                                @endif
+
+
+
+
                                         </div>
 
                                         <ul class="contacts-list">
@@ -55,7 +80,12 @@
                                                     <circle class="circle" fill-rule="evenodd" clip-rule="evenodd" cx="10.5" cy="19.5" r="1.5"/>
                                                     <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M12 2.999H8.999C8.447 3 8 3.4 8 4c0 0.6 0.4 1 1 1H12 c0.552 0 1-0.448 1-1C13 3.4 12.6 3 12 2.999z"/>
 </svg>
-                                                Mobile : {{$profile->phone_no}}
+                                                Mobile : @if($profile->phone_no)
+                                                    {{$profile->phone_no}} <span><a href="#phone-modal" class="pull-right" data-toggle="modal">Edit</a></span>
+                                                             @else
+                                                    {{$profile->phone_no}} <span><a href="#phone-modal" class="pull-right" data-toggle="modal">Add</a></span>
+
+                                                @endif
                                             </li>
 
 
@@ -64,7 +94,12 @@
                                         <ul class="contacts-list">
 
 
-                                             <li>Address : {{$profile->address}}</li>
+                                             <li>Address : @if($profile->address)
+                                                     {{$profile->address}} <span><a href="#address-modal" class="pull-right" data-toggle="modal">Edit</a></span>
+                                                 @else
+                                                     {{$profile->address}} <span><a href="#address-modal" class="pull-right" data-toggle="modal">Add Your address</a></span>
+
+                                                 @endif</li>
 
 
                                         </ul>
@@ -74,7 +109,7 @@
                                 </div><!-- end of .row-fluid -->
 
                                 <div class="follow-agent clearfix">
-                                    <a class="real-btn btn" href="{{route('profile.edit', $profile->id)}}">More Details</a>
+{{--                                    <a class="real-btn btn" href="{{route('profile.edit', $profile->id)}}"></a>--}}
                                     <!-- Agent's Social Navigation -->
                                     <ul class="social_networks clearfix">
                                         <li class="facebook">
@@ -92,74 +127,151 @@
         </div>
     </div>
 
-        @else
-        <div class="container contents listing-grid-layout">
-
-            <div class="row">
-
-                <div class="span9 main-wrap">
-
-                    <!-- Main Content -->
-                    <div class="main">
-
-                        <section class="listing-layout">
-                            <h3 class="title-heading">Hello!! {{Auth::user()->name}} Create Your Profile</h3>
 
 
-                            <div class="list-container">
-
-                                {!! Form::open(['method' => 'POST', 'action' => 'ProfileController@store', 'enctype'=> 'multipart/form-data']) !!}
-                                <div class="option-bar large">
-                                    {!! Form::label('phone_no', 'Phone Number:') !!}
-
-                                    {!! Form::text('phone_no',null, ['class' => '', 'placeholder' => '']) !!}
-
-                                    <div class="d-flex mg-b-10">
-                                <span class="text-danger">
-                                    {{$errors->has('address') ? $errors->first('address') : ''}}
-                                </span>
-                                    </div>
-                                </div>
-
-                                <div class="option-bar large">
-                                    {!! Form::label('address', 'Address:') !!}
-
-                                    {!! Form::text('address',null, ['class' => '', 'placeholder' => '']) !!}
-
-                                    <div class="d-flex mg-b-10">
-                                <span class="text-danger">
-                                    {{$errors->has('address') ? $errors->first('address') : ''}}
-                                </span>
-                                    </div>
-                                </div>
-                                <div class="option-bar large">
-                                    {!! Form::label('about_text', 'About yourself:') !!}
-
-                                    {!! Form::textarea('about_text',null, ['class' => '', 'placeholder' => '']) !!}
-                                </div>
-                                <div class="option-bar large">
-                                    {!! Form::label('image', 'Upload profile image:') !!}
-                                    {!! Form::file('image',null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                                </div>
-                                <br>
-                                <br>
-
-
-
-                                <button type="submit" class="real-btn btn">Save</button>
-
-
-
-
-                                {!! Form::close() !!}
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     @endif
+
+
+    <div id="phone-modal" class="forms-modal modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p></p>
+        </div>
+
+        <!-- start of modal body -->
+        <div class="modal-body">
+
+            <!-- login section -->
+            <div class="login-section modal-section">
+                <h4>Phone Number</h4>
+                {!! Form::open(['method' => 'POST', 'action' => 'ProfileController@addNumber']) !!}
+                    <div class="form-option">
+
+                        <input id="username" value="{{$profile->phone_no}}" name="phone_no" type="text" class="required" autofocus required/>
+                    </div>
+                <input type="hidden" name="profile_id" value="{{$profile->id}}">
+
+                    <input type="submit" id="login-button" name="submit" value="Save" class="real-btn login-btn" />
+
+                    <div>
+                        <div id="login-message" class="modal-message"></div>
+                        <div id="login-error" class="modal-error"></div>
+                    </div>
+              {!! Form::close() !!}
+
+                <p>
+                    <span class="text-danger">{{$errors->has('title') ? $errors->first('title') : ''}}</span>
+
+
+                </p>
+
+            </div>
+
+
+
+
+        </div>
+        <!-- end of modal-body -->
+
+    </div>
+
+{{--    Address Modal--}}
+    <div id="address-modal" class="forms-modal modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p></p>
+        </div>
+
+        <!-- start of modal body -->
+        <div class="modal-body">
+
+            <!-- login section -->
+            <div class="login-section modal-section">
+                <h4>Address</h4>
+                {!! Form::open(['method' => 'POST', 'action' => 'ProfileController@addAddress']) !!}
+                    <div class="form-option">
+
+                        <input id="username" value="{{$profile->address}}" name="address" type="text" class="required" autofocus required/>
+                    </div>
+                <input type="hidden" name="profile_id" value="{{$profile->id}}">
+
+                    <input type="submit" id="login-button" name="submit" value="Save" class="real-btn login-btn" />
+
+                    <div>
+                        <div id="login-message" class="modal-message"></div>
+                        <div id="login-error" class="modal-error"></div>
+                    </div>
+              {!! Form::close() !!}
+
+                <p>
+                    <span class="text-danger">{{$errors->has('title') ? $errors->first('title') : ''}}</span>
+
+
+                </p>
+
+            </div>
+
+
+
+
+        </div>
+        <!-- end of modal-body -->
+
+    </div>
+
+
+{{--    Address Modal--}}
+    <div id="about-modal" class="forms-modal modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p></p>
+        </div>
+
+        <!-- start of modal body -->
+        <div class="modal-body">
+
+            <!-- login section -->
+            <div class="login-section modal-section">
+                <h4>About Yourself</h4>
+                {!! Form::open(['method' => 'POST', 'action' => 'ProfileController@addAbout']) !!}
+                    <div class="form-option">
+
+
+                        <textarea name="about_text" id="" cols="50" rows="10" autofocus>{{$profile->about_text}}</textarea>
+                    </div>
+                <input type="hidden" name="profile_id" value="{{$profile->id}}">
+
+                    <input type="submit" id="login-button" name="submit" value="Save" class="real-btn login-btn" />
+
+                    <div>
+                        <div id="login-message" class="modal-message"></div>
+                        <div id="login-error" class="modal-error"></div>
+                    </div>
+              {!! Form::close() !!}
+
+                <p>
+                    <span class="text-danger">{{$errors->has('title') ? $errors->first('title') : ''}}</span>
+
+
+                </p>
+
+            </div>
+
+
+
+
+        </div>
+        <!-- end of modal-body -->
+
+    </div>
+
+
+
+
 
 
 @stop

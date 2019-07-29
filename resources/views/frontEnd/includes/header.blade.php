@@ -59,7 +59,7 @@
             <!-- Logo -->
             <div id="logo">
 
-                <a title="Real Homes" href="index-2.html">
+                <a title="Real Homes" href="{{route('user.home')}}">
                     <img src="{{asset('frontEnd/')}}/images/logo.png" alt="Real Homes">
                 </a>
                 <h2 class="logo-heading only-for-print">
