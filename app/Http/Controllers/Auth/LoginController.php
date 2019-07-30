@@ -29,7 +29,7 @@ class LoginController extends Controller
                 return '/';
                 break;
             case '2':
-                return 'Agent Page';
+                return '/agent/home';
                 break;
             case '3':
                 return '/admin/dashboard';
