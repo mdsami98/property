@@ -58,6 +58,10 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::resource('/type', 'TypeController');
   Route::resource('/post', 'PostController');
   Route::resource('/post/image', 'PostImageController');
+  Route::resource('/users', 'UserController');
+  Route::get('/agents/list', 'UserController@allAgents')->name('agents');
+  Route::get('/admin/list', 'UserController@addAdmin')->name('admins');
+  Route::get('/change/{id}', 'UserController@change')->name('user.change');
 
 
   Route::resource('admin/comments', 'PostCommentController');

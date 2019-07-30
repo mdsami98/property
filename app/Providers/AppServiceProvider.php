@@ -34,8 +34,14 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share('types', $types);
 
+
+
         $profile = Profile::select('id','image')->get();
 
         view()->share('profile', $profile);
+
+
+
+
     }
 }

@@ -8,18 +8,21 @@
                 <span class="menu-item-label">Dashboard</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="" class="br-menu-link">
+
+        <a href="#" class="br-menu-link">
             <div class="br-menu-item">
-                <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-                <span class="menu-item-label">Mailbox</span>
+                <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
+                <span class="menu-item-label">Users list</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="{{route('admin.category.index')}}" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
-                <span class="menu-item-label">Category</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{route('admin.users.index')}}" class="nav-link">Add Users</a></li>
+            <li class="nav-item"><a href="{{route('admin.agents')}}" class="nav-link">All Agents</a></li>
+            <li class="nav-item"><a href="{{route('admin.admins')}}" class="nav-link">All Admin</a></li>
+
+        </ul>
+
 
         <a href="{{route('admin.type.index')}}" class="br-menu-link">
             <div class="br-menu-item">
