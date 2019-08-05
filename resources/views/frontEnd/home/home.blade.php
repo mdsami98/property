@@ -290,82 +290,32 @@
                     {{--  ====== Home Property--}}
                     <section class="featured-properties-carousel clearfix">
                         <div class="narrative">
-                            <h3>Featured Properties</h3>
-                            <p>View a list of Featured Properties.</p>
+                            <h3>Latest Properties</h3>
+                            <p>View a list of Latest Properties.</p>
                         </div>
                         <div class="carousel es-carousel-wrapper">
                             <div class="es-carousel">
                                 <ul class="clearfix">
+                                    @if($latestPosts)
+                                        @foreach($latestPosts as $latestPost)
                                     <li>
                                         <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
+                                            <a href="{{route('user.singleView',['id'=> $latestPost->id])}}">
+                                                <img src="{{url('postimages',$latestPost->image)}}" alt="Property Image">
                                             </a>
                                         </figure>
-                                        <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$7,500 Per Month</span>
+                                        <h4><a href="{{route('user.singleView',['id'=> $latestPost->id])}}">{{$latestPost->title}}</a></h4>
+                                        <p>{{str_limit($latestPost->description, 50)}} <a href="property.html"> Know More </a> </p>
+
+                                        @if($latestPost->type_id == 1)
+                                        <span class="price">{{$latestPost->price}} Tk. Per Month</span>
+                                            @else
+                                            <span class="price">{{$latestPost->price}} Tk</span>
+                                        @endif
                                     </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">401 Biscayne Boulevard, Miami</a></h4>
-                                        <p>Nam liber tempor cum soluta nobis eleifend option&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,250 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">15421 Southwest 39th Terrace</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,850 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property5.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">3015 Grand Avenue, CocoWalk</a></h4>
-                                        <p>Ut wisi enim ad minim veniam, quis nostrud&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$4,350 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">60 Merrick Way, Miami</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$440,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">Florida 5, Pinecrest, FL</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$480,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$625,000 </span>
-                                    </li>
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>

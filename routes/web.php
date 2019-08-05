@@ -23,6 +23,9 @@ Route::get('/property/type/{id}', 'IndexController@typeView')->name('user.typeVi
 
 
 Route::resource('/profile', 'ProfileController');
+
+Route::get('/user/profile/{id}', 'ProfileController@userView')->name('user.profile.view');
+
 Route::post('/profile/phone', 'ProfileController@addNumber')->name('profile.addnumber');
 Route::post('/profile/address', 'ProfileController@addAddress')->name('profile.addaddress');
 Route::post('/profile/about', 'ProfileController@addAbout')->name('profile.addabout');

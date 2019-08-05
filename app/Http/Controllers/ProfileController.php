@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Profile;
 use http\Url;
 use Illuminate\Http\Request;
@@ -242,6 +243,17 @@ class ProfileController extends Controller
 
         return redirect()->back();
     }
+    public function userView($id){
 
+        $profile = Profile::findOrFail($id);
+
+        $posts = Post::where('user_id', $profile->user->id)->get();
+
+        return view('frontEnd.profile.singleview', [
+            'profile' => $profile,
+            'posts' => $posts,
+        ]);
+
+    }
 
 }

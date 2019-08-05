@@ -30,8 +30,11 @@ class SearchController extends Controller
                             ->where('area', '>=', $min_area)
                             ->get();
 
+        $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
+
         return view('frontEnd.search.view', [
-            'posts' => $posts
+            'posts' => $posts,
+            'latestPosts' => $latestPosts,
         ]);
 
 

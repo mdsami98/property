@@ -14,15 +14,19 @@ class IndexController extends Controller
     public function index(){
 
         $posts =Post::where('publication_status' , 1)->take(8)->get();
+        $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         return view('frontEnd.home.home', [
-            'posts' => $posts
+            'posts' => $posts,
+            'latestPosts' => $latestPosts,
         ]);
+
+
     }
+
+
+
+
     public function singleView($id){
-
-
-
-
 
         $post =Post::findOrFail($id);
 

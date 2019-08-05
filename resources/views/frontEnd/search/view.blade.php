@@ -66,20 +66,18 @@
                                 <label for="select-status">
                                     Property Category	</label>
                                 <span class="selectwrap">
-                                    <select name="category" id="select-status" class="search-select">
+                                        <select name="category" id="select-status" class="search-select">
 
 
-                                        @if($categories)
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->title}}</option>
-                                            @endforeach
-                                        @endif
+                                            @if($categories)
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                                @endforeach
+                                            @endif
 
-                                    </select>
-                                </span>
+                                        </select>
+                                    </span>
                             </div>
-
-
                             <div class="option-bar large">
                                 <label for="select-status">
                                     Property Type	</label>
@@ -101,57 +99,57 @@
                                 <label for="select-bedrooms">
                                     Min Beds	</label>
                                 <span class="selectwrap">
-                                    <select name="bedrooms" id="select-bedrooms" class="search-select">
-                                        <option value="0" selected="selected">Any</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </span>
+                                        <select name="bedrooms" id="select-bedrooms" class="search-select">
+                                            <option value="0" selected="selected">Any</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+    </span>
                             </div>
                             <div class="option-bar small">
                                 <label for="select-bathrooms">
                                     Min Baths	</label>
                                 <span class="selectwrap">
-                                    <select name="bathrooms" id="select-bathrooms" class="search-select">
-                                        <option value="0" selected="selected">Any</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </span>
+                                        <select name="bathrooms" id="select-bathrooms" class="search-select">
+                                            <option value="0" selected="selected">Any</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </span>
                             </div><div class="option-bar small price-for-others">
                                 <label for="select-min-price">
                                     Min Price	</label>
                                 <span class="selectwrap">
-                                    <select name="min_price" id="select-min-price" class="search-select">
-                                        <option value="1000" selected="selected">Any</option>
-                                        <option value="5000">5,000 Tk</option>
-                                        <option value="10000">10,000 Tk</option>
-                                        <option value="15000">15,000 Tk</option>
-                                        <option value="20000">20,000 Tk</option>
-                                        <option value="30000">30,000 Tk</option>
-                                        <option value="40000">40,000 Tk</option>
-                                        <option value="50000">50,000 Tk</option>
-                                        <option value="60000">60,000 Tk</option>
-                                        <option value="70000">70,000 Tk</option>
-                                        <option value="80000">80,000 Tk</option>
-                                    </select>
-                                </span>
+                                        <select name="min_price" id="select-min-price" class="search-select">
+                                            <option value="1000" selected="selected">Any</option>
+                                            <option value="5000">5,000 Tk</option>
+                                            <option value="10000">10,000 Tk</option>
+                                            <option value="15000">15,000 Tk</option>
+                                            <option value="20000">20,000 Tk</option>
+                                            <option value="30000">30,000 Tk</option>
+                                            <option value="40000">40,000 Tk</option>
+                                            <option value="50000">50,000 Tk</option>
+                                            <option value="60000">60,000 Tk</option>
+                                            <option value="70000">70,000 Tk</option>
+                                            <option value="80000">80,000 Tk</option>
+                                        </select>
+                                    </span>
                             </div>
 
                             <div class="option-bar small price-for-others">
@@ -292,82 +290,32 @@
                     {{--  ====== Home Property--}}
                     <section class="featured-properties-carousel clearfix">
                         <div class="narrative">
-                            <h3>Featured Properties</h3>
-                            <p>View a list of Featured Properties.</p>
+                            <h3>Latest Properties</h3>
+                            <p>View a list of Latest Properties.</p>
                         </div>
                         <div class="carousel es-carousel-wrapper">
                             <div class="es-carousel">
                                 <ul class="clearfix">
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$7,500 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">401 Biscayne Boulevard, Miami</a></h4>
-                                        <p>Nam liber tempor cum soluta nobis eleifend option&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,250 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">15421 Southwest 39th Terrace</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,850 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property5.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">3015 Grand Avenue, CocoWalk</a></h4>
-                                        <p>Ut wisi enim ad minim veniam, quis nostrud&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$4,350 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">60 Merrick Way, Miami</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$440,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">Florida 5, Pinecrest, FL</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$480,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$625,000 </span>
-                                    </li>
+                                    @if($latestPosts)
+                                        @foreach($latestPosts as $latestPost)
+                                            <li>
+                                                <figure>
+                                                    <a href="{{route('user.singleView',['id'=> $latestPost->id])}}">
+                                                        <img src="{{url('postimages',$latestPost->image)}}" alt="Property Image">
+                                                    </a>
+                                                </figure>
+                                                <h4><a href="{{route('user.singleView',['id'=> $latestPost->id])}}">{{$latestPost->title}}</a></h4>
+                                                <p>{{str_limit($latestPost->description, 50)}} <a href="property.html"> Know More </a> </p>
+
+                                                @if($latestPost->type_id == 1)
+                                                    <span class="price">{{$latestPost->price}} Tk. Per Month</span>
+                                                @else
+                                                    <span class="price">{{$latestPost->price}} Tk</span>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>

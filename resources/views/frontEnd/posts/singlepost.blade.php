@@ -138,12 +138,7 @@
                                     </a>
                                 </figure>
                                 <ul class="contacts-list">
-                                    <li class="office">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<path class="path" d="M5.597 1.999C6.4 2 8 2 8.1 5.51C8.017 6.1 7.8 6.3 7.5 6.658C7.12 7.1 6.4 7.9 6.4 9.2 c0 1.5 1 3.1 3.1 5.198c1.143 1.2 3.3 3.1 4.8 3.123c1.222 0 1.856-0.836 2.128-1.192 c0.18-0.236 0.284-0.373 0.862-0.468h0.055c3.91 0 4.6 0.8 4.6 2.476c0 0.358-0.151 1.891-0.893 2.8 c-0.297 0.382-1.161 0.789-2.695 0.789c-3.012 0-7.658-1.598-11.249-5.162C2.085 11.7 2 4.7 2 4.6 C2.021 2.2 4.8 2 5.6 2 M5.598-0.001c-0.385 0-5.578 0.084-5.578 4.624c0 0-0.041 7.8 5.8 13.6 c3.825 3.8 8.9 5.7 12.7 5.747c1.914 0 3.46-0.515 4.273-1.56c1.314-1.688 1.314-4.07 1.314-4.07 c0-4.618-4.734-4.47-6.801-4.476c-2.345 0.324-2.198 1.66-2.843 1.66c-0.187 0-1.32-0.393-3.409-2.523 c-2.106-2.085-2.527-3.234-2.527-3.797c0-1.265 1.396-1.328 1.662-3.602c-0.004-1.028-0.011-5.563-4.482-5.632 C5.621-0.001 5.613-0.001 5.598-0.001L5.598-0.001z"/>
-</svg>
-                                        Office : 041-456-3692
-                                    </li>
+
                                     <li class="mobile">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M18 24c1.657 0 2.999-1.341 3-2.999V2.999C20.999 1.3 19.7 0 18 0H6.001 C4.343 0 3 1.3 3 2.999v18.002C3.001 22.7 4.3 24 6 24H18z M6.001 22.001c-0.553 0-1-0.448-1.001-1V2.999 C5.001 2.4 5.4 2 6 2h9C15.552 2 16 2.4 16 2.999v18.002c-0.002 0.552-0.448 1-0.999 1H6.001z M19 21 c-0.001 0.552-0.447 1-1 1h-0.184c0.111-0.314 0.184-0.647 0.184-1V2.999C18 2.6 17.9 2.3 17.8 2H18 c0.553 0 1 0.4 1 0.999V21.001z"/>
@@ -152,23 +147,9 @@
 </svg>
                                         Mobile : {{$post->user->profile->phone_no}}
                                     </li>
-                                    <li class="fax">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<g>
-    <path class="path" d="M14.415 0H6v10h1h11V3.585L14.415 0z M16 8H8V2h5.586L16 4.413V8z"/>
-    <path class="path" d="M15.001 14.001H8.999C7.343 14 6 15.3 6 17v7h1c0.469 0 0.9 0 2 0h6.002c1.104 0 1.6 0 2 0h1v-7 C18 15.3 16.7 14 15 14.001z M16 22c-0.264 0-0.586 0-0.999 0H8.999c-0.417 0-0.737 0-1 0v-5 c0.001-0.552 0.449-0.998 1-1h6.002c0.55 0 1 0.4 1 1V22z"/>
-</g>
-                                            <g>
-                                                <path class="path" d="M7 18H3.001c-0.917-0.029-0.844-0.142-0.855-0.146C2.067 17.8 2 17.1 2 16v-6c0.029-1.481 0.922-1.894 3.001-2H7V6 H5.001C2.66 6 0 7.1 0 10v6c0.02 1.111-0.047 1.9 0.4 2.803c0.499 0.9 1.6 1.2 2.6 1.197H7V18z"/>
-                                                <path class="path" d="M19.001 6H17v2h1.999c2.078 0.1 3 0.5 3 2v6c0.02 1.098-0.067 1.78-0.146 1.9 c-0.011 0 0.1 0.116-0.855 0.146H17v2h3.999c1.046 0 2.117-0.255 2.616-1.197C24.048 17.9 24 17.1 24 16v-6 C23.995 7.1 21.3 6 19 6z"/>
-                                            </g>
-                                            <polygon class="path" fill-rule="evenodd" clip-rule="evenodd" points="18,4.4 13.6,4.4 13.6,0 13.6,0 18,4.4 18,4.4"/>
-                                            <path class="path" d="M20.499 17c-0.275 0-0.5-0.224-0.5-0.5v-0.999c0-0.276 0.225-0.5 0.5-0.5c0.277 0 0.5 0.2 0.5 0.5V16.5 C21.001 16.8 20.8 17 20.5 17L20.499 17z M4 11C3.292 11 3 10.7 3 10C3 9.2 3.3 9 4 8.999c0.77 0 1 0.2 1 1 C5 10.7 4.8 11 4 11L4 11z"/>
-</svg>
-                                        Fax : 041-789-4561
-                                    </li>
+
                                 </ul>
-                                <p>Lorem agent info ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna&hellip;<br/><a class="real-btn" href="#">Know More</a></p>
+                                <p>{{$post->user->profile->about_text}}<br/><a class="real-btn" href="{{route('user.profile.view', $post->user->id)}}">Know More</a></p>
                             </div>
 
                             <div class="contact-form">
