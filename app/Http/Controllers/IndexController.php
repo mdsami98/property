@@ -8,12 +8,16 @@ use App\PostImage;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class IndexController extends Controller
 {
     public function index(){
 
-        $posts =Post::where('publication_status' , 1)->take(8)->get();
+        $posts =Post::where('publication_status' , 1)->paginate(4);
+
+
+
         $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         return view('frontEnd.home.home', [
             'posts' => $posts,

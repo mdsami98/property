@@ -275,12 +275,13 @@
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-{{--                                {{$posts->render()}}--}}
+{{--                             {{$posts->links('vendor.pagination.default')}}--}}
 
-                                <div class='pagination'><a href='#' class='real-btn current' >1</a>
-                                    <a href='#' class='real-btn' >2</a>
-                                    <a href='#' class='real-btn' >3</a>
-                                </div>
+                                {{$posts->render()}}
+
+
+
+
                             </div><!-- end of #home-properties-section-inner -->
 
                         </div><!-- end of #home-properties-section-wrapper -->
