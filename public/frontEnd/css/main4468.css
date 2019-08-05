@@ -7915,3 +7915,30 @@ ul.contacts-list li a {
     background-color: #333;
     color: #fff;
 }
+
+label {
+    display: inline-block;
+}
+
+.option-bar.large input[type="number"] {
+    width: 97%;
+}
+
+.option-bar.large textarea {
+    width: 98%;
+    height: 95px;
+}
+.property-meta span.text-success {
+    color: green;
+}
+
+.property-meta span.text-danger {
+    color: red;
+}
+
+.add-to-fav p.text-danger{
+    color: red;
+}
+.add-to-fav p.text-success{
+    color: green;
+}

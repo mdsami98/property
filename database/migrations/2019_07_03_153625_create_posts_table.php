@@ -19,6 +19,9 @@ class CreatePostsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('type_id')->unsigned()->default(1);
             $table->string('title',128);
+            $table->string('region',128)->nullable();
+            $table->string('region_area',128)->nullable();
+            $table->tinyInteger('post_type')->default(0);
             $table->string('slug',128)->nullable();
             $table->decimal('price')->unsigned();
             $table->decimal('area');

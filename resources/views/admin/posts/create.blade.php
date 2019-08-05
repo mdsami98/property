@@ -157,11 +157,6 @@
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
-                            <div class="d-flex mg-b-10">
-                                <span class="text-danger">
-                                    {{$errors->has('address') ? $errors->first('address') : ''}}
-                                </span>
-                            </div>
 
 
                             <div class="d-flex mg-b-20">
@@ -185,7 +180,7 @@
                         <div class="col-6">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-                                    {!! Form::label('description', 'Total Bathrooms:') !!}<span class="tx-danger">*</span>
+                                    {!! Form::label('description', 'Description:') !!}<span class="tx-danger">*</span>
                                     {!! Form::textarea('description', $value = null, ['class' => 'form-control wd-900', 'placeholder' => 'Description']) !!}
                                 </div><!-- form-group -->
 
@@ -198,7 +193,7 @@
 
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-info">Add Category</button>
+                    <button type="submit" class="btn btn-info">Add Post</button>
                     {!! Form::close() !!}
                 </div>
             </div>

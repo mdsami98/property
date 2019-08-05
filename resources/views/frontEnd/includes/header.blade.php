@@ -83,23 +83,10 @@
                     <div class="menu-main-menu-container">
                         <ul id="menu-main-menu" class="clearfix">
                             <li class=" current-menu-item">
-                                <a href="index-2.html">Home</a>
-                                <ul>
-                                    <li><a href="home-with-google-map.html">Home with Google Map</a></li>
-                                    <li><a href="home-with-news-post.html">Home with News Posts</a></li>
-                                    <li><a href="home-with-custom-slider.html">Home with Custom Slider</a></li>
-                                    <li><a href="home-with-properties-slider.html">Home with Properties Slider</a></li>
-                                    <li><a href="home-with-simple-banner.html">Home with Simple Banner</a></li>
-                                </ul>
+                                <a href="{{route('user.home')}}">Home</a>
+
                             </li>
-                            <li><a href="listing.html">Listing</a>
-                                <ul>
-                                    <li><a href="simple-listing.html">Simple Listing</a></li>
-                                    <li><a href="simple-listing-with-google-map.html">Simple Listing with Google Map</a></li>
-                                    <li><a href="grid-listing.html">Grid Listing</a></li>
-                                    <li><a href="grid-listing-with-google-map.html">Grid Listing with Google Map</a></li>
-                                </ul>
-                            </li>
+
                             <li><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="agents.html">Agents</a></li>
@@ -139,13 +126,19 @@
                                 </ul>
                             </li>
                             @auth()
-                            <li><a href="property.html">Profile</a>
-                                <ul>
-                                    <li><a href="property-default-var.html">My property</a></li>
-                                    <li><a href="{{route('profile.show', Auth::user()->id)}}">My profile</a></li>
+                            <li><a href="{{route('profile.show', Auth::user()->id)}}">Profile</a>
 
-                                </ul>
                             </li>
+
+                                <li>
+                                    <a href="{{route('post.create')}}">Add property</a>
+                                    <ul>
+                                        <li><a href="{{route('post.index')}}">My property</a></li>
+
+
+                                    </ul>
+
+                                </li>
                             @endauth
 
 
