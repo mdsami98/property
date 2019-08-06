@@ -43,6 +43,7 @@ Route::group(['middleware'=> 'auth'], function () {
     Route::post('/comment', 'PostCommentController@createReply');
 
     Route::resource('/user/post', 'UserPostController');
+    Route::post('/user/post/payment', 'UserPostController@payment')->name('post.payment');
 
 
 
@@ -84,4 +85,3 @@ Route::group(['as' => 'agent.', 'middleware'=> 'agent'], function () {
     Route::get('/agent/home', 'AgentController@index')->name('home');
 
 });
-

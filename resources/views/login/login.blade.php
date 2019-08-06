@@ -14,7 +14,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-option">
-                                <label for="username">Email<span>*</span></label>
+                                <label for="username">Email<span>*</span></label><br>
                                 <input id="email" name="email" type="email"
                                        class="required @error('email') is-invalid @enderror"
                                        name="email" value="{{ old('email') }}"
@@ -28,7 +28,7 @@
                                 @enderror
                             </div>
                             <div class="form-option">
-                                <label for="password">Password<span>*</span></label>
+                                <label for="password">Password<span>*</span></label><br>
                                 <input id="password" name="password" type="password" class="required @error('password') is-invalid @enderror" title="* Provide password!" required/>
                                 <br>
                                 @error('password')

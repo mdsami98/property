@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
+use Stripe\Charge;
+use Stripe\Stripe;
+
 class UserPostcontroller extends Controller
 {
     /**
@@ -69,37 +72,78 @@ class UserPostcontroller extends Controller
            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
        ]);
 
-       if ($request->post_type == 1){
 
-           $formInput=$request->all();
-           $formInput['user_id']=Auth::user()->id;
-
-
-           if($request->file('image')){
-               $image=$request->file('image');
-               if($image->isValid()){
-                   $fileName=time().'-'.str::slug($formInput['title'],"-").'.'.$image->getClientOriginalExtension();
+       $formInput=$request->all();
+       $formInput['user_id']=Auth::user()->id;
 
 
-                   $image->move('postimages', $fileName);
-                   $formInput['image']=$fileName;
-               }
+       if($request->file('image')){
+           $image=$request->file('image');
+           if($image->isValid()){
+               $fileName=time().'-'.str::slug($formInput['title'],"-").'.'.$image->getClientOriginalExtension();
+
+
+               $image->move('postimages', $fileName);
+               $formInput['image']=$fileName;
            }
+       }
 
 
+
+       if ($request->post_type == 1){
 
            Post::create($formInput);
 
            Session::flash('message', 'You successfully created a post');
-//           return redirect()->route('admin.post.index')->with('message', 'Post Create successfully!');
-           return back();
+           return redirect()->route('post.index')->with('message', 'Post Create successfully!');
+
 
        }
        if ($request->post_type == 2){
 
-           return '2';
+           return view('frontEnd.posts.payment', [
+             'formInput' => $formInput
+           ]);
        }
 
+
+
+    }
+
+    public function payment(Request $request){
+
+
+      Stripe::setApiKey('sk_test_1NnB3oLn38U7OPic7GxVCmqF004pxgmak7');
+
+      $token = $request->stripeToken;
+      $charge = Charge::create([
+          'amount' => 100,
+          'currency' => 'usd',
+          'description' => 'Example charge',
+          'source' => $token,
+      ]);
+
+    Post::create([
+      'title' => $request->title,
+      'user_id' => $request->user_id,
+      'category_id' => $request->category_id,
+      'type_id' => $request->type_id,
+      'region' => $request->region,
+      'region_area' => $request->region_area,
+      'post_type' => $request->post_type,
+      'price' => $request->price,
+      'area' => $request->area,
+      'phn_number' => $request->phn_number,
+      'bedroom' => $request->bedroom,
+      'bathroom' => $request->bathroom,
+      'garage' => $request->garage,
+      'description' => $request->description,
+      'address' => $request->address,
+      'image' => $request->image,
+    ]);
+
+    Session::flash('message', 'You successfully created a post');
+    return redirect()->route('post.index')->with('message', 'Post Create successfully!');
 
 
     }
