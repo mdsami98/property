@@ -82,12 +82,12 @@
                 <nav class="main-menu">
                     <div class="menu-main-menu-container">
                         <ul id="menu-main-menu" class="clearfix">
-                            <li class=" current-menu-item">
+                            <li class="@if( request()->url() == route('user.home')) {{'current-menu-item'}} @endif">
                                 <a href="{{route('user.home')}}">Home</a>
 
                             </li>
 
-                            <li><a href="#">Pages</a>
+                            <li class=""><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="agents.html">Agents</a></li>
                                     <li><a href="for-rent.html">For Rent</a></li>
@@ -105,7 +105,7 @@
                                     <li><a href="columns.html">Columns</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Category</a>
+                            <li class="@if( request()->url() == route('user.categoryView', $category->id)) {{'current-menu-item'}} @endif"><a href="#">Category</a>
                                 <ul>
 
                                 @if($categories)
@@ -115,7 +115,7 @@
                                 @endif
                                 </ul>
                             </li>
-                            <li><a href="#">Type</a>
+                            <li class=""><a href="#">Type</a>
                                 <ul>
 
                                 @if($types)

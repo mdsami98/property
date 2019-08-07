@@ -1,164 +1,172 @@
-<div class="header-wrapper">
-
-    <div class="container"><!-- Start Header Container -->
-
-        <header id="header" class="clearfix">
-
-            <div id="header-top" class="clearfix">
-                <h2 id="contact-email">
-
-                    Email us at :
-                    <a href=""></a>
-                </h2>
-
-                <!-- Social Navigation -->
-                <ul class="social_networks clearfix">
-                    <li class="facebook">
-                        <a target="_blank" href="https://www.facebook.com/InspiryThemes"><i class="fa fa-facebook fa-lg"></i></a>
-                    </li>
-                    <li class="twitter">
-                        <a target="_blank" href="https://twitter.com/InspiryThemes"><i class="fa fa-twitter fa-lg"></i></a>
-                    </li>
-                    <li class="linkedin">
-                        <a target="_blank" href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-                    </li>
-                    <li class="gplus">
-                        <a target="_blank" href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-                    </li>
-                    <li class="rss">
-                        <a target="_blank" href="http://realhomes.inspirythemes.biz/feed/?post_type=property"> <i class="fa fa-rss fa-lg"></i></a>
-                    </li>
-                </ul>
-
-                <!-- User Navigation -->
-                <div class="user-nav clearfix">
-                    <a href="#">
-                        <i class="fa fa-star"></i>Favorites
-                    </a>
-                    @auth()
-
-                        <a class="last" href="{{route('login')}}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"
-                        data-toggle="modal">
-                        <i class="fa fa-sign-in"></i>Logout</a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                        </form>
-                    @endauth
-
-                    @guest()
-                        <a class="last" href="{{route('login')}}" data-toggle="modal"><i class="fa fa-sign-in"></i>Login</a>
-                    @endguest
-
-
-                </div>
-
-            </div>
-
-            <!-- Logo -->
-            <div id="logo">
-
-                <a title="Real Homes" href="{{route('user.home')}}">
-                    <img src="{{asset('frontEnd/')}}/images/logo.png" alt="Real Homes">
+<div class="br-header">
+    <div class="br-header-left">
+        <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href="#"><i class="icon ion-navicon-round"></i></a></div>
+        <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href="#"><i class="icon ion-navicon-round"></i></a></div>
+        <div class="input-group hidden-xs-down wd-170 transition">
+            <input id="searchbox" type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+          </span>
+        </div><!-- input-group -->
+    </div><!-- br-header-left -->
+    <div class="br-header-right">
+        <nav class="nav">
+            <div class="dropdown">
+                <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
+                    <i class="icon ion-ios-email-outline tx-24"></i>
+                    <!-- start: if statement -->
+                    <span class="square-8 bg-danger pos-absolute t-15 r-0 rounded-circle"></span>
+                    <!-- end: if statement -->
                 </a>
-                <h2 class="logo-heading only-for-print">
-                    <a href="index-2.html"  title="Real Homes">
-                        Real Homes
-                    </a>
-                </h2>
-                <div class="tag-line"><span>Real Estate</span></div>
-            </div>
+                <div class="dropdown-menu dropdown-menu-header wd-300 pd-0-force">
+                    <div class="d-flex align-items-center justify-content-between pd-y-10 pd-x-20 bd-b bd-gray-200">
+                        <label class="tx-12 tx-info tx-uppercase tx-semibold tx-spacing-2 mg-b-0">Messages</label>
+                        <a href="#" class="tx-11">+ Add New Message</a>
+                    </div><!-- d-flex -->
 
+                    <div class="media-list">
+                        <!-- loop starts here -->
+                        <a href="#" class="media-list-link">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img3.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                                        <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Donna Seay</p>
+                                        <span class="tx-11 tx-gray-500">2 minutes ago</span>
+                                    </div><!-- d-flex -->
+                                    <p class="tx-12 mg-b-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <!-- loop ends here -->
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                                        <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Samantha Francis</p>
+                                        <span class="tx-11 tx-gray-500">3 hours ago</span>
+                                    </div><!-- d-flex -->
+                                    <p class="tx-12 mg-b-0">My entire soul, like these sweet mornings of spring.</p>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img7.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                                        <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Robert Walker</p>
+                                        <span class="tx-11 tx-gray-500">5 hours ago</span>
+                                    </div><!-- d-flex -->
+                                    <p class="tx-12 mg-b-0">I should be incapable of drawing a single stroke at the present moment...</p>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img5.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                                        <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Larry Smith</p>
+                                        <span class="tx-11 tx-gray-500">Yesterday</span>
+                                    </div><!-- d-flex -->
+                                    <p class="tx-12 mg-b-0">When, while the lovely valley teems with vapour around me, and the meridian sun strikes...</p>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <div class="pd-y-10 tx-center bd-t">
+                            <a href="#" class="tx-12"><i class="fa fa-angle-down mg-r-5"></i> Show All Messages</a>
+                        </div>
+                    </div><!-- media-list -->
+                </div><!-- dropdown-menu -->
+            </div><!-- dropdown -->
+            <div class="dropdown">
+                <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
+                    <i class="icon ion-ios-bell-outline tx-24"></i>
+                    <!-- start: if statement -->
+                    <span class="square-8 bg-danger pos-absolute t-15 r-5 rounded-circle"></span>
+                    <!-- end: if statement -->
+                </a>
+                <div class="dropdown-menu dropdown-menu-header wd-300 pd-0-force">
+                    <div class="d-flex align-items-center justify-content-between pd-y-10 pd-x-20 bd-b bd-gray-200">
+                        <label class="tx-12 tx-info tx-uppercase tx-semibold tx-spacing-2 mg-b-0">Notifications</label>
+                        <a href="#" class="tx-11">Mark All as Read</a>
+                    </div><!-- d-flex -->
 
-            <div class="menu-and-contact-wrap">
-                <h2  class="contact-number ">
-                    <i class="fa fa-phone"></i>
-                    <span class="desktop-version">1-800-555-1234</span>
-                    <a class="mobile-version" href="tel://1-800-555-1234" title="Make a Call">1-800-555-1234</a>
-                    <span class="outer-strip"></span>
-                </h2>
-                <!-- Start Main Menu-->
-                <nav class="main-menu">
-                    <div class="menu-main-menu-container">
-                        <ul id="menu-main-menu" class="clearfix">
-                            <li class=" current-menu-item">
-                                <a href="index-2.html">Home</a>
-                                <ul>
-                                    <li><a href="home-with-google-map.html">Home with Google Map</a></li>
-                                    <li><a href="home-with-news-post.html">Home with News Posts</a></li>
-                                    <li><a href="home-with-custom-slider.html">Home with Custom Slider</a></li>
-                                    <li><a href="home-with-properties-slider.html">Home with Properties Slider</a></li>
-                                    <li><a href="home-with-simple-banner.html">Home with Simple Banner</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="listing.html">Listing</a>
-                                <ul>
-                                    <li><a href="simple-listing.html">Simple Listing</a></li>
-                                    <li><a href="simple-listing-with-google-map.html">Simple Listing with Google Map</a></li>
-                                    <li><a href="grid-listing.html">Grid Listing</a></li>
-                                    <li><a href="grid-listing-with-google-map.html">Grid Listing with Google Map</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="agents.html">Agents</a></li>
-                                    <li><a href="for-rent.html">For Rent</a></li>
-                                    <li><a href="for-sale.html">For Sale</a></li>
-                                    <li><a href="miami-city.html">Miami City</a></li>
-                                    <li><a href="faqs-filterable.html">FAQs</a>
-                                        <ul>
-                                            <li><a href="faqs-filterable.html">FAQs &#8211; Filterable</a></li>
-                                            <li><a href="faqs-toggle-style.html">FAQs &#8211; Toggle Style</a></li>
-                                            <li><a href="faqs-simple-list.html">FAQs &#8211; Simple List</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="columns.html">Columns</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Category</a>
-                                <ul>
+                    <div class="media-list">
+                        <!-- loop starts here -->
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img8.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Suzzeth Bungaos</strong> tagged you and 18 others in a post.</p>
+                                    <span class="tx-12">October 03, 2017 8:45am</span>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <!-- loop ends here -->
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img9.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Mellisa Brown</strong> appreciated your work <strong class="tx-medium tx-gray-800">The Social Network</strong></p>
+                                    <span class="tx-12">October 02, 2017 12:44am</span>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img10.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <p class="tx-13 mg-b-0 tx-gray-700">20+ new items added are for sale in your <strong class="tx-medium tx-gray-800">Sale Group</strong></p>
+                                    <span class="tx-12">October 01, 2017 10:20pm</span>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <a href="#" class="media-list-link read">
+                            <div class="media pd-x-20 pd-y-15">
+                                <img src="{{asset('admin/')}}/img/img5.jpg" class="wd-40 rounded-circle" alt="">
+                                <div class="media-body">
+                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Julius Erving</strong> wants to connect with you on your conversation with <strong class="tx-medium tx-gray-800">Ronnie Mara</strong></p>
+                                    <span class="tx-12">October 01, 2017 6:08pm</span>
+                                </div>
+                            </div><!-- media -->
+                        </a>
+                        <div class="pd-y-10 tx-center bd-t">
+                            <a href="#" class="tx-12"><i class="fa fa-angle-down mg-r-5"></i> Show All Notifications</a>
+                        </div>
+                    </div><!-- media-list -->
+                </div><!-- dropdown-menu -->
+            </div><!-- dropdown -->
+            <div class="dropdown">
+                <a href="#" class="nav-link nav-link-profile" data-toggle="dropdown">
+                    <span class="logged-name hidden-md-down">{{Auth::user() ? Auth::user()->name : ''}}</span>
+                    <img src="{{url('profileImage' ,Auth::user()->profile->image)}}" class="wd-32 rounded-circle" alt="">
+                    <span class="square-10 bg-success"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-header wd-200">
+                    <ul class="list-unstyled user-profile-nav">
+                        <li><a href="#"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
+                        <li><a href="#"><i class="icon ion-ios-gear"></i> Settings</a></li>
+                        <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>
+                        <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>
+                        <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>
+                        <li>
+                            <a href="{{route('login')}}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
 
-                                @if($categories)
-                                    @foreach($categories as $category)
-                                        <li><a href="{{route('user.categoryView', $category->id)}}">{{$category->title}}</a></li>
-                                    @endforeach
-                                @endif
-                                </ul>
-                            </li>
-                            <li><a href="#">Type</a>
-                                <ul>
+                                <i class="icon ion-power"></i>
+                                Log Out</a>
 
-                                @if($types)
-                                    @foreach($types as $type)
-                                        <li><a href="{{route('user.typeView', $type->id)}}">{{$type->title}}</a></li>
-                                    @endforeach
-                                @endif
-                                </ul>
-                            </li>
-                            @auth()
-                            <li><a href="property.html">Profile</a>
-                                <ul>
-                                    <li><a href="property-default-var.html">My property</a></li>
-                                    <li><a href="{{route('profile.show', Auth::user()->id)}}">My profile</a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div><!-- dropdown-menu -->
+            </div><!-- dropdown -->
+        </nav>
 
-                                </ul>
-                            </li>
-                            @endauth
-
-
-
-                            <li><a href="contact-us.html">Contact us</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <!-- End Main Menu -->
-            </div>
-
-        </header>
-
-    </div> <!-- End Header Container -->
-
+    </div><!-- br-header-right -->
 </div>

@@ -1,14 +1,14 @@
-@include('admin.includes.files')
+@include('agent.includes.files')
 
 <body>
 
 <!-- ########## START: LEFT PANEL ########## -->
 <!-- br-sideleft -->
-@include('admin.includes.sidebar')
+@include('agent.includes.sidebar')
 <!-- ########## END: LEFT PANEL ########## -->
 
 <!-- ########## START: HEAD PANEL ########## -->
-@include('admin.includes.header')
+@include('agent.includes.header')
 <!-- br-header -->
 <!-- ########## END: HEAD PANEL ########## -->
 
@@ -20,7 +20,7 @@
 @yield('content')
 <!-- br-mainpanel -->
 <!-- ########## END: MAIN PANEL ########## -->
-@include('admin.includes.scripts')
+@include('agent.includes.scripts')
 
 </body>
 
