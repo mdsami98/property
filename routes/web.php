@@ -87,4 +87,13 @@ Route::group(['as' => 'agent.', 'middleware'=> 'agent'], function () {
     Route::resource('agent/users', 'AgentUserController');
     Route::resource('agent/category', 'AgentCategoryController');
 
+    Route::resource('agent/post', 'AgentPostController');
+    Route::get('agent/my/post', 'AgentPostController@myPost')->name('my.post');
+    Route::get('agent/unpublished/post', 'AgentPostController@unpublishedPost')->name('unpublished.post');
+    Route::get('agent/post/published/{id}', 'AdminController@publication')->name('post.publication');
+    Route::resource('agent/post/image', 'AgentPostImageController');
+
+    Route::resource('agent/comments', 'PostCommentController');
+    Route::resource('agent/comment/replies', 'CommentRepliesController');
+
 });

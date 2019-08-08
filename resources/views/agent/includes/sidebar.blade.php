@@ -22,6 +22,18 @@
                 <span class="menu-item-label">Category</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{route('agent.my.post')}}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">My post</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="{{route('agent.unpublished.post')}}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">unpublished post</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
@@ -31,8 +43,8 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{route('admin.post.create')}}" class="nav-link">Add Post</a></li>
-            <li class="nav-item"><a href="{{route('admin.post.index')}}" class="nav-link">All Post</a></li>
+            <li class="nav-item"><a href="{{route('agent.post.create')}}" class="nav-link">Add Post</a></li>
+            <li class="nav-item"><a href="{{route('agent.post.index')}}" class="nav-link">All Post</a></li>
 
         </ul>
 

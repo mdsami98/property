@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentCategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agent/categories/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agent/categories/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agent/categories/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentPostController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentPostImageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/comments/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/comments/replies/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/comments/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/posts/addimage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/posts/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/posts/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/posts/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/posts/singlepost.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -232,7 +238,7 @@
       <workItem from="1565210829819" duration="194000" />
       <workItem from="1565211050311" duration="4652000" />
       <workItem from="1565254518225" duration="5303000" />
-      <workItem from="1565273055888" duration="3303000" />
+      <workItem from="1565273055888" duration="6630000" />
     </task>
     <servers />
   </component>
