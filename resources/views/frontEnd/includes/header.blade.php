@@ -105,7 +105,7 @@
                                     <li><a href="columns.html">Columns</a></li>
                                 </ul>
                             </li>
-                            <li class="@if( request()->url() == route('user.categoryView', $category->id)) {{'current-menu-item'}} @endif"><a href="#">Category</a>
+                            <li class="@if( request()->url() == url('/category/{id}')) {{'current-menu-item'}} @endif"><a href="#">Category</a>
                                 <ul>
 
                                 @if($categories)

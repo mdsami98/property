@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agent/includes/files.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/users/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/users/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agent/users/singleuser.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/home/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/file.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/modal.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/scripts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/agent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/agent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,20 +128,16 @@
       <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="9" />
-    <option name="width" value="1386" />
-    <option name="height" value="698" />
-  </component>
   <component name="ProjectId" id="1P72TmfSnsFGzlCBvNpEvr0H2nZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/agent" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/agent/users" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -160,14 +151,14 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Custom" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\property\resources\views\agent\users" />
       <recent name="C:\xampp\htdocs\property\resources\views\agent" />
       <recent name="C:\xampp\htdocs\property\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\property\resources\views\admin\users" />
-      <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
-      <recent name="C:\xampp\htdocs\property\resources\views\admin\type" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
     </key>
   </component>
@@ -240,7 +231,9 @@
       <workItem from="1565119058395" duration="599000" />
       <workItem from="1565122343196" duration="22000" />
       <workItem from="1565210829819" duration="194000" />
-      <workItem from="1565211050311" duration="4593000" />
+      <workItem from="1565211050311" duration="4652000" />
+      <workItem from="1565254518225" duration="5303000" />
+      <workItem from="1565273055888" duration="2579000" />
     </task>
     <servers />
   </component>
@@ -259,6 +252,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
