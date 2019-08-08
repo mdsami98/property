@@ -16,7 +16,7 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
 
-        <a href="{{route('admin.category.index')}}" class="br-menu-link">
+        <a href="{{route('agent.category.index')}}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">Category</span>

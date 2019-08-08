@@ -85,5 +85,6 @@ Route::group(['as' => 'agent.', 'middleware'=> 'agent'], function () {
     Route::get('/agent/home', 'AgentController@index')->name('home');
 
     Route::resource('agent/users', 'AgentUserController');
+    Route::resource('agent/category', 'AgentCategoryController');
 
 });
