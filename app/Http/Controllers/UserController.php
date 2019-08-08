@@ -6,8 +6,11 @@ use App\Post;
 use App\Profile;
 use App\Role;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -69,27 +72,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:6',
-            'confirm_password' => 'required|same:password|min:6',
-            'role_id' => 'required'
-        ]);
-
-
-        $input = [
-            'name' =>$request->name,
-            'email' =>$request->email,
-            'password' =>bcrypt($request->passwprd),
-            'role_id' =>$request->role_id,
-        ];
-
-       $user= User::create($input);
-
-
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->created($request->all())));
         $userId = $user->id;
-
         $date = [
             'user_id' => $userId,
             'image' =>'profile.jpg',
@@ -119,6 +104,28 @@ class UserController extends Controller
         }
 
     }
+
+    private function created(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'role_id' => $data['role_id'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
 
     /**
      * Display the specified resource.

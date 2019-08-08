@@ -61,7 +61,7 @@
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('confirm_password', 'Confirm Password:') !!}<span class="tx-danger">*</span>
-                                    <input type="password" name="confirm_password" class="form-control wd-300">
+                                    <input type="password" name="password_confirmation" class="form-control wd-300">
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
@@ -76,7 +76,7 @@
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('role_id', 'Select Role:') !!}<span class="tx-danger">*</span>
-                                    {!! Form::select('role_id',array(0 =>'Choose Type') + $role,'',['class' => 'form-control wd-300']) !!}
+                                    {!! Form::select('role_id',$role,'',['class' => 'form-control wd-300']) !!}
 
                                 </div><!-- form-group -->
 
