@@ -165,6 +165,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        FarhanWazir\GoogleMaps\GMapsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -178,7 +179,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
         Yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
@@ -236,6 +236,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'GMaps' => FarhanWazir\GoogleMaps\Facades\GMapsFacade::class,
 
     ],
 

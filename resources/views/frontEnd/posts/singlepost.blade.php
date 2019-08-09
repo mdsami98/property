@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('header_js')
+   {!! $map['js'] !!}
+@endsection
+
 @section('content')
     <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url({{asset('frontEnd/')}}/images/temp-images/banner.jpg); background-size: cover;">
         <div class="container">
@@ -84,7 +88,7 @@
 <path class="path" d="M23.958 0.885c-0.175-0.64-0.835-1.016-1.475-0.842l-11 3.001c-0.64 0.173-1.016 0.833-0.842 1.5 c0.175 0.6 0.8 1 1.5 0.842L16 4.299V6.2h-0.001H13c-2.867 0-4.892 1.792-5.664 2.891L5.93 11.2H5.024 c-0.588-0.029-2.517-0.02-3.851 1.221C0.405 13.1 0 14.1 0 15.201V18.2v2H2h2.02C4.126 22.3 5.9 24 8 24 c2.136 0 3.873-1.688 3.979-3.801H16V24h2V3.754l5.116-1.396C23.756 2.2 24.1 1.5 24 0.885z M8 22 c-1.104 0-2-0.896-2-2.001s0.896-2 2-2S10 18.9 10 20S9.105 22 8 22.001z M11.553 18.2C10.891 16.9 9.6 16 8 16 c-1.556 0-2.892 0.901-3.553 2.201H2v-2.999c0-0.599 0.218-1.019 0.537-1.315C3.398 13.1 5 13.2 5 13.2h2L9 10.2 c0 0 1.407-1.999 4-1.999h2.999H16v10H11.553z"/>
 </svg>
 {{$post->garage}}&nbsp;Garages</span>
-
+                                @Auth()
                                 @if($post->user_id == Auth::user()->id)
                                    <span class="add-to-fav">
                                         <a id="add-to-favorite" href="#add-to-favorite">
@@ -96,6 +100,7 @@
 
                                    </span>
                                 @endif
+                                @endauth
                                 <!-- Print link -->
                                 <span class="printer-icon"><a href="javascript:window.print()"><i class="fa fa-print"></i>Print</a></span>
                             </div>
@@ -115,6 +120,8 @@
                             <div class="contact-info">
                                 <h4>Contuct Number : {{$post->phn_number}}</h4>
                             </div>
+
+                            @auth()
                             @if($post->user_id != Auth::user()->id)
                             <div class="favourite mg-t-20">
 
@@ -146,6 +153,8 @@
                             </div>
                             @endif
 
+                                @endauth
+
 
 
 
@@ -153,7 +162,9 @@
 
                         <div class="map-wrap clearfix">
                             <span class="map-label">Property Map</span>
-                            <div id="property_map"></div>
+                            <div id="property_map">
+                                {!! $map['html'] !!}
+                            </div>
 
                             <div class="share-networks clearfix">
                                 <span class="share-label">Share this</span>

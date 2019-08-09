@@ -7,6 +7,7 @@ use App\Favourite;
 use App\Post;
 use App\PostImage;
 use App\Profile;
+use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -35,6 +36,21 @@ class IndexController extends Controller
 
         $post =Post::findOrFail($id);
 
+        $config['center'] =$post->address;
+        $config['zoom'] ='18';
+        $config['map_height'] ='300px';
+        $config['map_width'] ='800px';
+        $config['scroolwheel'] =false;
+
+        \GMaps::initialize($config);
+
+//        Markar
+
+        $marker['position'] = $post->address;
+        \GMaps::add_marker($marker);
+
+        $map =\GMaps::create_map();
+
         $comments = $post->comments;
 
         $favourite = Favourite::where('post_id', $post->id)->first();
@@ -45,6 +61,7 @@ class IndexController extends Controller
             'postImages' => $postImages,
             'comments' => $comments,
             'favourite' => $favourite,
+            'map' => $map,
         ]);
     }
 
