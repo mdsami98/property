@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Role;
 use App\Post;
 use App\Profile;
+use App\Favourite;
 
 class User extends Authenticatable
 {
@@ -74,5 +75,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
 
+    public function favourites(){
+        return $this->hasMany('App\Favourite');
+    }
 
 }

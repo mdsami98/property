@@ -33,7 +33,7 @@ Route::post('/profile/image', 'ProfileController@addImage')->name('profile.addim
 
 Route::post('/search/property', 'SearchController@search')->name('search.property');
 
-
+Route::resource('/user/favourite', 'FavouriteController');
 
 
 

@@ -101,16 +101,13 @@
                                 @if($post->user_id == Auth::user()->id)
                                  <span class="add-to-fav">
 
-
-
                                     <a id="add-to-favorite" href="#add-to-favorite">
-                                        <i class="fa fa-edit"> Edit</i>
-
+                                        <i class="fa fa-edit"></i>
                                     </a>
-
-
-
-                                        </span>
+                                    <a id="add-to-favorite" href="#add-to-favorite">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                 </span>
 
 
                                   <span class="add-to-fav">

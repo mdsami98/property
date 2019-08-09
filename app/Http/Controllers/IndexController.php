@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Favourite;
 use App\Post;
 use App\PostImage;
 use App\Profile;
@@ -36,11 +37,14 @@ class IndexController extends Controller
 
         $comments = $post->comments;
 
+        $favourite = Favourite::where('post_id', $post->id)->first();
+
         $postImages = PostImage::where('post_id','=', $id )->get();
         return view('frontEnd.posts.singlepost', [
             'post' => $post,
             'postImages' => $postImages,
             'comments' => $comments,
+            'favourite' => $favourite,
         ]);
     }
 

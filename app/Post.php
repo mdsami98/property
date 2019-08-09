@@ -7,6 +7,7 @@ use App\Category;
 use App\Profile;
 use App\Type;
 use App\Comment;
+use App\Favourite;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -43,6 +44,7 @@ class Post extends Model
     public function comments(){
         return $this->hasMany('App\Comment');
     }
+
 
 
 }

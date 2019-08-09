@@ -32,10 +32,11 @@
 
                 <!-- User Navigation -->
                 <div class="user-nav clearfix">
-                    <a href="#">
-                        <i class="fa fa-star"></i>Favorites
-                    </a>
                     @auth()
+
+                        <a href="{{route('favourite.index')}}">
+                            <i class="fa fa-star"></i>Favorites
+                        </a>
 
                         <a class="last" href="{{route('login')}}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"
