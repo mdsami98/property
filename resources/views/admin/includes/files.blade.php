@@ -47,8 +47,9 @@
 
     <!-- Bracket CSS -->
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
+
+    <link rel="stylesheet" href="{{asset('admin/')}}/css/datatable.css">
     <link rel="stylesheet" href="{{asset('admin/')}}/css/toster.css">
     <link rel="stylesheet" href="{{asset('admin/')}}/css/bracket.css">
 

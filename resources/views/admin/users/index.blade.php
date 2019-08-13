@@ -23,7 +23,7 @@
                             <div class="table-wrapper">
                                 <h4 class="text-center mt-2 mb-40 title">All Users</h4>
 
-                                <table id="pageTable" class="table display responsive">
+                                <table id="user_table" class="table display responsive">
                                     <thead>
                                     <tr>
 
@@ -78,11 +78,11 @@
 @stop
 
 @section('custom_script')
-    <script src="{{ asset('admin/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('admin/js/jquery.bootstrsp.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/js/datatable.js') }}"></script>
+
     <script>
-        $(document).ready(function() {
-            $('#pageTable').DataTable();
+        $(document).ready( function () {
+          $('#user_table').DataTable();
         } );
     </script>
 

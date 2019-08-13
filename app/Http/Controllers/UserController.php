@@ -24,12 +24,8 @@ class UserController extends Controller
     {
 
      $users = User::where('role_id', 1)->get();
-
-
-
         return view('admin.users.index', [
-            'users' =>$users,
-
+            'users' =>$users
         ]);
 
 
