@@ -66,6 +66,16 @@
 {{--        <ul class="br-menu-sub nav flex-column">--}}
 {{--            <li class="nav-item"><a href="{{route('admin.comments.index')}}" class="nav-link">All Comments</a></li>--}}
 {{--        </ul>--}}
+
+
+        <a href="{{route('admin.log.index')}}" class="br-menu-link @if( request()->url() == route('admin.comments.index')) {{'active'}} @endif">
+            <div class="br-menu-item">
+                <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
+                <span class="menu-item-label">Security Log</span>
+            </div><!-- menu-item -->
+        </a>
+
+
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -82,32 +92,8 @@
             <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>
             <li class="nav-item"><a href="chart-peity.html" class="nav-link">Peity</a></li>
         </ul>
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
-                <span class="menu-item-label">Forms</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="form-elements.html" class="nav-link">Form Elements</a></li>
-            <li class="nav-item"><a href="form-layouts.html" class="nav-link">Form Layouts</a></li>
-            <li class="nav-item"><a href="form-validation.html" class="nav-link">Form Validation</a></li>
-            <li class="nav-item"><a href="form-wizards.html" class="nav-link">Form Wizards</a></li>
-            <li class="nav-item"><a href="form-editor-code.html" class="nav-link">Code Editor</a></li>
-            <li class="nav-item"><a href="form-editor-text.html" class="nav-link">Text Editor</a></li>
-        </ul>
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-                <span class="menu-item-label">Tables</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="table-basic.html" class="nav-link">Basic Table</a></li>
-            <li class="nav-item"><a href="table-datatable.html" class="nav-link">Data Table</a></li>
-        </ul>
+
+
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>

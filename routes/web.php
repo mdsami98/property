@@ -37,6 +37,7 @@ Route::resource('/user/favourite', 'FavouriteController');
 
 
 
+
 Route::group(['middleware'=> 'auth'], function () {
 
     Route::post('/comment/replies', 'CommentRepliesController@createReply');
@@ -75,6 +76,8 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
 
   Route::resource('admin/comments', 'PostCommentController');
   Route::resource('admin/comment/replies', 'CommentRepliesController');
+
+  Route::resource('admin/log', 'LogController');
 
 
 });

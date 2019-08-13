@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
@@ -44,7 +46,18 @@ class CategoryController extends Controller
         ]);
 
         $input = $request->all();
-       Category::create($input);
+       $category = Category::create($input);
+
+        $action_by = Auth::user()->name;
+        $action_for = $request->title;
+        $action = 'Create Category';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
         Session::flash('message', 'You successfully created a category');
         return redirect()->route('admin.category.index');
 
@@ -108,6 +121,17 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
+
+        $action_by = Auth::user()->name;
+        $action_for = $category->title;
+        $action = 'Delete Category';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
         $category->delete();
 
         Session::flash('message', 'You successfully deleted the category');
