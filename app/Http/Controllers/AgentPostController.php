@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Requests\PostCreateRequest;
 use App\Post;
 use App\PostImage;
+use App\RegionAreaCity;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,9 +53,11 @@ class AgentPostController extends Controller
     {
         $category = Category::pluck('title' , 'id')->all();
         $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
         return view('agent.posts.create', [
             'category' => $category,
             'type' => $type,
+            'region' => $region,
         ]);
     }
 
@@ -119,6 +122,7 @@ class AgentPostController extends Controller
         $category = Category::pluck('title' , 'id')->all();
 
         $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
 
         $post = Post::findOrFail($id);
 
@@ -126,6 +130,7 @@ class AgentPostController extends Controller
             'post' => $post,
             'category' => $category,
             'type' => $type,
+            'region' => $region,
 
         ]);
     }
@@ -145,11 +150,15 @@ class AgentPostController extends Controller
             'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
             'category_id' => 'required',
             'type_id' => 'required',
-            'area' => 'required',
-            'price' => 'required',
-            'bedroom' => 'required',
-            'bathroom' => 'required',
+            'post_type' => 'required',
+            'area' => 'required|integer|min:400',
+            'price' => 'required|integer|min:1',
+            'bedroom' => 'required|integer|min:1',
+            'bathroom' => 'required|integer|min:1',
+            'floor' => 'required|integer|min:1',
             'description' => 'required',
+            'region' => 'required',
+            'region_area' => 'required',
             'address' => 'required',
             'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
         ]);

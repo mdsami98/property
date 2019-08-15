@@ -118,6 +118,15 @@
                                    {{$errors->has('garage') ? $errors->first('garage') : ''}}
                                 </span>
                             </div>
+                            <div class="option-bar large">
+
+                                {!! Form::label('floor', 'which Floor:') !!} <span class="text-danger">*</span>
+                                {!! Form::number('floor',null, ['id' => '', 'placeholder' => 'Ex : 1']) !!}
+
+                                <span class="text-danger">
+                                   {{$errors->has('floor') ? $errors->first('floor') : ''}}
+                                </span>
+                            </div>
 
 
 
@@ -163,7 +172,7 @@
 
                                 {!! Form::label('region', 'Region:') !!} <span class="text-danger">*</span>
 
-                                {!! Form::text('region',null,['id' => '', 'placeholder' => 'Ex : Dhaka']) !!}
+                                {!! Form::select('region', $region, null ,['class' => 'search-select', 'id' =>'select-status']) !!}
 
                                 <span class="text-danger">
                                    {{$errors->has('region') ? $errors->first('region') : ''}}

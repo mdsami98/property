@@ -7,9 +7,12 @@ use App\Http\Requests\PostCreateRequest;
 use App\Post;
 use App\PostImage;
 use App\Profile;
+
+use App\RegionAreaCity;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -38,11 +41,17 @@ class PostController extends Controller
     {
         $category = Category::pluck('title' , 'id')->all();
         $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
+
         return view('admin.posts.create', [
             'category' => $category,
             'type' => $type,
+            'region' => $region,
+
         ]);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -52,6 +61,7 @@ class PostController extends Controller
      */
     public function store(PostCreateRequest $request)
     {
+
 
         $formInput=$request->all();
 
@@ -113,12 +123,14 @@ class PostController extends Controller
         $category = Category::pluck('title' , 'id')->all();
 
         $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
         $post = Post::findOrFail($id);
 
         return view('admin.posts.edit',[
             'post' => $post,
             'category' => $category,
             'type' => $type,
+            'region' => $region,
 
         ]);
     }
@@ -138,11 +150,15 @@ class PostController extends Controller
             'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
             'category_id' => 'required',
             'type_id' => 'required',
-            'area' => 'required',
-            'price' => 'required',
-            'bedroom' => 'required',
-            'bathroom' => 'required',
+            'post_type' => 'required',
+            'area' => 'required|integer|min:400',
+            'price' => 'required|integer|min:1',
+            'bedroom' => 'required|integer|min:1',
+            'bathroom' => 'required|integer|min:1',
+            'floor' => 'required|integer|min:1',
             'description' => 'required',
+            'region' => 'required',
+            'region_area' => 'required',
             'address' => 'required',
             'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
         ]);

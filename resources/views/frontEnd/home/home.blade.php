@@ -5,39 +5,21 @@
     <div id="home-flexslider" class="clearfix">
         <div class="flexslider loading">
             <ul class="slides">
-                <li>
+                @if(count($premiumPosts) > 0)
+                    @foreach($premiumPosts as $premiumPost)
+                <li class="slider-box">
                     <div class="desc-wrap">
                         <div class="slide-description">
-                            <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut&hellip;</p>
-                            <span>$3,850 Per Month</span>
-                            <a href="property.html" class="know-more">Know More</a>
+                            <h3><a href="{{route('user.singleView',['id'=> $premiumPost->id])}}">{{$premiumPost->title}}</a></h3>
+                            <p>{{str_limit($premiumPost->description, 100)}}</p>
+                            <span>{{$premiumPost->price}} {{$premiumPost->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}</span>
+                            <a href="{{route('user.singleView',['id'=> $premiumPost->id])}}" class="know-more">Know More</a>
                         </div>
                     </div>
-                    <a href="#"><img src="{{asset('frontEnd/')}}/images/temp-images/slider-image.jpg" alt="15421 Southwest 39th Terrace"></a>
+                   <img class="slider-img" src="{{url('postimages',$premiumPost->image)}}" alt="15421 Southwest 39th Terrace">
                 </li>
-                <li>
-                    <div class="desc-wrap">
-                        <div class="slide-description">
-                            <h3><a href="property.html">Florida 5, Pinecrest, FL</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut&hellip;</p>
-                            <span>$480,000 </span>
-                            <a href="property.html" class="know-more">Know More</a>
-                        </div>
-                    </div>
-                    <a href="#"><img src="{{asset('frontEnd/')}}/images/temp-images/slider-image2.jpg" alt="15421 Southwest 39th Terrace"></a>
-                </li>
-                <li>
-                    <div class="desc-wrap">
-                        <div class="slide-description">
-                            <h3><a href="property.html">1200 Anastasia Avenue, Coral Gables</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut&hellip;</p>
-                            <span>$625,000 </span>
-                            <a href="property.html" class="know-more">Know More</a>
-                        </div>
-                    </div>
-                    <a href="#"><img src="{{asset('frontEnd/')}}/images/temp-images/slider-image.jpg" alt="15421 Southwest 39th Terrace"></a>
-                </li>
+                    @endforeach
+                @endif
             </ul>
         </div>
     </div>
@@ -208,6 +190,89 @@
                             {!! Form::close() !!}
                         </div>
                     </section>
+
+{{--                    Premium posts--}}
+                    @if(count($premiumPosts)> 0)
+
+                    <section id="home-properties-section" class="property-items ajax-pagination">
+
+                        <div class="narrative">
+                            <h2>All Premium posts</h2><p> </p></div>	<div id="home-properties-section-wrapper">
+                            <div id="home-properties-section-inner">
+                                <div id="home-properties-wrapper">
+
+                                    <div id="home-properties" class="property-items-container clearfix">
+
+
+
+                                            @foreach($premiumPosts as $premiumPost)
+
+                                                <div class="span6 ">
+                                                    <article class="property-item clearfix">
+                                                        <h4><a href="{{route('user.singleView',['id'=> $premiumPost->id])}}">{{$premiumPost->title}}</a></h4>
+
+                                                        <figure>
+
+                                                            <a href="{{route('user.singleView',['id'=> $premiumPost->id])}}">
+
+                                                                <img src="{{url('postimages',$premiumPost->image)}}" alt="Property Image">
+
+
+                                                                {{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
+                                                            </a>
+
+
+
+
+                                                            <figcaption class="for-rent">For {{$premiumPost->type->title}}</figcaption>
+                                                        </figure>
+
+                                                        <div class="detail">
+                                                            <h5 class="price">
+                                                                {{$premiumPost->price}} {{$premiumPost->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small></h5>
+                                                            <p>{{str_limit($premiumPost->description, 100)}}&hellip;</p>
+                                                            <a class="more-details" href="{{route('user.singleView',['id'=> $premiumPost->id])}}">More Details <i class="fa fa-caret-right"></i></a>
+                                                        </div>
+
+                                                        <div class="property-meta">
+                                                            <span>{{$premiumPost->area}}&nbsp;sq ft</span>
+                                                            <span>{{$premiumPost->bedroom}}&nbsp;Bedrooms</span>
+                                                            <span>{{$premiumPost->bathroom}}&nbsp;Bathrooms</span>
+                                                            <span>{{$premiumPost->garage}}&nbsp;Garages</span>
+                                                        </div>
+                                                        <div class="property-meta">
+                                                            <span>Address : {{$premiumPost->address}}</span>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            @endforeach
+
+
+                                        {{--                                        <div class="clearfix"></div>--}}
+
+
+
+
+                                    </div><!-- end of #home-properties -->
+
+                                </div><!-- end of #home-properties-wrapper -->
+
+                                {{--                             {{$posts->links('vendor.pagination.default')}}--}}
+
+                                {{$premiumPosts->render()}}
+
+
+
+
+                            </div><!-- end of #home-properties-section-inner -->
+
+                        </div><!-- end of #home-properties-section-wrapper -->
+
+                    </section>
+                    @endif
+
+{{--                    Premium posts End--}}
+
                     {{--  ====== Home Property--}}
                     <section id="home-properties-section" class="property-items ajax-pagination">
 

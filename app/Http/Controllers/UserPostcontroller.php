@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\PostImage;
+use App\RegionAreaCity;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,9 +40,11 @@ class UserPostcontroller extends Controller
 
         $category = Category::pluck('title' , 'id')->all();
         $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
         return view('frontEnd.posts.create', [
             'category' => $category,
             'type' => $type,
+            'region' => $region,
         ]);
     }
 
@@ -60,15 +63,16 @@ class UserPostcontroller extends Controller
            'image' => 'required',
            'category_id' => 'required',
            'type_id' => 'required',
-           'area' => 'required',
-           'price' => 'required',
-           'bedroom' => 'required',
-           'bathroom' => 'required',
+           'post_type' => 'required',
+           'area' => 'required|integer|min:400',
+           'price' => 'required|integer|min:1',
+           'bedroom' => 'required|integer|min:1',
+           'bathroom' => 'required|integer|min:1',
+           'floor' => 'required|integer|min:1',
            'description' => 'required',
            'region' => 'required',
            'region_area' => 'required',
            'address' => 'required',
-           'post_type' => 'required',
            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
        ]);
 

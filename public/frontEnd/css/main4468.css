@@ -7965,3 +7965,7 @@ label {
 input.remove {
     background-color: #ff8178;
 }
+
+li.slider-box img.slider-img {
+    height: 600px;
+}

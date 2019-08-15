@@ -16,14 +16,18 @@ class IndexController extends Controller
 {
     public function index(){
 
-        $posts =Post::where('publication_status' , 1)->paginate(4);
+        $posts =Post::where('publication_status' , 1)
+            ->where('type_id' , 1)->paginate(4);
 
-
+        $premiumPosts =Post::where('publication_status' , 1)
+                            ->where('type_id' , 2)
+                            ->orderBy('id','desc')->paginate(8);
 
         $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         return view('frontEnd.home.home', [
             'posts' => $posts,
             'latestPosts' => $latestPosts,
+            'premiumPosts' => $premiumPosts,
         ]);
 
 

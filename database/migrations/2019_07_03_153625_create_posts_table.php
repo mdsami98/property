@@ -31,6 +31,7 @@ class CreatePostsTable extends Migration
             $table->integer('garage')->unsigned()->nullable();
             $table->text('description');
             $table->text('address');
+            $table->text('floor');
             $table->string('map')->nullable();
             $table->string('image');
             $table->tinyInteger('publication_status')->default(0);

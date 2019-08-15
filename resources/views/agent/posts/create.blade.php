@@ -21,8 +21,8 @@
                         <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-                                    <label id="name">Post Name: <span class="tx-danger">*</span></label>
-                                    <input id="name" type="text" name="title" class="form-control wd-300" placeholder="Enter Post Name" required>
+                                    {!! Form::label('phn_number', 'Post title:') !!}<span class="tx-danger">*</span>
+                                    {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Post title', 'require']) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
@@ -97,12 +97,6 @@
                                 </span>
                             </div>
 
-
-
-
-                        </div>
-{{--                        End row--}}
-                        <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('bedroom', 'Total Bedrooms:') !!}<span class="tx-danger">*</span>
@@ -115,6 +109,7 @@
                                     {{$errors->has('bedroom') ? $errors->first('bedroom') : ''}}
                                 </span>
                             </div>
+
 
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
@@ -129,6 +124,12 @@
                                 </span>
                             </div>
 
+                        </div>
+                        {{--                        End row--}}
+                        <div class="col">
+
+
+
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
                                     {!! Form::label('garage', 'Total Garage:') !!}
@@ -136,6 +137,52 @@
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
+
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('garage') ? $errors->first('garage') : ''}}
+                                </span>
+                            </div>
+
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('floor', 'which Floor:') !!}
+                                    {!! Form::text('floor', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'e.g 4th']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('floor') ? $errors->first('floor') : ''}}
+                                </span>
+                            </div>
+
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('region', 'Select Type:') !!}<span class="tx-danger">*</span>
+
+                                    {!! Form::select('region',array(0 =>'Choose Region') + $region,null, ['class' => 'form-control wd-300']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('region') ? $errors->first('region') : ''}}
+                                </span>
+                            </div>
+
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('region_area', 'City:') !!}
+                                    {!! Form::text('region_area', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Address']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
+                            <div class="d-flex mg-b-10">
+                                <span class="text-danger">
+                                    {{$errors->has('region_area') ? $errors->first('region_area') : ''}}
+                                </span>
+                            </div>
 
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
@@ -158,6 +205,14 @@
 
                             </div><!-- d-flex -->
 
+                            <div class="d-flex mg-b-20">
+                                <div class="form-group mg-b-0">
+                                    {!! Form::label('post_type', 'Select Post type:') !!}<span class="tx-danger">*</span>
+
+                                    {!! Form::select('post_type',array(0 =>'Normal', 1=> 'Premium'),null, ['class' => 'form-control wd-300']) !!}
+                                </div><!-- form-group -->
+
+                            </div><!-- d-flex -->
 
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">

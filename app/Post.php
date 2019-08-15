@@ -8,6 +8,7 @@ use App\Profile;
 use App\Type;
 use App\Comment;
 use App\Favourite;
+use App\RegionAreaCity;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -35,6 +36,9 @@ class Post extends Model
     }
     public function type(){
         return $this->belongsTo('App\Type');
+    }
+    public function region(){
+        return $this->belongsTo('App\RegionAreaCity');
     }
 
     public function photos(){
