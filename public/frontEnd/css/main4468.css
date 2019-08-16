@@ -7968,4 +7968,6 @@ input.remove {
 
 li.slider-box img.slider-img {
     height: 600px;
-}
+}ul.slides img.banner {
+     height: 360px;
+ }

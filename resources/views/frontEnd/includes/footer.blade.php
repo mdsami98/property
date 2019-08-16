@@ -18,21 +18,15 @@
                 <section id="recent-posts-4" class="widget clearfix widget_recent_entries">
                     <h3 class="title">Recent Posts</h3>
                     <ul>
+
+                        @if(count($recentposts) > 0)
+                            @foreach($recentposts as $recentpost)
                         <li>
-                            <a href="#">Lorem Post With Image Format</a>
+                            <a href="{{route('user.singleView',['id'=> $recentpost->id])}}">{{$recentpost->title}}</a>
                         </li>
-                        <li>
-                            <a href="#">Example Video Blog Post</a>
-                        </li>
-                        <li>
-                            <a href="#">Example Post With Gallery Post Format</a>
-                        </li>
-                        <li>
-                            <a href="#">Example Post With Image Post Format</a>
-                        </li>
-                        <li>
-                            <a href="#">Lorem Ipsum Dolor Sit Amet</a>
-                        </li>
+                            @endforeach
+                        @endif
+
                     </ul>
                 </section>
             </div>

@@ -257,8 +257,14 @@
                                 <label for="location">
                                     Location		</label>
                                 <span class="selectwrap">
-                <select name="location" id="location" class="search-select"></select>
-        </span>
+                                            <select name="location" id="select-status" class="search-select">
+                                                @if(count($regions) > 0)
+                                                    @foreach($regions as $region)
+                                                        <option value="{{$region->id}}">{{$region->region}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </span>
                             </div>
                             <div class="option-bar large">
                                 <label for="select-status">

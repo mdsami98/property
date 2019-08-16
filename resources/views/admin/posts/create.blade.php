@@ -1,24 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@mdsami98
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-0
-0 0 mdsami98/property Private
-Code  Issues 0  Pull requests 0  Projects 0  Security  Insights  Settings
-property/resources/views/admin/posts/create.blade.php
-@mdsami98 mdsami98 User post create view and delete done
-1310e3a 10 days ago
-207 lines (165 sloc)  10.6 KB
 
 @extends('layouts.admin')
 

@@ -7,6 +7,7 @@ use App\Favourite;
 use App\Post;
 use App\PostImage;
 use App\Profile;
+use App\Type;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,20 +71,22 @@ class IndexController extends Controller
     }
 
     public function categoryView($id){
-
-        $posts = Post::where('category_id', $id)->get();
+        $category = Category::findOrfail($id);
+        $posts = Post::where('category_id', $id)->paginate(8);
 
         return view('frontEnd.posts.categoryview', [
             'posts' => $posts,
+            'category' => $category,
         ]);
 
     }
     public function typeView($id){
-
-        $posts = Post::where('type_id', $id)->get();
+        $type = Type::findOrFail($id);
+        $posts = Post::where('type_id', $id)->paginate(8);
 
         return view('frontEnd.posts.typeview', [
             'posts' => $posts,
+            'type' => $type,
         ]);
 
     }

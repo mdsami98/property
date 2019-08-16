@@ -59,8 +59,14 @@
                                 <label for="location">
                                     Location		</label>
                                 <span class="selectwrap">
-                <select name="location" id="location" class="search-select"></select>
-        </span>
+                                            <select name="location" id="select-status" class="search-select">
+                                                @if(count($regions) > 0)
+                                                    @foreach($regions as $region)
+                                                        <option value="{{$region->id}}">{{$region->region}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </span>
                             </div>
                             <div class="option-bar large">
                                 <label for="select-status">
@@ -112,7 +118,7 @@
                                             <option value="9">9</option>
                                             <option value="10">10</option>
                                         </select>
-    </span>
+                                    </span>
                             </div>
                             <div class="option-bar small">
                                 <label for="select-bathrooms">
@@ -132,7 +138,8 @@
                                             <option value="10">10</option>
                                         </select>
                                     </span>
-                            </div><div class="option-bar small price-for-others">
+                            </div>
+                            <div class="option-bar small price-for-others">
                                 <label for="select-min-price">
                                     Min Price	</label>
                                 <span class="selectwrap">

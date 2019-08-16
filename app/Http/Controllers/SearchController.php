@@ -11,6 +11,7 @@ class SearchController extends Controller
 
 
 //        return $request->all();
+        $region= $request->location;
         $p_category= $request->category;
         $p_type= $request->type;
         $bedrooms= $request->bedrooms;
@@ -22,6 +23,7 @@ class SearchController extends Controller
 
 
         $posts = Post::where('category_id','=' ,$p_category)
+                            ->where('region','=', $region)
                             ->where('type_id','=', $p_type)
                             ->where('bedroom', '>=', $bedrooms)
                             ->where('bathroom', '>=', $bathrooms)

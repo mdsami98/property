@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Category;
 use App\Post;
 use App\Profile;
+use App\RegionAreaCity;
 use App\Type;
 use Illuminate\Support\ServiceProvider;
 
@@ -36,9 +37,11 @@ class AppServiceProvider extends ServiceProvider
         $profile = Profile::select('id','image')->get();
         view()->share('profile', $profile);
 
+        $regions = RegionAreaCity::select('id', 'region')->get();
+        view()->share('regions', $regions);
 
-        $posts = Post::orderBy('id', 'DESC')->get();
-        view()->share('posts', $posts);
+        $recentposts = Post::select('id', 'title')->orderBy('id', 'DESC')->take(5)->get();
+        view()->share('recentposts', $recentposts);
 
 
 
