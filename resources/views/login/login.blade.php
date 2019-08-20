@@ -43,7 +43,7 @@
 
                         </form>
                         <p>
-                            <a class="" href="{{ route('register') }}">Register Here</a>
+                            <a class="" href="{{ route('register') }}">Don't have an account ?  Register Here</a>
                             <span class="divider">-</span>
                             <a class="activate-section" data-section="forgot-section" href="#">Forgot Password</a>
                         </p>

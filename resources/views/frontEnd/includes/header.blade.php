@@ -75,8 +75,8 @@
             <div class="menu-and-contact-wrap">
                 <h2  class="contact-number ">
                     <i class="fa fa-phone"></i>
-                    <span class="desktop-version">1-800-555-1234</span>
-                    <a class="mobile-version" href="tel://1-800-555-1234" title="Make a Call">1-800-555-1234</a>
+                    <span class="desktop-version">017-81501769</span>
+                    <a class="mobile-version" href="tel://01781501769" title="Make a Call">1-800-555-1234</a>
                     <span class="outer-strip"></span>
                 </h2>
                 <!-- Start Main Menu-->

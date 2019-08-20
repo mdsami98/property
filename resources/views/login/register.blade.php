@@ -8,13 +8,14 @@
                 <!-- Main Content -->
                 <div class="main">
 
-                    <div class="inner-wrapper">
+                    <div class="inner-wrapper register">
                         <h4>Register</h4>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-option">
                                 <label for="name">Name<span>*</span></label>
+                                <br>
                                 <input id="name" name="name" type="text"
                                        class="required @error('name') is-invalid @enderror"
                                        name="name" value="{{ old('name') }}"
@@ -30,11 +31,12 @@
 
                             <div class="form-option">
                                 <label for="email">Email<span>*</span></label>
+                                <br>
                                 <input id="email" name="email" type="email"
                                        class="required @error('email') is-invalid @enderror"
                                        name="email" value="{{ old('email') }}"
                                        title="* Provide user name!" autofocus required/>
-                                <br>
+
 
                                 @error('email')
                                 <span class="invalid-feedback text-danger" role="alert">
@@ -44,6 +46,7 @@
                             </div>
                             <div class="form-option">
                                 <label for="password">Password<span>*</span></label>
+                                <br>
                                 <input id="password" name="password" type="password" class="required @error('password') is-invalid @enderror" title="* Provide password!" required/>
                                 <br>
                                 @error('password')
@@ -52,8 +55,10 @@
                                     </span>
                                 @enderror
                             </div>
+
                             <div class="form-option">
                                 <label for="password-confirm">Confirm Password<span>*</span></label>
+                                <br>
                                 <input id="password-confirm" name="password_confirmation" type="password" class="required" title="* Provide password!" required/>
 
                             </div>

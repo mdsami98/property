@@ -86,8 +86,8 @@
                 <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
                     <i class="icon ion-ios-bell-outline tx-24"></i>
                 @php($i =0)
-                @if(count($posts)> 0)
-                    @foreach($posts as $post)
+                @if(count($notificationPost)> 0)
+                    @foreach($notificationPost as $post)
                         @if($post->publication_status == 0)
                             @php($i++)
                         @endif
@@ -107,14 +107,14 @@
                     <div class="media-list">
                         <!-- loop starts here -->
 
-                       @if(count($posts)> 0)
-                           @foreach($posts as $post)
+                       @if(count($notificationPost)> 0)
+                           @foreach($notificationPost as $post)
                                 @if($post->publication_status == 0)
                                     <a href="{{route('admin.post.show', $post->id)}}" class="media-list-link read">
                                         <div class="media pd-x-20 pd-y-15">
                                             <img src="{{url('postimages',$post->image)}}" class="wd-50 ht-50 rounded-circle" alt="">
                                             <div class="media-body">
-                                                <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">{{$post->user->name}}</strong> Add new post and request for approve.</p>
+                                                <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800"></strong> Add new post and request for approve.</p>
                                                 <span class="tx-12">{{$post->created_at}}</span>
                                             </div>
                                         </div><!-- media -->

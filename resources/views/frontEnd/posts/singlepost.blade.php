@@ -13,7 +13,7 @@
                     <nav class="property-breadcrumbs">
                         <ul>
                             <li><a href="{{route('user.home')}}">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li>
-                            <li><a href="property.html">Miami</a></li>
+                            <li><a href="property.html">Dhaka</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -203,23 +203,7 @@
                                 <p>{{$post->user->profile->about_text}}<br/><a class="real-btn" href="{{route('user.profile.view', $post->user->id)}}">Know More</a></p>
                             </div>
 
-                            <div class="contact-form">
-                                <h3>Contact</h3>
-                                <form id="agent-single-form" class="agent-form contact-form-small" method="post" action="http://html.inspirydemos.com/realhomes-html/agent_form_handler.php">
-                                    <input type="text" name="name" placeholder="Name" class="required" title="* Please provide your name">
-                                    <input type="text" name="email" placeholder="Email" class="email required" title="* Please provide valid email address">
-                                    <textarea name="message" class="required" placeholder="Message" title="* Please provide your message"></textarea>
-
-                                    <input type="hidden" name="action" value="send_message_to_agent"/>
-                                    <input type="hidden" name="property_title" value="15421 Southwest 39th Terrace"/>
-                                    <input type="hidden" name="property_permalink" value="http://realhomes.inspirythemes.biz/property/15421-southwest-39th-terrace/"/>
-                                    <input type="submit" value="Send Message" name="submit" class="submit-button real-btn">
-                                    <img src="images/ajax-loader.gif" id="ajax-loader" alt="Loading...">
-                                    <div class="clearfix form-separator"></div>
-                                    <div id="error-container"></div>
-                                    <div id="message-container"></div>
-                                </form>
-                            </div>
+{{--                            contact form--}}
 
 
                         </div>

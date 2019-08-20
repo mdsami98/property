@@ -44,6 +44,10 @@ class AppServiceProvider extends ServiceProvider
         view()->share('recentposts', $recentposts);
 
 
+        $notificationPost = Post::select('id', 'title')->orderBy('id', 'DESC')->get();
+        view()->share('notificationPost', $notificationPost);
+
+
 
 
     }

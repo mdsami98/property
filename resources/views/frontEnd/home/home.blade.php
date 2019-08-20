@@ -347,7 +347,7 @@
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-{{--                             {{$posts->links('vendor.pagination.default')}}--}}
+
 
                                 {{$posts->render()}}
 
@@ -372,7 +372,7 @@
                                     @if($latestPosts)
                                         @foreach($latestPosts as $latestPost)
                                     <li>
-                                        <figure>
+                                        <figure class="slide">
                                             <a href="{{route('user.singleView',['id'=> $latestPost->id])}}">
                                                 <img src="{{url('postimages',$latestPost->image)}}" alt="Property Image">
                                             </a>
@@ -402,69 +402,7 @@
     </div>
     <!-- End content -->
     {{--Start patners--}}
-    <div class="container page-carousel">
-        <div class="row">
-            <div class="span12">
-                <section class="brands-carousel  clearfix">
-                    <h3><span>Partners</span></h3>
-                    <ul class="brands-carousel-list clearfix">
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
 
-
-                    </ul>
-                </section>
-            </div>
-        </div>
-    </div>
 
     {{--End patners--}}
 
