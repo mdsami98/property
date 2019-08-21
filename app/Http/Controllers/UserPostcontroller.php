@@ -290,7 +290,7 @@ class UserPostcontroller extends Controller
             unlink($image_large);
         }
 
-
+        Session::flash('message', 'You successfully delete the post');
         return redirect()->route('post.index');
     }
 

@@ -147,12 +147,12 @@ class AgentPostController extends Controller
         $update_post = Post::findOrFail($id);
 
         $this->validate($request,[
-            'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
+            'title' =>'required|min:10|max:50',
             'category_id' => 'required',
             'type_id' => 'required',
             'post_type' => 'required',
-            'area' => 'required|integer|min:400',
-            'price' => 'required|integer|min:1',
+            'area' => 'required|min:1',
+            'price' => 'required|min:1',
             'bedroom' => 'required|integer|min:1',
             'bathroom' => 'required|integer|min:1',
             'floor' => 'required|integer|min:1',

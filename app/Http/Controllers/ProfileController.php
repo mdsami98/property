@@ -7,6 +7,7 @@ use App\Profile;
 use http\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class ProfileController extends Controller
@@ -70,7 +71,7 @@ class ProfileController extends Controller
 
 
 
-
+        Session::flash('message', 'You successfully create your profile info');
        return redirect()->back();
 
     }
@@ -148,7 +149,7 @@ class ProfileController extends Controller
 
 
 
-
+        Session::flash('message', 'You successfully update your profile info');
         return redirect()->to('/profile/{$userId}');
 
 
@@ -179,7 +180,7 @@ class ProfileController extends Controller
         ];
 
         $profile->update($data);
-
+        Session::flash('message', 'You successfully add your phone number');
         return redirect()->back();
 
 
@@ -194,7 +195,7 @@ class ProfileController extends Controller
         ];
 
         $profile->update($data);
-
+        Session::flash('message', 'You successfully add your address');
         return redirect()->back();
     }
 
@@ -208,7 +209,7 @@ class ProfileController extends Controller
         ];
 
         $profile->update($data);
-
+        Session::flash('message', 'You successfully add about yourself');
         return redirect()->back();
 
     }
@@ -240,7 +241,7 @@ class ProfileController extends Controller
         }
 
         $profile->update($formInput);
-
+        Session::flash('message', 'You successfully add your profile image');
         return redirect()->back();
     }
     public function userView($id){

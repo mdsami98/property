@@ -7,6 +7,7 @@ use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class FavouriteController extends Controller
 {
@@ -59,6 +60,8 @@ class FavouriteController extends Controller
             'post_category' => $post->category->title,
         ]);
 
+        Session::flash('message', 'You successfully add this post to your favorite list');
+
         return back();
     }
 
@@ -108,7 +111,7 @@ class FavouriteController extends Controller
         $favourite=Favourite::findOrFail($id);
 
         $favourite->delete();
-
+        Session::flash('message', 'You successfully delete this post to your favorite list');
         return back();
 
     }

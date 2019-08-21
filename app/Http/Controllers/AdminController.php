@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,8 @@ class AdminController extends Controller
                     'publication_status' => 1,
                 ]
             );
+            Session::flash('message', 'You successfully change the publication status');
+
             return redirect()->back();
         }
         if ($post->publication_status == 1){
@@ -34,6 +37,8 @@ class AdminController extends Controller
                     'publication_status' => 0,
                 ]
             );
+
+            Session::flash('message', 'You successfully change the publication status');
             return redirect()->back();
         }
 
