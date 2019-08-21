@@ -89,15 +89,21 @@
 </svg>
 {{$post->garage}}&nbsp;Garages</span>
                                 @Auth()
-                                @if($post->user_id == Auth::user()->id)
+                                @if($post->user_id != Auth::user()->id)
                                    <span class="add-to-fav">
                                         <a id="add-to-favorite" href="#add-to-favorite">
-                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-phone"></i>
+                                            {{$post->phn_number}}
                                         </a>
-                                        <a id="add-to-favorite" href="#add-to-favorite">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
+                                   </span>
 
+                                    @else
+                                    <span class="add-to-fav">
+                                      @if($post->publication_status == 0)
+                                            <p class="text-danger">Unpublished</p>
+                                        @else
+                                            <p class="text-success">Published</p>
+                                        @endif
                                    </span>
                                 @endif
                                 @endauth
@@ -117,14 +123,9 @@
 
                         <div class="map-wrap clearfix">
 
-                            <div class="contact-info">
-                                <h4>Contuct Number : {{$post->phn_number}}</h4>
-                            </div>
-
                             @auth()
                             @if($post->user_id != Auth::user()->id)
                             <div class="favourite mg-t-20">
-
                                 @if(!$favourite)
                                 {!! Form::open(['method' => 'POST', 'action' => 'FavouriteController@store']) !!}
 
@@ -151,6 +152,22 @@
                                     @endif
 
                             </div>
+
+                                @else
+                                    <div class="my-property-delete">
+
+
+
+                                        {!! Form::open(['method' => 'DELETE', 'action' => ['UserPostController@destroy', $post->id]]) !!}
+
+                                        {!! Form::submit('Delete Post' , ['class' => 'real-btn btn']) !!}
+
+                                        {!! Form::close()  !!}
+
+                                        <a href="{{route('post.edit', $post->id)}}" class="real-btn btn">Esit post</a>
+
+                                        <a href="" class="real-btn btn">Add image</a>
+                                    </div>
                             @endif
 
                                 @endauth

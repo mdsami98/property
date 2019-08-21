@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Favourite;
 use App\Post;
 use App\PostImage;
 use App\RegionAreaCity;
@@ -11,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-
+use FarhanWazir\GoogleMaps\GMaps;
 use Stripe\Charge;
 use Stripe\Stripe;
 
@@ -163,13 +164,33 @@ class UserPostcontroller extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+
+        $config['center'] =$post->address;
+        $config['zoom'] ='18';
+        $config['map_height'] ='300px';
+        $config['map_width'] ='800px';
+        $config['scroolwheel'] =false;
+
+        \GMaps::initialize($config);
+
+//        Markar
+
+        $marker['position'] = $post->address;
+        \GMaps::add_marker($marker);
+
+        $map =\GMaps::create_map();
+
+
         $comments = $post->comments;
+        $favourite = Favourite::where('post_id', $post->id)->first();
         $postImages = PostImage::where('post_id', $id);
 
-        return view('frontEnd.posts.userpostsingle', [
+        return view('frontEnd.posts.singlepost', [
             'post' => $post,
             'postImages' => $postImages,
             'comments' => $comments,
+            'map' => $map,
+            'favourite' => $favourite,
          ]);
 
     }

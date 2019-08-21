@@ -53,8 +53,7 @@
                         </div>
                         <article class="property-item clearfix">
                             <div class="wrap clearfix">
-                                <h4 class="title"> Property ID : RH1001 </h4>
-                                <h4 class="title"><a href="">Add image</a></h4>
+                                <h4 class="title"> Property ID : {{$post->id}} </h4>
                                 <h5 class="price">
                                     <span class="status-label"> For {{$post->type->title}}           </span>
                                     <span>
@@ -130,6 +129,8 @@
                             {!! Form::close()  !!}
 
                                 <a href="{{route('post.edit', $post->id)}}" class="real-btn btn">Esit post</a>
+
+                                <a href="" class="real-btn btn">Add image</a>
                             </div>
 
 
