@@ -85,18 +85,14 @@
             <div class="dropdown">
                 <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
                     <i class="icon ion-ios-bell-outline tx-24"></i>
-                @php($i =0)
+
                 @if(count($notificationPost)> 0)
-                    @foreach($notificationPost as $post)
-                        @if($post->publication_status == 0)
-                            @php($i++)
-                        @endif
-                    @endforeach
+                        <span class="square-8 bg-danger pos-absolute t-15 r-5 rounded-circle"></span>
                 @endif
 
-                   @if($i > 0)
-                    <span class="square-8 bg-danger pos-absolute t-15 r-5 rounded-circle"></span>
-                    @endif
+
+
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-300 pd-0-force">
                     <div class="d-flex align-items-center justify-content-between pd-y-10 pd-x-20 bd-b bd-gray-200">
@@ -114,7 +110,7 @@
                                         <div class="media pd-x-20 pd-y-15">
                                             <img src="{{url('postimages',$post->image)}}" class="wd-50 ht-50 rounded-circle" alt="">
                                             <div class="media-body">
-                                                <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800"></strong> Add new post and request for approve.</p>
+                                                <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">{{$post->user->name}}</strong> Add new post and request for approve.</p>
                                                 <span class="tx-12">{{$post->created_at}}</span>
                                             </div>
                                         </div><!-- media -->

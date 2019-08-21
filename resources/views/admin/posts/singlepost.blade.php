@@ -31,6 +31,7 @@
                             <div class="post-details">
                                 <h6>Badrooms : {{$post->bedroom}}</h6>
                                 <h6>bathrooms : {{$post->bathroom}}</h6>
+                                <h6>Floor : {{$post->floor}}</h6>
                                 <h6>Garage : {{$post->garage}}</h6>
                                 <h6>Address : {{$post->address}}</h6>
 

@@ -67,6 +67,9 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::resource('/category', 'CategoryController');
   Route::resource('/type', 'TypeController');
   Route::resource('/post', 'PostController');
+
+
+
   Route::resource('/post/image', 'PostImageController');
   Route::resource('/users', 'UserController');
   Route::get('/agents/list', 'UserController@allAgents')->name('agents');

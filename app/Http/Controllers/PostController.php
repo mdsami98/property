@@ -25,12 +25,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'DESC')->get();
         return view('admin.posts.index', [
             'posts' => $posts,
         ]);
 
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,6 +41,8 @@ class PostController extends Controller
      */
     public function create()
     {
+
+
         $category = Category::pluck('title' , 'id')->all();
         $type = Type::pluck('title' , 'id')->all();
         $region = RegionAreaCity::pluck('region' , 'id')->all();
@@ -61,7 +65,6 @@ class PostController extends Controller
      */
     public function store(PostCreateRequest $request)
     {
-
 
         $formInput=$request->all();
 
@@ -117,8 +120,6 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-
-
 
         $category = Category::pluck('title' , 'id')->all();
 
@@ -214,4 +215,9 @@ class PostController extends Controller
         Session::flash('message', 'You successfully delete the post');
         return redirect()->route('admin.post.index');
     }
+
+    public function Custom(){
+
+    }
+
 }

@@ -18,6 +18,7 @@
                         <div class="col">
                             <div class="">
                                 <a href="{{route('admin.post.create')}}" class="btn btn-info">Add new post</a>
+
                             </div>
                             <div class="table-wrapper">
                                 <h4 class="text-center mt-2 mb-40 title">All posts</h4>

@@ -6,8 +6,8 @@
         <div class="br-pageheader pd-y-15 pd-l-20">
             <nav class="breadcrumb pd-0 mg-0 tx-12">
                 <a class="breadcrumb-item" href="{{route('admin.dashboard')}}">Dashboard</a>
-                <a class="breadcrumb-item" href="{{route('admin.category.index')}}">All category</a>
-                <span class="breadcrumb-item active">Add Category</span>
+                <a class="breadcrumb-item" href="{{route('admin.post.index')}}">All post</a>
+                <span class="breadcrumb-item active">Add Post</span>
 
             </nav>
         </div><!-- br-pageheader -->
@@ -20,8 +20,8 @@
                         <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-                                    <label id="name">Post Name: <span class="tx-danger">*</span></label>
-                                    <input id="name" type="text" name="title" class="form-control wd-300" placeholder="Enter Post Name" required>
+                                    {!! Form::label('phn_number', 'Post title:') !!}<span class="tx-danger">*</span>
+                                    {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Post title', 'require']) !!}
                                 </div><!-- form-group -->
 
                             </div><!-- d-flex -->
