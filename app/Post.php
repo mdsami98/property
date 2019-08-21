@@ -38,7 +38,7 @@ class Post extends Model
         return $this->belongsTo('App\Type');
     }
     public function regionCity(){
-        return $this->belongsTo('App\RegionAreaCity');
+        return $this->hasMany('App\RegionAreaCity');
     }
 
     public function photos(){

@@ -126,28 +126,56 @@
                             @auth()
                             @if($post->user_id != Auth::user()->id)
                             <div class="favourite mg-t-20">
-                                @if(!$favourite)
-                                {!! Form::open(['method' => 'POST', 'action' => 'FavouriteController@store']) !!}
+                                @php($i =0)
+                                @if(Auth::user()->favourites)
+                                    @foreach(Auth::user()->favourites as $f)
 
-                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                <input type="hidden" name="post_id" value="{{$post->id}}">
-                                <div class="mg-t-30">
-                                    <div class="option-bar">
-                                        <input type="submit" value="Add to Favourite List" class="real-btn btn">
-                                    </div>
-                                </div>
+                                        @if($f->post_id == $post->id)
+                                          @php($i++)
+                                        @endif
 
-                                {!! Form::close() !!}
+                                     @endforeach
+
+                                    @if($i > 0)
+                                            {!! Form::open(['method' => 'DELETE', 'action' => ['FavouriteController@destroy', $favourite->id]]) !!}
+
+                                            <div class="mg-t-30">
+                                                <div class="option-bar">
+                                                    <input type="submit" value="Remove from favourite list" class="real-btn btn remove">
+                                                </div>
+                                            </div>
+
+                                            {!! Form::close() !!}
+                                        @else
+                                            {!! Form::open(['method' => 'POST', 'action' => 'FavouriteController@store']) !!}
+
+                                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                                            <div class="mg-t-30">
+                                                <div class="option-bar">
+                                                    <input type="submit" value="Add to Favourite List" class="real-btn btn">
+                                                </div>
+                                            </div>
+
+                                            {!! Form::close() !!}
+
+
+                                        @endif
+
                                     @else
-                                    {!! Form::open(['method' => 'DELETE', 'action' => ['FavouriteController@destroy', $favourite->id]]) !!}
 
+                                    {!! Form::open(['method' => 'POST', 'action' => 'FavouriteController@store']) !!}
+
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="post_id" value="{{$post->id}}">
                                     <div class="mg-t-30">
                                         <div class="option-bar">
-                                            <input type="submit" value="Remove from favourite list" class="real-btn btn remove">
+                                            <input type="submit" value="Add to Favourite List" class="real-btn btn">
                                         </div>
                                     </div>
 
                                     {!! Form::close() !!}
+
 
                                     @endif
 
