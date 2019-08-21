@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2019 at 12:21 AM
+-- Generation Time: Aug 21, 2019 at 11:11 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -41,7 +41,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'home', '2019-08-15 14:24:46', '2019-08-15 14:24:46');
+(1, 'Home', 'home', '2019-08-15 14:24:46', '2019-08-15 14:24:46'),
+(2, 'Office', 'office', '2019-08-21 08:56:24', '2019-08-21 08:56:24');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE `favourites` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL,
   `post_title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `post_price` decimal(8,2) NOT NULL,
+  `post_price` decimal(20,2) NOT NULL,
   `post_area` decimal(8,2) NOT NULL,
   `post_bedroom` int(11) NOT NULL,
   `post_bathroom` int(11) NOT NULL,
@@ -116,8 +117,13 @@ CREATE TABLE `favourites` (
 --
 
 INSERT INTO `favourites` (`id`, `user_id`, `post_id`, `post_title`, `post_price`, `post_area`, `post_bedroom`, `post_bathroom`, `post_garage`, `post_description`, `post_image`, `post_type`, `post_category`, `created_at`, `updated_at`) VALUES
-(1, 3, 4, 'Gulshan  Near United Commercial Bank Limited', '28000.00', '2100.00', 3, 3, 2, 'This vacant property is an excellent opportunity for the investors or commercial property hunters. The tasteful outlook and spacious floor plan make it more lucrative for the buyers. The commercial space is located in the desirable location of Gulshan. The building provides you with good security and all time availability of utilities. \r\n\r\nAdvance BDT. 1,80,000\r\n\r\nDo not miss this affordable offer and we are just a call away to close the deal for you!', '1566245122-gulshan-near-united-commercial-bank-limited.jpg', 'Rent', 'Home', '2019-08-19 15:26:57', '2019-08-19 15:26:57'),
-(2, 3, 2, 'This is second post', '22000.00', '1500.00', 3, 2, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like', '1565902806-this-is-second-post.jpg', 'Sale', 'Home', '2019-08-19 15:27:21', '2019-08-19 15:27:21');
+(3, 1, 9, 'Visit This Flat For Rent In edit', '2000000.00', '1200.00', 3, 2, 1, 'Considering a suitable lifestyle, this is one of the best places to reside in. With bed and bath, it is wonderful and comfortable flat for a family to move in. The respective unit welcomes with a great floor plan. The flat has got amazing bedrooms with modish tiled flooring. All the washrooms are finished with the quality and durable fixtures. You will have an apt kitchen area to have your desired cookery essentials. A great number of groceries, school, colleges and bus stops are also located in the nearby area.', '1566378545-visit-this-flat-for-rent-in.jpg', 'Sale', 'Home', '2019-08-21 05:42:43', '2019-08-21 05:42:43'),
+(11, 3, 3, 'Baitul Aman Housing Society', '30000.00', '2200.00', 4, 3, 1, 'You have landed yourself in the right listing if you are looking for one of the most picked and affordable properties in a congenial zone like Adabor. We got a flat at Adabor area. This nice looking building includes a nice looking entrance to take to this flat you can see in our enlisted photos. The flat comes complete with tiled flooring, bed, bath and a nice kitchen. Well-fitted washrooms will be there with durable fittings for the comfiest living for your family. The balconies would refill the happy time with your family', '1566244903-baitul-aman-housing-society.jpg', 'Rent', 'Home', '2019-08-21 10:10:29', '2019-08-21 10:10:29'),
+(12, 3, 4, 'Gulshan  Near United Commercial Bank Limited', '28000.00', '2100.00', 3, 3, 2, 'This vacant property is an excellent opportunity for the investors or commercial property hunters. The tasteful outlook and spacious floor plan make it more lucrative for the buyers. The commercial space is located in the desirable location of Gulshan. The building provides you with good security and all time availability of utilities. \r\n\r\nAdvance BDT. 1,80,000\r\n\r\nDo not miss this affordable offer and we are just a call away to close the deal for you!', '1566245122-gulshan-near-united-commercial-bank-limited.jpg', 'Rent', 'Home', '2019-08-21 10:10:46', '2019-08-21 10:10:46'),
+(13, 3, 6, 'For rent nice house in Guldhan', '32000.00', '2300.00', 3, 3, 1, 'This home situated in a great location which will give you easy access to everyday transportation. Many notable educational institutions are located in the area to provide and assure a good education for your children. The lovely apartment is with bed, bath, drawing, dining, balcony and a beautiful kitchen. All-time electricity, water and gas services are also available here. Also, you will be able to live in a pleasant locality. \r\n\r\nService charge BDT 6000.\r\n\r\nLiked this home? For more details feel free to contact us.', '1566245564-for-rent-nice-house-in-guldhan.jpg', 'Rent', 'Home', '2019-08-21 10:10:55', '2019-08-21 10:10:55'),
+(14, 3, 1, 'This is the first post', '24999.00', '2200.00', 3, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently', '1565901454-this-is-the-first-post.jpg', 'Rent', 'Home', '2019-08-21 10:11:03', '2019-08-21 10:11:03'),
+(15, 4, 1, 'This is the first post', '24999.00', '2200.00', 3, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently', '1565901454-this-is-the-first-post.jpg', 'Rent', 'Home', '2019-08-21 10:12:33', '2019-08-21 10:12:33'),
+(16, 4, 4, 'Gulshan  Near United Commercial Bank Limited', '28000.00', '2100.00', 3, 3, 2, 'This vacant property is an excellent opportunity for the investors or commercial property hunters. The tasteful outlook and spacious floor plan make it more lucrative for the buyers. The commercial space is located in the desirable location of Gulshan. The building provides you with good security and all time availability of utilities. \r\n\r\nAdvance BDT. 1,80,000\r\n\r\nDo not miss this affordable offer and we are just a call away to close the deal for you!', '1566245122-gulshan-near-united-commercial-bank-limited.jpg', 'Rent', 'Home', '2019-08-21 10:12:43', '2019-08-21 10:12:43');
 
 -- --------------------------------------------------------
 
@@ -139,7 +145,8 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`id`, `action_by`, `action_for`, `action`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Home', 'Create Category', '2019-08-15 14:24:46', '2019-08-15 14:24:46');
+(1, 'Admin', 'Home', 'Create Category', '2019-08-15 14:24:46', '2019-08-15 14:24:46'),
+(2, 'Admin', 'Office', 'Create Category', '2019-08-21 08:56:24', '2019-08-21 08:56:24');
 
 -- --------------------------------------------------------
 
@@ -201,7 +208,7 @@ CREATE TABLE `posts` (
   `region_area` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `post_type` tinyint(4) NOT NULL DEFAULT 0,
   `slug` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `price` decimal(8,2) UNSIGNED NOT NULL,
+  `price` decimal(20,2) UNSIGNED NOT NULL,
   `area` decimal(8,2) NOT NULL,
   `phn_number` text COLLATE utf8_unicode_ci NOT NULL,
   `bedroom` int(10) UNSIGNED NOT NULL,
@@ -225,10 +232,11 @@ INSERT INTO `posts` (`id`, `user_id`, `category_id`, `type_id`, `title`, `region
 (1, 1, 1, 1, 'This is the first post', '1', 'uttara', 0, NULL, '24999.00', '2200.00', '01781501769', 3, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently', 'Sector 7, Road 9, House 22', '3rd', NULL, '1565901454-this-is-the-first-post.jpg', 1, '2019-08-15 14:37:34', '2019-08-19 14:02:21'),
 (2, 1, 1, 2, 'This is second post', '1', 'Uttara', 1, NULL, '22000.00', '1500.00', '01763151056', 3, 2, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like', 'Sector 7 Road 8, House 11', '5th', NULL, '1565902806-this-is-second-post.jpg', 1, '2019-08-15 15:00:06', '2019-08-19 14:02:08'),
 (3, 1, 1, 1, 'Baitul Aman Housing Society', '1', 'Dhaka', 1, NULL, '30000.00', '2200.00', '01781501769', 4, 3, 1, 'You have landed yourself in the right listing if you are looking for one of the most picked and affordable properties in a congenial zone like Adabor. We got a flat at Adabor area. This nice looking building includes a nice looking entrance to take to this flat you can see in our enlisted photos. The flat comes complete with tiled flooring, bed, bath and a nice kitchen. Well-fitted washrooms will be there with durable fittings for the comfiest living for your family. The balconies would refill the happy time with your family', 'Baitul Aman Housing Society', '3', NULL, '1566244903-baitul-aman-housing-society.jpg', 1, '2019-08-19 14:01:43', '2019-08-19 15:38:07'),
-(4, 1, 1, 1, 'Gulshan  Near United Commercial Bank Limited', '1', 'Dhaka', 0, NULL, '28000.00', '2100.00', '01763151056', 3, 3, 2, 'This vacant property is an excellent opportunity for the investors or commercial property hunters. The tasteful outlook and spacious floor plan make it more lucrative for the buyers. The commercial space is located in the desirable location of Gulshan. The building provides you with good security and all time availability of utilities. \r\n\r\nAdvance BDT. 1,80,000\r\n\r\nDo not miss this affordable offer and we are just a call away to close the deal for you!', 'Gulshan 2, Gulshan, Dhaka', '5', NULL, '1566245122-gulshan-near-united-commercial-bank-limited.jpg', 1, '2019-08-19 14:05:22', '2019-08-19 14:05:22'),
+(4, 1, 1, 1, 'Gulshan  Near United Commercial Bank Limited', '1', 'Dhaka', 1, NULL, '28000.00', '2100.00', '01763151056', 3, 3, 2, 'This vacant property is an excellent opportunity for the investors or commercial property hunters. The tasteful outlook and spacious floor plan make it more lucrative for the buyers. The commercial space is located in the desirable location of Gulshan. The building provides you with good security and all time availability of utilities. \r\n\r\nAdvance BDT. 1,80,000\r\n\r\nDo not miss this affordable offer and we are just a call away to close the deal for you!', 'Gulshan 2, Gulshan, Dhaka', '5', NULL, '1566245122-gulshan-near-united-commercial-bank-limited.jpg', 1, '2019-08-19 14:05:22', '2019-08-19 14:05:22'),
 (5, 1, 1, 2, 'New apartment for sale in dhanmondi', '1', 'Dhaka', 0, NULL, '80000.00', '3200.00', '01944516981', 5, 4, 2, 'This home situated in a great location which will give you easy access to everyday transportation. Many notable educational institutions are located in the area to provide and assure a good education for your children. The lovely apartment is with bed, bath, drawing, dining, balcony and a beautiful kitchen. All-time electricity, water and gas services are also available here. Also, you will be able to live in a pleasant locality. \r\n\r\nService charge BDT 6000.\r\n\r\nLiked this home? For more details feel free to contact us.', 'Road No 12A, Dhanmondi, Dhaka', '2', NULL, '1566245367-new-apartment-for-sale-in-dhanmondi.jpg', 1, '2019-08-19 14:09:27', '2019-08-19 14:09:27'),
 (6, 1, 1, 1, 'For rent nice house in Guldhan', '1', 'Dhala', 0, NULL, '32000.00', '2300.00', '01944516981', 3, 3, 1, 'This home situated in a great location which will give you easy access to everyday transportation. Many notable educational institutions are located in the area to provide and assure a good education for your children. The lovely apartment is with bed, bath, drawing, dining, balcony and a beautiful kitchen. All-time electricity, water and gas services are also available here. Also, you will be able to live in a pleasant locality. \r\n\r\nService charge BDT 6000.\r\n\r\nLiked this home? For more details feel free to contact us.', 'dgulshan 2, road 9', '3', NULL, '1566245564-for-rent-nice-house-in-guldhan.jpg', 1, '2019-08-19 14:12:44', '2019-08-19 14:12:44'),
-(8, 1, 1, 1, 'New home gor rent', '1', 'Dhaka', 0, NULL, '24000.00', '1800.00', '01785569851', 3, 2, 1, 'This home situated in a great location which will give you easy access to everyday transportation. Many notable educational institutions are located in the area to provide and assure a good education for your children. The lovely apartment is with bed, bath, drawing, dining, balcony and a beautiful kitchen. All-time electricity, water and gas services are also available here. Also, you will be able to live in a pleasant locality. \r\n\r\nService charge BDT 6000.\r\n\r\nLiked this home? For more details feel free to contact us.', 'Sector 9, road 7, house 10', '4', NULL, '1566246385-new-home-gor-rent.jpg', 1, '2019-08-19 14:26:25', '2019-08-19 14:26:25');
+(8, 1, 1, 1, 'New home gor rent', '1', 'Dhaka', 0, NULL, '24000.00', '1800.00', '01785569851', 3, 2, 1, 'This home situated in a great location which will give you easy access to everyday transportation. Many notable educational institutions are located in the area to provide and assure a good education for your children. The lovely apartment is with bed, bath, drawing, dining, balcony and a beautiful kitchen. All-time electricity, water and gas services are also available here. Also, you will be able to live in a pleasant locality. \r\n\r\nService charge BDT 6000.\r\n\r\nLiked this home? For more details feel free to contact us.', 'Sector 9, road 7, house 10', '4', NULL, '1566246385-new-home-gor-rent.jpg', 1, '2019-08-19 14:26:25', '2019-08-19 14:26:25'),
+(9, 4, 1, 2, 'Visit This Flat For Rent In edit', '1', 'Dhaka ni=orth', 1, NULL, '2000000.00', '1200.00', '01781501766', 3, 2, 1, 'Considering a suitable lifestyle, this is one of the best places to reside in. With bed and bath, it is wonderful and comfortable flat for a family to move in. The respective unit welcomes with a great floor plan. The flat has got amazing bedrooms with modish tiled flooring. All the washrooms are finished with the quality and durable fixtures. You will have an apt kitchen area to have your desired cookery essentials. A great number of groceries, school, colleges and bus stops are also located in the nearby area.', 'Mirpur 10, road 9', '4', NULL, '1566378545-visit-this-flat-for-rent-in.jpg', 1, '2019-08-21 03:09:05', '2019-08-21 09:13:57');
 
 -- --------------------------------------------------------
 
@@ -278,7 +286,8 @@ CREATE TABLE `profiles` (
 INSERT INTO `profiles` (`id`, `user_id`, `phone_no`, `image`, `address`, `about_text`, `created_at`, `updated_at`) VALUES
 (1, 1, '01763151056', '1566249184-.jpg', NULL, NULL, '2019-08-15 14:24:34', '2019-08-19 15:13:45'),
 (2, 2, NULL, 'profile.jpg', NULL, '', '2019-08-15 15:04:23', '2019-08-15 15:04:23'),
-(3, 3, NULL, 'profile.jpg', NULL, '', '2019-08-19 15:18:46', '2019-08-19 15:18:46');
+(3, 3, NULL, 'profile.jpg', NULL, '', '2019-08-19 15:18:46', '2019-08-19 15:18:46'),
+(4, 4, '01781501556', 'profile.jpg', 'Sector 7, road 2, house 10', '', '2019-08-21 02:45:21', '2019-08-21 02:46:05');
 
 -- --------------------------------------------------------
 
@@ -372,7 +381,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `role_id`, `is_active`, `name`, `email`, `email_verified_at`, `verify_token`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 'Admin', 'admin@admin.com', NULL, NULL, '$2y$10$rfyTvxt5SSfJtAyo.1/gLeIN0JOBX8jgeswjI3WhaF7Cwlar18Qr2', NULL, '2019-08-15 14:24:34', '2019-08-15 14:24:34'),
 (2, 2, 1, 'aGENT ONE', 'agent@agent.com', NULL, NULL, '$2y$10$QSDT8M0r72.o521qBQi2Gu7nNrVf9jpa/BENXAW.3.PS2UwHz05PS', NULL, '2019-08-15 15:04:22', '2019-08-15 15:04:22'),
-(3, 1, 1, 'Samiul islam', 'sami@gmail.com', NULL, NULL, '$2y$10$SnVEMZybt7EAsDnfHss2j.wUyZh3L/2krExnSzq9F/mdPjDK9r.ji', NULL, '2019-08-19 15:18:46', '2019-08-19 15:18:46');
+(3, 1, 1, 'Samiul islam', 'sami@gmail.com', NULL, NULL, '$2y$10$SnVEMZybt7EAsDnfHss2j.wUyZh3L/2krExnSzq9F/mdPjDK9r.ji', NULL, '2019-08-19 15:18:46', '2019-08-19 15:18:46'),
+(4, 1, 1, 'New test user', 'test@gmail.com', NULL, NULL, '$2y$10$lqi/gkJHQCMDCmUGzY6RlOnm1GCEdH2R74p5Bs3hDRxWeRhaCeDrm', NULL, '2019-08-21 02:45:21', '2019-08-21 02:45:21');
 
 --
 -- Indexes for dumped tables
@@ -474,7 +484,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -492,13 +502,13 @@ ALTER TABLE `comment_replies`
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -510,19 +520,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `region_area_cities`
@@ -546,7 +556,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
