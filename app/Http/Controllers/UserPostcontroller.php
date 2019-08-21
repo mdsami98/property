@@ -24,9 +24,11 @@ class UserPostcontroller extends Controller
      */
     public function index()
     {
+        $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         $posts =Post::where('user_id' ,Auth::user()->id)->get();
         return view('frontEnd.posts.userallposts', [
-            'posts' => $posts
+            'posts' => $posts,
+            'latestPosts' => $latestPosts,
         ]);
     }
 
@@ -59,13 +61,13 @@ class UserPostcontroller extends Controller
 //       return $request->all();
 
        $this->validate($request, [
-           'title' =>'required|regex:/^[a-zA-Z][a-zA-Z\\s]+$/|min:10|max:40',
+           'title' =>'required|min:10|max:50',
            'image' => 'required',
            'category_id' => 'required',
            'type_id' => 'required',
            'post_type' => 'required',
-           'area' => 'required|integer|min:400',
-           'price' => 'required|integer|min:1',
+           'area' => 'required|min:1',
+           'price' => 'required|min:1',
            'bedroom' => 'required|integer|min:1',
            'bathroom' => 'required|integer|min:1',
            'floor' => 'required|integer|min:1',
@@ -180,7 +182,17 @@ class UserPostcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::pluck('title' , 'id')->all();
+        $type = Type::pluck('title' , 'id')->all();
+        $region = RegionAreaCity::pluck('region' , 'id')->all();
+        $post = Post::findOrFail($id);
+
+        return view('frontEnd.posts.edit', [
+            'post' => $post,
+            'type' => $type,
+            'region' => $region,
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -192,7 +204,52 @@ class UserPostcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update_post = Post::findOrFail($id);
+
+        $this->validate($request,[
+            'title' =>'required|min:10|max:50',
+            'category_id' => 'required',
+            'type_id' => 'required',
+            'post_type' => 'required',
+            'area' => 'required|min:1',
+            'price' => 'required|min:1',
+            'bedroom' => 'required|min:1',
+            'bathroom' => 'required|integer|min:1',
+            'floor' => 'required|integer|min:1',
+            'description' => 'required',
+            'region' => 'required',
+            'region_area' => 'required',
+            'address' => 'required',
+            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
+        ]);
+
+
+
+
+        $formInput=$request->all();
+
+        if($request->file('image')){
+            $image=$request->file('image');
+            if($image->isValid()){
+                $fileName=time().'-'.str::slug($formInput['title'],"-").'.'.$image->getClientOriginalExtension();
+
+
+                $image->move('postimages', $fileName);
+                $formInput['image']=$fileName;
+            }
+        }
+
+        else{
+            $formInput['image']=$update_post['image'];
+        }
+
+        $update_post->update($formInput);
+
+        Session::flash('message', 'You successfully update the post');
+
+        return redirect()->route('post.index')->with('message','Update Post Successfully!');
+
+
     }
 
     /**

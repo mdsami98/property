@@ -201,7 +201,7 @@
 
                                     <div id="home-properties" class="property-items-container clearfix">
 
-                                        @if($posts)
+                                        @if(count($posts) > 0)
 
                                             @foreach($posts as $post)
 
@@ -251,6 +251,9 @@
                                                 </div>
                                             @endforeach
 
+                                            @else
+                                            <h4>You don't have any property <a href="{{route('post.create')}}">Add your first property</a></h4>
+
                                         @endif
 
 
@@ -264,12 +267,8 @@
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-                                {{--                                {{$posts->render()}}--}}
 
-                                <div class='pagination'><a href='#' class='real-btn current' >1</a>
-                                    <a href='#' class='real-btn' >2</a>
-                                    <a href='#' class='real-btn' >3</a>
-                                </div>
+
                             </div><!-- end of #home-properties-section-inner -->
 
                         </div><!-- end of #home-properties-section-wrapper -->
@@ -279,82 +278,32 @@
                     {{--  ====== Home Property--}}
                     <section class="featured-properties-carousel clearfix">
                         <div class="narrative">
-                            <h3>Featured Properties</h3>
-                            <p>View a list of Featured Properties.</p>
+                            <h3>Latest Properties</h3>
+                            <p>View a list of Latest Properties.</p>
                         </div>
                         <div class="carousel es-carousel-wrapper">
                             <div class="es-carousel">
                                 <ul class="clearfix">
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">Villa in Hialeah, Dade County</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$7,500 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">401 Biscayne Boulevard, Miami</a></h4>
-                                        <p>Nam liber tempor cum soluta nobis eleifend option&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,250 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">15421 Southwest 39th Terrace</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$3,850 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property5.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">3015 Grand Avenue, CocoWalk</a></h4>
-                                        <p>Ut wisi enim ad minim veniam, quis nostrud&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$4,350 Per Month</span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">60 Merrick Way, Miami</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$440,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property2.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">Florida 5, Pinecrest, FL</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$480,000 </span>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="property.html">
-                                                <img src="{{asset('frontEnd/')}}/images/temp-images/property4.jpg" alt="Property Image">
-                                            </a>
-                                        </figure>
-                                        <h4><a href="property.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&hellip; <a href="property.html"> Know More </a> </p>
-                                        <span class="price">$625,000 </span>
-                                    </li>
+                                    @if($latestPosts)
+                                        @foreach($latestPosts as $latestPost)
+                                            <li>
+                                                <figure class="slide">
+                                                    <a href="{{route('user.singleView',['id'=> $latestPost->id])}}">
+                                                        <img src="{{url('postimages',$latestPost->image)}}" alt="Property Image">
+                                                    </a>
+                                                </figure>
+                                                <h4><a href="{{route('user.singleView',['id'=> $latestPost->id])}}">{{$latestPost->title}}</a></h4>
+                                                <p>{{str_limit($latestPost->description, 50)}} <a href="property.html"> Know More </a> </p>
+
+                                                @if($latestPost->type_id == 1)
+                                                    <span class="price">{{$latestPost->price}} Tk. Per Month</span>
+                                                @else
+                                                    <span class="price">{{$latestPost->price}} Tk</span>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
@@ -368,69 +317,7 @@
     </div>
     <!-- End content -->
     {{--Start patners--}}
-    <div class="container page-carousel">
-        <div class="row">
-            <div class="span12">
-                <section class="brands-carousel  clearfix">
-                    <h3><span>Partners</span></h3>
-                    <ul class="brands-carousel-list clearfix">
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
 
-
-                    </ul>
-                </section>
-            </div>
-        </div>
-    </div>
 
     {{--End patners--}}
 

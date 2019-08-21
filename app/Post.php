@@ -37,7 +37,7 @@ class Post extends Model
     public function type(){
         return $this->belongsTo('App\Type');
     }
-    public function region(){
+    public function regionCity(){
         return $this->belongsTo('App\RegionAreaCity');
     }
 

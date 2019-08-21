@@ -9,7 +9,7 @@
                     <nav class="property-breadcrumbs">
                         <ul>
                             <li><a href="{{route('user.home')}}">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li>
-                            <li><a href="property.html">{{$post->region}}</a></li>
+                            <li><a href="property.html"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -99,16 +99,6 @@
                                 </svg>
                                 {{$post->garage}}&nbsp;Garages</span>
                                 @if($post->user_id == Auth::user()->id)
-                                 <span class="add-to-fav">
-
-                                    <a id="add-to-favorite" href="#add-to-favorite">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a id="add-to-favorite" href="#add-to-favorite">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                 </span>
-
 
                                   <span class="add-to-fav">
 
@@ -128,7 +118,7 @@
                                      <span class="printer-icon"><a href="javascript:window.print()"><i class="fa fa-print"></i>Print</a></span>
                             </div>
 
-
+                            @if($post->user_id == Auth::user()->id)
                             <div class="my-property-delete">
 
 
@@ -138,7 +128,13 @@
                             {!! Form::submit('Delete Post' , ['class' => 'real-btn btn']) !!}
 
                             {!! Form::close()  !!}
+
+                                <a href="{{route('post.edit', $post->id)}}" class="real-btn btn">Esit post</a>
                             </div>
+
+
+
+                            @endif
 
                             <div class="content clearfix">
                                 <h4 class="adittional-title">Description</h4>

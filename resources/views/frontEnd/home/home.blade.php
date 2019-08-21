@@ -199,90 +199,13 @@
                     </section>
 
 {{--                    Premium posts--}}
-                    @if(count($premiumPosts)> 0)
 
-                    <section id="home-properties-section" class="property-items ajax-pagination">
-
-                        <div class="narrative">
-                            <h2>All Premium posts</h2><p> </p></div>	<div id="home-properties-section-wrapper">
-                            <div id="home-properties-section-inner">
-                                <div id="home-properties-wrapper">
-
-                                    <div id="home-properties" class="property-items-container clearfix">
-
-
-
-                                            @foreach($premiumPosts as $premiumPost)
-
-                                                <div class="span6 ">
-                                                    <article class="property-item clearfix">
-                                                        <h4><a href="{{route('user.singleView',['id'=> $premiumPost->id])}}">{{$premiumPost->title}}</a></h4>
-
-                                                        <figure>
-
-                                                            <a href="{{route('user.singleView',['id'=> $premiumPost->id])}}">
-
-                                                                <img src="{{url('postimages',$premiumPost->image)}}" alt="Property Image">
-
-
-                                                                {{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
-                                                            </a>
-
-
-
-
-                                                            <figcaption class="for-rent">For {{$premiumPost->type->title}}</figcaption>
-                                                        </figure>
-
-                                                        <div class="detail">
-                                                            <h5 class="price">
-                                                                {{$premiumPost->price}} {{$premiumPost->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small></h5>
-                                                            <p>{{str_limit($premiumPost->description, 100)}}&hellip;</p>
-                                                            <a class="more-details" href="{{route('user.singleView',['id'=> $premiumPost->id])}}">More Details <i class="fa fa-caret-right"></i></a>
-                                                        </div>
-
-                                                        <div class="property-meta">
-                                                            <span>{{$premiumPost->area}}&nbsp;sq ft</span>
-                                                            <span>{{$premiumPost->bedroom}}&nbsp;Bedrooms</span>
-                                                            <span>{{$premiumPost->bathroom}}&nbsp;Bathrooms</span>
-                                                            <span>{{$premiumPost->garage}}&nbsp;Garages</span>
-                                                        </div>
-                                                        <div class="property-meta">
-                                                            <span>Address : {{$premiumPost->address}}</span>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                            @endforeach
-
-
-                                        {{--                                        <div class="clearfix"></div>--}}
-
-
-
-
-                                    </div><!-- end of #home-properties -->
-
-                                </div><!-- end of #home-properties-wrapper -->
-
-                                {{--                             {{$posts->links('vendor.pagination.default')}}--}}
-
-                                {{$premiumPosts->render()}}
-
-
-
-
-                            </div><!-- end of #home-properties-section-inner -->
-
-                        </div><!-- end of #home-properties-section-wrapper -->
-
-                    </section>
-                    @endif
 
 {{--                    Premium posts End--}}
 
                     {{--  ====== Home Property--}}
                     <section id="home-properties-section" class="property-items ajax-pagination">
-
+                        @if(count($posts) > 0)
                         <div class="narrative">
                             <h2>We are Offering the Best Real Estate Deals</h2><p>Look at our Latest listed properties and check out the facilities on them, We have already sold more than 5,000 Homes and we are still going at very good pace. We would love you to look into these properties and we hope that you will find something match-able to your needs.</p></div>	<div id="home-properties-section-wrapper">
                             <div id="home-properties-section-inner">
@@ -290,7 +213,7 @@
 
                                     <div id="home-properties" class="property-items-container clearfix">
 
-                                    @if($posts)
+
 
                                         @foreach($posts as $post)
 
@@ -334,7 +257,7 @@
                                         </div>
                                             @endforeach
 
-                                        @endif
+
 
 
 
@@ -357,6 +280,7 @@
                             </div><!-- end of #home-properties-section-inner -->
 
                         </div><!-- end of #home-properties-section-wrapper -->
+                        @endif
 
                     </section>
 

@@ -4,12 +4,12 @@
     <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url({{asset('frontEnd/')}}/images/temp-images/banner.jpg); background-size: cover;">
         <div class="container">
             <div class="wrap clearfix">
-                <h1 class="page-title"><span>Hello {{Auth::user()->name}} Add your property </span></h1>
+                <h1 class="page-title"><span>{{$post->title}}</span></h1>
                 <div class="page-breadcrumbs">
                     <nav class="property-breadcrumbs">
                         <ul>
                             <li><a href="{{route('user.home')}}">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li>
-                            <li><a href="{{route('post.index')}}">My property</a></li>
+                            <li><a href="">Edit property</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -20,7 +20,8 @@
     <div class="container contents detail">
         <div class="row">
 
-            {!! Form::open(['method' => 'POST', 'action' => 'UserPostController@store', 'enctype'=>"multipart/form-data"]) !!}
+            {!! Form::model($post, ['route' => ['post.update', $post->id],'enctype' => 'multipart/form-data', 'method' => 'PATCH']) !!}
+
             <div class="span6 main-wrap">
 
                 <aside class="sidebar">
@@ -133,7 +134,7 @@
 
 
 
-                           	<div class="clearfix"></div>
+                            <div class="clearfix"></div>
 
 
 
@@ -238,7 +239,7 @@
                             <br>
                             <br>
 
-                           <div class="clearfix"></div>
+                            <div class="clearfix"></div>
 
 
 
@@ -265,18 +266,7 @@
 
 
 
-
         </div>
-
-
-
-
-
-
-
-
-
-
 
 
     </div>

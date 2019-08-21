@@ -22,7 +22,7 @@ class IndexController extends Controller
 
         $premiumPosts =Post::where('publication_status' , 1)
                             ->where('post_type' , 1)
-                            ->orderBy('id','DESC')->paginate(8);
+                            ->orderBy('id','DESC')->take(4)->get();
 
         $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         return view('frontEnd.home.home', [

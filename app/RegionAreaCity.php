@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegionAreaCity extends Model
 {
-   protected $guarded = [];
+    protected $fillable = [
+        'region',
+
+    ];
 }
