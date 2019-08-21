@@ -7982,3 +7982,6 @@ li.slider-box img.slider-img {
 .my-property-delete a {
     margin-right: 15px;
 }
+.postimage img {
+    width: 200px;
+}

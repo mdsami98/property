@@ -38,12 +38,16 @@ Route::resource('/user/favourite', 'FavouriteController');
 
 
 
+
+
+
 Route::group(['middleware'=> 'auth'], function () {
 
     Route::post('/comment/replies', 'CommentRepliesController@createReply');
     Route::post('/comment', 'PostCommentController@createReply');
 
     Route::resource('/user/post', 'UserPostController');
+    Route::resource('/user/post/image', 'UserPostImageController');
     Route::post('/user/post/payment', 'UserPostController@payment')->name('post.payment');
 
 

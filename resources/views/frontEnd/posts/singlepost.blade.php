@@ -166,7 +166,7 @@
 
                                         <a href="{{route('post.edit', $post->id)}}" class="real-btn btn">Esit post</a>
 
-                                        <a href="" class="real-btn btn">Add image</a>
+                                        <a href="{{route('image.show', $post->id)}}" class="real-btn btn">Add image</a>
                                     </div>
                             @endif
 

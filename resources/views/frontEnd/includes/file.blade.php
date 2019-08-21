@@ -31,7 +31,7 @@
     <link rel='stylesheet' id='custom-responsive-css-css'  href='{{asset('frontEnd/')}}/css/custom-responsive4468.css?ver=2.5.5' type='text/css' media='all' />
     <link rel='stylesheet' id='parent-custom-css'  href='{{asset('frontEnd/')}}/css/custom4468.css?ver=2.5.5' type='text/css' media='all' />
 
-
+    <link rel="stylesheet" href="{{asset('admin/')}}/css/toster.css">
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 
