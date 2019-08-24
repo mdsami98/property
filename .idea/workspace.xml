@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentPostImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentPostImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/log/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/log/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agent/includes/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +252,7 @@
       <workItem from="1566398059227" duration="6012000" />
       <workItem from="1566416642379" duration="2215000" />
       <workItem from="1566484403486" duration="597000" />
-      <workItem from="1566653489438" duration="4794000" />
+      <workItem from="1566653489438" duration="7639000" />
     </task>
     <servers />
   </component>

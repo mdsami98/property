@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Profile;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -55,6 +57,17 @@ class AgentUserController extends Controller
             'about_text' =>''
         ];
         $profile = Profile::create($date);
+
+        $action_by = Auth::user()->name;
+        $action_for = $request->name;
+        $action = 'Create user';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
 
         Session::flash('message', 'You successfully create a user');
         return redirect()->route('agent.users.index');
@@ -130,6 +143,17 @@ class AgentUserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+
+        $action_by = Auth::user()->name;
+        $action_for = $user->name;
+        $action = 'Delete user';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
         Session::flash('message', 'You successfully delete a user');
         return redirect()->route('agent.users.index');
     }

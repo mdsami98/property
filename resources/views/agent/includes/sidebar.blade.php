@@ -48,17 +48,6 @@
 
         </ul>
 
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
-                <span class="menu-item-label">Comments</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{route('admin.comments.index')}}" class="nav-link">All Comments</a></li>
-            <li class="nav-item"><a href="navigation-layouts.html" class="nav-link">Nav Layouts</a></li>
-        </ul>
 
 
     </div><!-- br-sideleft-menu -->

@@ -38,7 +38,7 @@
 
                                                 <td>{{$log->action_by}}</td>
                                                 <td>{{$log->action}} " {{$log->action_for}} "</td>
-                                                <td>{{$log->created_at->format('j M Y H:i:s A')}}</td>
+                                                <td>{{$log->created_at->format('j M Y h:m:s A')}}</td>
 
 
                                             </tr>

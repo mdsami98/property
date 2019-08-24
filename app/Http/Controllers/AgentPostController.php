@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\PostCreateRequest;
+use App\Log;
 use App\Post;
 use App\PostImage;
 use App\RegionAreaCity;
@@ -85,6 +86,17 @@ class AgentPostController extends Controller
         }
 
         Post::create($formInput);
+
+
+        $action_by = Auth::user()->name;
+        $action_for = $request->title;
+        $action = 'Create post';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
 
         Session::flash('message', 'You successfully created a post');
         return redirect()->route('agent.post.index')->with('message', 'Post Create successfully!');
@@ -185,6 +197,17 @@ class AgentPostController extends Controller
 
         $update_post->update($formInput);
 
+
+        $action_by = Auth::user()->name;
+        $action_for = $update_post->title;
+        $action = 'Update post';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
         Session::flash('message', 'You successfully update the post');
 
         return redirect()->route('agent.post.index')->with('message','Update Post Successfully!');
@@ -210,6 +233,17 @@ class AgentPostController extends Controller
         if($delete->delete()){
             unlink($image_large);
         }
+
+        $action_by = Auth::user()->name;
+        $action_for = $delete->title;
+        $action = 'Delete post';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
 
         Session::flash('message', 'You successfully delete the post');
         return redirect()->route('agent.post.index');

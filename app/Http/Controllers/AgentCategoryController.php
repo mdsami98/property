@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AgentCategoryController extends Controller
@@ -45,6 +47,18 @@ class AgentCategoryController extends Controller
 
         $input = $request->all();
         Category::create($input);
+
+        $action_by = Auth::user()->name;
+        $action_for = $request->title;
+        $action = 'Create Category';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
+
         Session::flash('message', 'You successfully created a category');
         return redirect()->route('agent.category.index');
     }
@@ -92,6 +106,17 @@ class AgentCategoryController extends Controller
 
         $category->update($input);
 
+
+        $action_by = Auth::user()->name;
+        $action_for = $category->title;
+        $action = 'Update Category';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
+
         Session::flash('message', 'You successfully updated the category');
 
         return redirect()->route('agent.category.index');
@@ -107,6 +132,17 @@ class AgentCategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+
+
+        $action_by = Auth::user()->name;
+        $action_for = $category->title;
+        $action = 'Delete Category';
+
+        Log::create([
+            'action_by' => $action_by,
+            'action_for' => $action_for,
+            'action' => $action,
+        ]);
 
         Session::flash('message', 'You successfully deleted the category');
         return redirect()->route('agent.category.index');

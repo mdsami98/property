@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Post;
 use App\PostImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AgentPostImageController extends Controller
@@ -111,6 +113,7 @@ class AgentPostImageController extends Controller
         if($delete->delete()){
             unlink($image_large);
         }
+
 
         Session::flash('message', 'You successfully deleted image to the post');
         return back();
