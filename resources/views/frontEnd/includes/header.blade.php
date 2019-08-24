@@ -88,23 +88,8 @@
 
                             </li>
 
-                            <li class=""><a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="agents.html">Agents</a></li>
-                                    <li><a href="for-rent.html">For Rent</a></li>
-                                    <li><a href="for-sale.html">For Sale</a></li>
-                                    <li><a href="miami-city.html">Miami City</a></li>
-                                    <li><a href="faqs-filterable.html">FAQs</a>
-                                        <ul>
-                                            <li><a href="faqs-filterable.html">FAQs &#8211; Filterable</a></li>
-                                            <li><a href="faqs-toggle-style.html">FAQs &#8211; Toggle Style</a></li>
-                                            <li><a href="faqs-simple-list.html">FAQs &#8211; Simple List</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="columns.html">Columns</a></li>
-                                </ul>
+                            <li class=""><a href="{{route('user.premium', 1)}}">Premium posts</a>
+
                             </li>
                             <li class="@if( request()->url() == url('/category/{id}')) {{'current-menu-item'}} @endif"><a href="#">Category</a>
                                 <ul>

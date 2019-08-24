@@ -5,8 +5,8 @@
     <div id="home-flexslider" class="clearfix">
         <div class="flexslider loading">
             <ul class="slides">
-                @if(count($premiumPosts) > 0)
-                    @foreach($premiumPosts as $premiumPost)
+                @if(count($premiumPostsSlide) > 0)
+                    @foreach($premiumPostsSlide as $premiumPost)
                 <li class="slider-box">
                     <div class="desc-wrap">
                         <div class="slide-description">
@@ -200,6 +200,80 @@
 
 {{--                    Premium posts--}}
 
+                    <section id="home-properties-section" class="property-items ajax-pagination">
+                        @if(count($premiumPosts) > 0)
+                            <div class="narrative">
+                                <h2>We are Offering the Best Real Estate Deals</h2><p> </p></div><div id="home-properties-section-wrapper">
+                                <div id="home-properties-section-inner">
+                                    <div id="home-properties-wrapper">
+
+                                        <div id="home-properties" class="property-items-container clearfix">
+
+
+
+                                            @foreach($premiumPosts as $post)
+
+                                                <div class="span6 ">
+                                                    <article class="property-item clearfix">
+                                                        <h4><a href="{{route('user.singleView',['id'=> $post->id])}}">{{$post->title}}</a></h4>
+
+                                                        <figure>
+
+                                                            <a href="property.html">
+
+                                                                <img src="{{url('postimages',$post->image)}}" alt="Property Image">
+
+                                                            </a>
+
+
+
+
+                                                            <figcaption class="for-rent">For {{$post->type->title}}</figcaption>
+                                                        </figure>
+
+                                                        <div class="detail">
+                                                            <h5 class="price">
+                                                                {{$post->price}} {{$post->type->title == 'Rent' ? "Tk. Per Month": "Tk."}}<small></small>            </h5>
+                                                            <p>{{str_limit($post->description, 100)}}&hellip;</p>
+                                                            <a class="more-details" href="{{route('user.singleView',['id'=> $post->id])}}">More Details <i class="fa fa-caret-right"></i></a>
+                                                        </div>
+
+                                                        <div class="property-meta">
+                                                            <span>{{$post->area}}&nbsp;sq ft</span>
+                                                            <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
+                                                            <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
+                                                            <span>{{$post->garage}}&nbsp;Garages</span>
+                                                            <span>{{$post->floor}}&nbsp;Floor</span>
+                                                        </div>
+                                                        <div class="property-meta">
+                                                            <span>Address : {{$post->address}}</span>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            @endforeach
+
+
+
+
+
+                                            {{--                                        <div class="clearfix"></div>--}}
+
+
+
+
+                                        </div><!-- end of #home-properties -->
+
+                                    </div><!-- end of #home-properties-wrapper -->
+
+                                    {{--                                {{$posts->render()}}--}}
+
+                                </div><!-- end of #home-properties-section-inner -->
+
+                            </div><!-- end of #home-properties-section-wrapper -->
+                        @endif
+
+                    </section>
+
 
 {{--                    Premium posts End--}}
 
@@ -224,11 +298,7 @@
                                                 <figure>
 
                                                     <a href="property.html">
-
                                                             <img src="{{url('postimages',$post->image)}}" alt="Property Image">
-
-
-{{--                                                        <img src="{{asset('frontEnd/')}}/images/temp-images/property1.jpg" alt="Property Image">--}}
                                                     </a>
 
 
@@ -249,6 +319,7 @@
                                                     <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
                                                     <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
                                                     <span>{{$post->garage}}&nbsp;Garages</span>
+                                                    <span>{{$post->floor}}&nbsp;Floor</span>
                                                 </div>
                                                 <div class="property-meta">
                                                     <span>Address : {{$post->address}}</span>
@@ -258,24 +329,11 @@
                                             @endforeach
 
 
-
-
-
-{{--                                        <div class="clearfix"></div>--}}
-
-
-
-
                                     </div><!-- end of #home-properties -->
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-
-
-                                {{$posts->render()}}
-
-
-
+{{--                                {{$posts->render()}}--}}
 
                             </div><!-- end of #home-properties-section-inner -->
 

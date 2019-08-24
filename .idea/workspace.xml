@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/premium.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/categoryview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/categoryview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/typeview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/typeview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/search/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/search/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,15 +155,15 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Custom" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\property\resources\views\admin\log" />
       <recent name="C:\xampp\htdocs\property\resources\views\agent" />
       <recent name="C:\xampp\htdocs\property\resources\views\agent\users" />
       <recent name="C:\xampp\htdocs\property\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\property\resources\views\admin\users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -245,6 +254,8 @@
       <workItem from="1566380388089" duration="7715000" />
       <workItem from="1566398059227" duration="6012000" />
       <workItem from="1566416642379" duration="2215000" />
+      <workItem from="1566484403486" duration="597000" />
+      <workItem from="1566653489438" duration="2792000" />
     </task>
     <servers />
   </component>
@@ -276,7 +287,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/frontEnd/home/home.blade.php</url>
-          <line>206</line>
+          <line>280</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

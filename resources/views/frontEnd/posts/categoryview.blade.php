@@ -197,15 +197,15 @@
                     </section>
                     {{--  ====== Home Property--}}
                     <section id="home-properties-section" class="property-items ajax-pagination">
-
+                        @if(count($posts) > 0)
                         <div class="narrative">
-                            <h2>We are Offering the Best Real Estate Deals</h2><p>Look at our Latest listed properties and check out the facilities on them, We have already sold more than 5,000 Homes and we are still going at very good pace. We would love you to look into these properties and we hope that you will find something match-able to your needs.</p></div>	<div id="home-properties-section-wrapper">
+                            <h2>All posts</h2><p></p></div>	<div id="home-properties-section-wrapper">
                             <div id="home-properties-section-inner">
                                 <div id="home-properties-wrapper">
 
                                     <div id="home-properties" class="property-items-container clearfix">
 
-                                        @if($posts)
+
 
                                             @foreach($posts as $post)
 
@@ -241,6 +241,7 @@
                                                             <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
                                                             <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
                                                             <span>{{$post->garage}}&nbsp;Garages</span>
+                                                            <span>{{$post->floor}}&nbsp;Floor</span>
                                                         </div>
                                                         <div class="property-meta">
                                                             <span>Address : {{$post->address}}</span>
@@ -249,25 +250,21 @@
                                                 </div>
                                             @endforeach
 
-                                        @endif
-
-
-
-                                        {{--                                        <div class="clearfix"></div>--}}
-
-
-
 
                                     </div><!-- end of #home-properties -->
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-                                {{$posts->render()}}
+
 
 
                             </div><!-- end of #home-properties-section-inner -->
 
                         </div><!-- end of #home-properties-section-wrapper -->
+                        @else
+                            <h2>No post</h2>
+
+                        @endif
 
                     </section>
 

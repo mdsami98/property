@@ -1,21 +1,28 @@
+
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url({{asset('frontEnd/')}}/images/temp-images/banner.jpg); background-size: cover;">
-        <div class="container">
-            <div class="wrap clearfix">
-                <h1 class="page-title"><span>Search result</span></h1>
-                <div class="page-breadcrumbs">
-                    <nav class="property-breadcrumbs">
-                        <ul>
-                            <li><a href="{{route('user.home')}}">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li>
-                            <li><a href="property.html"></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+    <!-- Slider -->
+    <div id="home-flexslider" class="clearfix">
+        <div class="flexslider loading">
+            <ul class="slides">
+                <li>
+                    <div class="desc-wrap">
+                        <div class="slide-description">
+                            <h3>All premium posts</h3>
+
+
+
+                        </div>
+                    </div>
+                    <img class="banner" src="{{asset('frontEnd/')}}/images/temp-images/slider-image.jpg" alt="15421 Southwest 39th Terrace">
+                </li>
+
+
+            </ul>
         </div>
-    </div><!-- End Page Head -->
+    </div>
+    <!-- End Slider -->
 
     <!-- Content -->
     <div class="container contents">
@@ -193,15 +200,15 @@
                     <section id="home-properties-section" class="property-items ajax-pagination">
 
                         <div class="narrative">
-                            <h2>We are Offering the Best Real Estate Deals</h2><p>Look at our Latest listed properties and check out the facilities on them, We have already sold more than 5,000 Homes and we are still going at very good pace. We would love you to look into these properties and we hope that you will find something match-able to your needs.</p></div>	<div id="home-properties-section-wrapper">
+                            <h2></h2><p></p></div>	<div id="home-properties-section-wrapper">
                             <div id="home-properties-section-inner">
                                 <div id="home-properties-wrapper">
 
                                     <div id="home-properties" class="property-items-container clearfix">
 
-                                        @if($posts)
+                                        @if(count($premiumPosts) > 0)
 
-                                            @foreach($posts as $post)
+                                            @foreach($premiumPosts as $post)
 
                                                 <div class="span6 ">
                                                     <article class="property-item clearfix">
@@ -235,6 +242,7 @@
                                                             <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
                                                             <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
                                                             <span>{{$post->garage}}&nbsp;Garages</span>
+                                                            <span>{{$post->floor}}&nbsp;Floor</span>
                                                         </div>
                                                         <div class="property-meta">
                                                             <span>Address : {{$post->address}}</span>
@@ -243,7 +251,12 @@
                                                 </div>
                                             @endforeach
 
+                                            @else
+                                            <h2>No posts</h2><p></p></div>	<div id="home-properties-section-wrapper">
+
                                         @endif
+
+
 
 
 
@@ -251,11 +264,13 @@
 
 
 
+
                                     </div><!-- end of #home-properties -->
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-                                {{--                                {{$posts->render()}}--}}
+
+
 
                             </div><!-- end of #home-properties-section-inner -->
 
@@ -264,38 +279,7 @@
                     </section>
 
                     {{--  ====== Home Property--}}
-                    <section class="featured-properties-carousel clearfix">
-                        <div class="narrative">
-                            <h3>Latest Properties</h3>
-                            <p>View a list of Latest Properties.</p>
-                        </div>
-                        <div class="carousel es-carousel-wrapper">
-                            <div class="es-carousel">
-                                <ul class="clearfix">
-                                    @if($latestPosts)
-                                        @foreach($latestPosts as $latestPost)
-                                            <li>
-                                                <figure>
-                                                    <a href="{{route('user.singleView',['id'=> $latestPost->id])}}">
-                                                        <img src="{{url('postimages',$latestPost->image)}}" alt="Property Image">
-                                                    </a>
-                                                </figure>
-                                                <h4><a href="{{route('user.singleView',['id'=> $latestPost->id])}}">{{$latestPost->title}}</a></h4>
-                                                <p>{{str_limit($latestPost->description, 50)}} <a href="property.html"> Know More </a> </p>
 
-                                                @if($latestPost->type_id == 1)
-                                                    <span class="price">{{$latestPost->price}} Tk. Per Month</span>
-                                                @else
-                                                    <span class="price">{{$latestPost->price}} Tk</span>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                    @endif
-
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
                 </div><!-- End Main Content -->
 
             </div> <!-- End span12 -->
@@ -305,69 +289,7 @@
     </div>
     <!-- End content -->
     {{--Start patners--}}
-    <div class="container page-carousel">
-        <div class="row">
-            <div class="span12">
-                <section class="brands-carousel  clearfix">
-                    <h3><span>Partners</span></h3>
-                    <ul class="brands-carousel-list clearfix">
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://graphicriver.net/" title="graphicriver">
-                                <img src="{{asset('frontEnd/')}}/images/graphicriver.png" alt="graphicriver">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://photodune.net/" title="photodune">
-                                <img src="{{asset('frontEnd/')}}/images/photodune.png" alt="photodune">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://themeforest.net/" title="themeforest">
-                                <img src="{{asset('frontEnd/')}}/images/themeforest.png" alt="themeforest">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://activeden.net/" title="activeden">
-                                <img src="{{asset('frontEnd/')}}/images/activeden.png" alt="activeden">
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://videohive.net/" title="videohive">
-                                <img src="{{asset('frontEnd/')}}/images/videohive.png" alt="videohive">
-                            </a>
-                        </li>
 
-
-                    </ul>
-                </section>
-            </div>
-        </div>
-    </div>
 
     {{--End patners--}}
 

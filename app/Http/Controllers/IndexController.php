@@ -18,20 +18,36 @@ class IndexController extends Controller
     public function index(){
 
         $posts =Post::where('publication_status' , 1)
-            ->where('type_id' , 1)->paginate(4);
+            ->where('post_type' , 0)->get();
 
-        $premiumPosts =Post::where('publication_status' , 1)
+//        paginate(4)
+
+        $premiumPostsSlide =Post::where('publication_status' , 1)
                             ->where('post_type' , 1)
                             ->orderBy('id','DESC')->take(4)->get();
+
+        $premiumPosts =Post::where('publication_status' , 1)
+                            ->where('post_type' , 1)->get();
 
         $latestPosts =Post::where('publication_status' , 1)->orderBy('id','desc')->get();
         return view('frontEnd.home.home', [
             'posts' => $posts,
             'latestPosts' => $latestPosts,
+            'premiumPostsSlide' => $premiumPostsSlide,
             'premiumPosts' => $premiumPosts,
         ]);
 
 
+    }
+
+    public function premium($id){
+        $premiumPosts =Post::where('publication_status' , 1)
+            ->where('post_type' , 1)->orderBy('id','DESC')->get();
+
+        return view('frontEnd.posts.premium', [
+            'premiumPosts' => $premiumPosts,
+
+        ]);
     }
 
 
@@ -72,7 +88,7 @@ class IndexController extends Controller
 
     public function categoryView($id){
         $category = Category::findOrfail($id);
-        $posts = Post::where('category_id', $id)->paginate(8);
+        $posts = Post::where('category_id', $id)->get();
 
         return view('frontEnd.posts.categoryview', [
             'posts' => $posts,
@@ -82,7 +98,7 @@ class IndexController extends Controller
     }
     public function typeView($id){
         $type = Type::findOrFail($id);
-        $posts = Post::where('type_id', $id)->paginate(8);
+        $posts = Post::where('type_id', $id)->get();
 
         return view('frontEnd.posts.typeview', [
             'posts' => $posts,

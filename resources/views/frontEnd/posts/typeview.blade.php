@@ -236,6 +236,7 @@
                                                             <span>{{$post->bedroom}}&nbsp;Bedrooms</span>
                                                             <span>{{$post->bathroom}}&nbsp;Bathrooms</span>
                                                             <span>{{$post->garage}}&nbsp;Garages</span>
+                                                            <span>{{$post->floor}}&nbsp;Floor</span>
                                                         </div>
                                                         <div class="property-meta">
                                                             <span>Address : {{$post->address}}</span>
@@ -257,7 +258,7 @@
 
                                 </div><!-- end of #home-properties-wrapper -->
 
-                                {{$posts->render()}}
+
 
                             </div><!-- end of #home-properties-section-inner -->
 

@@ -20,6 +20,7 @@ Route::get('/property/{id}', 'IndexController@singleView')->name('user.singleVie
 
 Route::get('/property/category/{id}', 'IndexController@categoryView')->name('user.categoryView');
 Route::get('/property/type/{id}', 'IndexController@typeView')->name('user.typeView');
+Route::get('/property/premium/{id}', 'IndexController@premium')->name('user.premium');
 
 
 Route::resource('/profile', 'ProfileController');
