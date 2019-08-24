@@ -81,6 +81,7 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::get('/agents/list', 'UserController@allAgents')->name('agents');
   Route::get('/admin/list', 'UserController@addAdmin')->name('admins');
   Route::get('/change/{id}', 'UserController@change')->name('user.change');
+  Route::get('/activity/{id}', 'UserController@activity')->name('user.activity');
 
 
   Route::resource('admin/comments', 'PostCommentController');

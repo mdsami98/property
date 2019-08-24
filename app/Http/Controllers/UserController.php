@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Post;
 use App\Profile;
 use App\Role;
@@ -202,11 +203,7 @@ class UserController extends Controller
     }
 
     public function change($id){
-
         $user = User::findOrFail($id);
-
-
-
         if ($user->role_id == 1){
 
             $input = [
@@ -227,6 +224,20 @@ class UserController extends Controller
             Session::flash('message', 'You successfully change '.$user->name.' to User');
             return redirect()->back();
         }
+
+    }
+
+    public function activity($id){
+        $user = User::findOrFail($id);
+
+        $logs = Log::where('action_by', $user->name)->get();
+
+        return view('admin.users.log', [
+            'logs' => $logs,
+            'user' => $user,
+        ]);
+
+
 
     }
 

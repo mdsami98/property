@@ -57,6 +57,8 @@
 
 
                                     {!! Form::close()  !!}
+
+                                    <a href="{{route('admin.user.activity', $user->id)}}" class="btn btn-success">Activity</a>
                             </div>
 
                         </div>

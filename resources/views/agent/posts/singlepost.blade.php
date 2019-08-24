@@ -20,11 +20,12 @@
                         <div class="col">
                             <div class="post-details">
                                 <h6>Post Name : {{$post->title}}</h6>
-                                <h6>Awner : {{$post->user->name}}</h6>
+                                <h6>Owner : {{$post->user->name}}</h6>
                                 <h6>Category : {{$post->category->title}}</h6>
                                 <h6>Purpose : {{$post->type->title}}</h6>
                                 <h6>Phone Number : {{$post->phn_number}}</h6>
                                 <h6>Price : {{$post->price}} Tk.</h6>
+                                <h6>Post type : {{$post->post_type == 0 ? 'Normal' : 'Premium'}}</h6>
                             </div>
                         </div>
                         <div class="col">
