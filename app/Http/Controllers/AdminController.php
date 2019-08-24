@@ -13,9 +13,11 @@ class AdminController extends Controller
 
        $users = User::where('role_id', 1)->get();
        $agents = User::where('role_id', 2)->get();
+       $premiumPosts =Post::where('post_type' , 1)->get();
        return view('admin.dashboard.index', [
            'users' =>$users,
-           'agents' =>$agents
+           'agents' =>$agents,
+           'premiumPosts' =>$premiumPosts,
        ]);
    }
     public function publication($id){

@@ -27,7 +27,7 @@
 
         </ul>
 
-        <a href="{{route('admin.region.index')}}" class="br-menu-link">
+        <a href="{{route('admin.region.index')}}" class="br-menu-link @if( request()->url() == route('admin.region.index')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">Region</span>
@@ -64,18 +64,7 @@
 
         </ul>
 
-        <a href="{{route('admin.comments.index')}}" class="br-menu-link @if( request()->url() == route('admin.comments.index')) {{'active'}} @endif">
-            <div class="br-menu-item">
-                <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
-                <span class="menu-item-label">All Comments</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-{{--        <ul class="br-menu-sub nav flex-column">--}}
-{{--            <li class="nav-item"><a href="{{route('admin.comments.index')}}" class="nav-link">All Comments</a></li>--}}
-{{--        </ul>--}}
-
-
-        <a href="{{route('admin.log.index')}}" class="br-menu-link @if( request()->url() == route('admin.comments.index')) {{'active'}} @endif">
+        <a href="{{route('admin.log.index')}}" class="br-menu-link @if( request()->url() == route('admin.log.index')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
                 <span class="menu-item-label">Security Log</span>

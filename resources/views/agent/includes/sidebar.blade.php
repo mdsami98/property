@@ -1,4 +1,4 @@
-<div class="br-logo"><a href="{{route('admin.dashboard')}}"><span>[</span>Agent<span>]</span></a></div>
+<div class="br-logo"><a href="{{route('agent.home')}}"><span>[</span>Agent<span>]</span></a></div>
 <div class="br-sideleft overflow-y-auto">
     <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
     <div class="br-sideleft-menu">
@@ -16,19 +16,19 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
 
-        <a href="{{route('agent.category.index')}}" class="br-menu-link">
+        <a href="{{route('agent.category.index')}}" class="br-menu-link @if( request()->url() == route('agent.category.index')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">Category</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="{{route('agent.my.post')}}" class="br-menu-link">
+        <a href="{{route('agent.my.post')}}" class="br-menu-link @if( request()->url() == route('agent.my.post')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">My post</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="{{route('agent.unpublished.post')}}" class="br-menu-link">
+        <a href="{{route('agent.unpublished.post')}}" class="br-menu-link @if( request()->url() == route('agent.unpublished.post')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">unpublished post</span>
