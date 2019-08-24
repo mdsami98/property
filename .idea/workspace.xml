@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65829670-516a-43ce-b9e6-70690f19f9c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/premium.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/region/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/home/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/categoryview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/categoryview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/singlepost.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/posts/typeview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/posts/typeview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontEnd/search/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontEnd/search/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,7 +139,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="js.last.introduce.type" value="VAR" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/log" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/region" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -156,11 +154,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\property\resources\views\admin\region" />
       <recent name="C:\xampp\htdocs\property\resources\views\admin\log" />
       <recent name="C:\xampp\htdocs\property\resources\views\agent" />
       <recent name="C:\xampp\htdocs\property\resources\views\agent\users" />
       <recent name="C:\xampp\htdocs\property\resources\views\layouts" />
-      <recent name="C:\xampp\htdocs\property\resources\views\admin\users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\property\resources\views\frontEnd\posts" />
@@ -255,7 +253,7 @@
       <workItem from="1566398059227" duration="6012000" />
       <workItem from="1566416642379" duration="2215000" />
       <workItem from="1566484403486" duration="597000" />
-      <workItem from="1566653489438" duration="2792000" />
+      <workItem from="1566653489438" duration="4794000" />
     </task>
     <servers />
   </component>

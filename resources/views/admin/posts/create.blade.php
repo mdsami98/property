@@ -22,7 +22,7 @@
                         <div class="col">
                             <div class="d-flex mg-b-20">
                                 <div class="form-group mg-b-0">
-                                    {!! Form::label('phn_number', 'Post title:') !!}<span class="tx-danger">*</span>
+                                    {!! Form::label('title', 'Post title:') !!}<span class="tx-danger">*</span>
                                     {!! Form::text('title', $value = null, ['class' => 'form-control wd-300', 'placeholder' => 'Post title', 'require']) !!}
                                 </div><!-- form-group -->
 
