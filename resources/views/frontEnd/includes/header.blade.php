@@ -7,7 +7,7 @@
             <div id="header-top" class="clearfix">
                 <h2 id="contact-email">
 
-                    Email us at :
+                    Email us at :mdsami9898@gmail.com{{url()->current()}}
                     <a href=""></a>
                 </h2>
 
@@ -75,7 +75,7 @@
             <div class="menu-and-contact-wrap">
                 <h2  class="contact-number ">
                     <i class="fa fa-phone"></i>
-                    <span class="desktop-version">017-81501769</span>
+                    <span class="desktop-version">01781501769</span>
                     <a class="mobile-version" href="tel://01781501769" title="Make a Call">1-800-555-1234</a>
                     <span class="outer-strip"></span>
                 </h2>
@@ -88,10 +88,12 @@
 
                             </li>
 
-                            <li class=""><a href="{{route('user.premium', 1)}}">Premium posts</a>
+                            <li class="@if(url()->current() == route('user.premium', 1)) {{'current-menu-item'}} @endif">
+                                <a href="{{route('user.premium', 1)}}">Premium posts</a>
 
                             </li>
-                            <li class="@if( request()->url() == url('/category/{id}')) {{'current-menu-item'}} @endif"><a href="#">Category</a>
+                            <li class="@if( request()->url() == url('/category/{id}')) {{'current-menu-item'}} @endif">
+                                <a href="#">Category</a>
                                 <ul>
 
                                 @if($categories)
@@ -101,22 +103,24 @@
                                 @endif
                                 </ul>
                             </li>
+                            @php($i = 0)
                             <li class=""><a href="#">Type</a>
                                 <ul>
 
                                 @if($types)
                                     @foreach($types as $type)
-                                        <li><a href="{{route('user.typeView', $type->id)}}">{{$type->title}}</a></li>
+                                        <li class="@if(url()->current() == url('/property/type/{id}')){{'current-menu-item'}}@endif"><a href="{{route('user.typeView', $type->id)}}">{{$type->title}}</a></li>
                                     @endforeach
                                 @endif
                                 </ul>
                             </li>
                             @auth()
-                            <li><a href="{{route('profile.show', Auth::user()->id)}}">Profile</a>
+                            <li class="@if(url()->current() == route('profile.show', Auth::user()->id)){{'current-menu-item'}}@endif">
+                                <a href="{{route('profile.show', Auth::user()->id)}}">Profile</a>
 
                             </li>
 
-                                <li>
+                                <li class="@if(url()->current() == route('post.create')){{'current-menu-item'}}@endif">
                                     <a href="{{route('post.create')}}">Add property</a>
                                     <ul>
                                         <li><a href="{{route('post.index')}}">My property</a></li>
@@ -127,9 +131,6 @@
                                 </li>
                             @endauth
 
-
-
-                            <li><a href="contact-us.html">Contact us</a></li>
                         </ul>
                     </div>
                 </nav>
