@@ -23,8 +23,8 @@ class CreatePostsTable extends Migration
             $table->string('region_area',128)->nullable();
             $table->tinyInteger('post_type')->default(0);
             $table->string('slug',128)->nullable();
-            $table->decimal('price')->unsigned();
-            $table->decimal('area');
+            $table->decimal('price', 20,2)->unsigned();
+            $table->integer('area');
             $table->text('phn_number');
             $table->integer('bedroom')->unsigned();
             $table->integer('bathroom')->unsigned();
@@ -36,6 +36,7 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->tinyInteger('publication_status')->default(0);
             $table->timestamps();
+
 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

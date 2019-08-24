@@ -63,7 +63,7 @@
                             <i class="fa fa-ion-pricetag tx-60 lh-0 tx-white op-7"></i>
                             <div class="mg-l-20">
                                 <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Premium post</p>
-                                <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{count($premiumPosts)}}</p>
+                                <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{count($allposts)}}</p>
                             </div>
                         </div>
                     </div>

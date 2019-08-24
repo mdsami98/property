@@ -22,13 +22,32 @@
           <div class="span6 main-wrap">
               <div class="payment-box">
                   <div class="bikas">
-                    <form action="" method="post">
+                    <form action="{{route('post.payment.bikash')}}" method="post">
                           @csrf
                           <article>
                               <label>
 
                               </label>
                           </article>
+
+                        <input type="hidden" name="title" value="{{$formInput['title']}}">
+                        <input type="hidden" name="user_id" value="{{$formInput['user_id']}}">
+                        <input type="hidden" name="category_id" value="{{$formInput['category_id']}}">
+                        <input type="hidden" name="type_id" value="{{$formInput['type_id']}}">
+                        <input type="hidden" name="region" value="{{$formInput['region']}}">
+                        <input type="hidden" name="region_area" value="{{$formInput['region_area']}}">
+                        <input type="hidden" name="post_type" value="{{$formInput['post_type']}}">
+                        <input type="hidden" name="price" value="{{$formInput['price']}}">
+                        <input type="hidden" name="area" value="{{$formInput['area']}}">
+                        <input type="hidden" name="phn_number" value="{{$formInput['phn_number']}}">
+                        <input type="hidden" name="bedroom" value="{{$formInput['bedroom']}}">
+                        <input type="hidden" name="bathroom" value="{{$formInput['bathroom']}}">
+                        <input type="hidden" name="garage" value="{{$formInput['garage']}}">
+                        <input type="hidden" name="description" value="{{$formInput['description']}}">
+                        <input type="hidden" name="address" value="{{$formInput['address']}}">
+                        <input type="hidden" name="image" value="{{$formInput['image']}}">
+                        <input type="hidden" name="floor" value="{{$formInput['floor']}}">
+                        <input type="hidden" name="amount" value="100">
 
                           <input type="hidden" name="total" value="">
 
@@ -47,7 +66,7 @@
                               </label>
                           </article>
 
-                          
+
                           <input type="hidden" name="title" value="{{$formInput['title']}}">
                           <input type="hidden" name="user_id" value="{{$formInput['user_id']}}">
                           <input type="hidden" name="category_id" value="{{$formInput['category_id']}}">
@@ -64,6 +83,8 @@
                           <input type="hidden" name="description" value="{{$formInput['description']}}">
                           <input type="hidden" name="address" value="{{$formInput['address']}}">
                           <input type="hidden" name="image" value="{{$formInput['image']}}">
+                        <input type="hidden" name="floor" value="{{$formInput['floor']}}">
+                        <input type="hidden" name="amount" value="100">
 
                           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                   data-key="pk_test_TWNkqLGoXWHCzIX93oNkLynz00jlkpYerb"

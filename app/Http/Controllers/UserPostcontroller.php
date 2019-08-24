@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Favourite;
+use App\Payment;
 use App\Post;
 use App\PostImage;
 use App\RegionAreaCity;
@@ -67,13 +68,14 @@ class UserPostcontroller extends Controller
            'category_id' => 'required',
            'type_id' => 'required',
            'post_type' => 'required',
-           'area' => 'required|min:1',
+           'area' => 'required|integer|min:1',
            'price' => 'required|min:1',
            'bedroom' => 'required|integer|min:1',
            'bathroom' => 'required|integer|min:1',
            'floor' => 'required|integer|min:1',
            'description' => 'required',
            'region' => 'required',
+           'garage' => 'integer|min:1',
            'region_area' => 'required',
            'address' => 'required',
            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
@@ -130,7 +132,7 @@ class UserPostcontroller extends Controller
           'source' => $token,
       ]);
 
-    Post::create([
+    $post = Post::create([
       'title' => $request->title,
       'user_id' => $request->user_id,
       'category_id' => $request->category_id,
@@ -149,8 +151,49 @@ class UserPostcontroller extends Controller
       'image' => $request->image,
     ]);
 
+    $payment = Payment::create([
+       'post_id' => $post->id,
+       'amount' => $request->amount,
+       'by' => 'card',
+    ]);
+
     Session::flash('message', 'You successfully created a post');
     return redirect()->route('post.index')->with('message', 'Post Create successfully!');
+
+
+    }
+
+
+    public function bPayment(Request $request){
+
+        $post = Post::create([
+            'title' => $request->title,
+            'user_id' => $request->user_id,
+            'category_id' => $request->category_id,
+            'type_id' => $request->type_id,
+            'region' => $request->region,
+            'region_area' => $request->region_area,
+            'post_type' => $request->post_type,
+            'price' => $request->price,
+            'area' => $request->area,
+            'phn_number' => $request->phn_number,
+            'bedroom' => $request->bedroom,
+            'bathroom' => $request->bathroom,
+            'garage' => $request->garage,
+            'description' => $request->description,
+            'address' => $request->address,
+            'image' => $request->image,
+            'floor' => $request->floor,
+        ]);
+
+        $payment = Payment::create([
+            'post_id' => $post->id,
+            'amount' => $request->amount,
+            'by' => 'bikash',
+        ]);
+
+        Session::flash('message', 'You successfully created a post');
+        return redirect()->route('post.index')->with('message', 'Post Create successfully!');
 
 
     }

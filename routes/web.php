@@ -50,6 +50,7 @@ Route::group(['middleware'=> 'auth'], function () {
     Route::resource('/user/post', 'UserPostController');
     Route::resource('/user/post/image', 'UserPostImageController');
     Route::post('/user/post/payment', 'UserPostController@payment')->name('post.payment');
+    Route::post('/user/post/payment/bikash', 'UserPostController@bPayment')->name('post.payment.bikash');
 
 
 
