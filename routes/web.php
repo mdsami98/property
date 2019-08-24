@@ -74,6 +74,8 @@ Route::group(['as' => 'admin.', 'middleware'=> 'admin'], function () {
   Route::resource('/region', 'RegionController');
   Route::resource('/type', 'TypeController');
   Route::resource('/post', 'PostController');
+  Route::get('/post/premium/{id}', 'PostController@premium')->name('post.premium');
+  Route::get('admin/post/unpublished', 'PostController@unpublished')->name('post.unpublished');
 
 
 
@@ -104,7 +106,11 @@ Route::group(['as' => 'agent.', 'middleware'=> 'agent'], function () {
     Route::resource('agent/post', 'AgentPostController');
     Route::get('agent/my/post', 'AgentPostController@myPost')->name('my.post');
     Route::get('agent/unpublished/post', 'AgentPostController@unpublishedPost')->name('unpublished.post');
+
+    Route::get('agent/premium/post', 'AgentPostController@premium')->name('premium.post');
+
     Route::get('agent/post/published/{id}', 'AdminController@publication')->name('post.publication');
+
     Route::resource('agent/post/image', 'AgentPostImageController');
 
     Route::resource('agent/comments', 'PostCommentController');

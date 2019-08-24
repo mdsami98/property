@@ -7,7 +7,7 @@
             <nav class="breadcrumb pd-0 mg-0 tx-12">
                 <a class="breadcrumb-item" href="{{route('agent.home')}}">Dashboard</a>
                 <a class="breadcrumb-item" href="{{route('agent.post.index')}}">All Post</a>
-                <span class="breadcrumb-item active">My posts</span>
+                <span class="breadcrumb-item active">posts</span>
 
             </nav>
         </div><!-- br-pageheader -->
@@ -23,7 +23,7 @@
 
                             @if (count($posts) > 0)
                             <div class="table-wrapper">
-                                <h4 class="text-center mt-2 mb-40 title">All posts</h4>
+                                <h4 class="text-center mt-2 mb-40 title">All {{$text ? $text : ''}} posts</h4>
 
                                 <table id="datatable1" class="table display responsive nowrap">
                                     <thead>

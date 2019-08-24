@@ -9,7 +9,7 @@
                     <h3 class="title">About Real Homes</h3>
                     <div class="textwidget">
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+
                     </div>
                 </section>
             </div>
@@ -35,9 +35,13 @@
 
             <div class="span3">
                 <section class="widget">
-                    <h3 class="title">Latest Tweets</h3>
+                    <h3 class="title">Quick links</h3>
                     <ul id="twitter_update_list">
-                        <li>No Tweet Loaded !</li>
+                        @if($types)
+                            @foreach($types as $type)
+                                <li class="@if(url()->current() == url('/property/type/{id}')){{'current-menu-item'}}@endif"><a href="{{route('user.typeView', $type->id)}}">{{$type->title}}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </section>
 
@@ -46,10 +50,10 @@
             <div class="span3">
                 <section id="text-2" class="widget clearfix widget_text">
                     <h3 class="title">Contact Info</h3>
-                    <div class="textwidget"><p>3015 Grand Ave, Coconut Grove,<br />
-                            Merrick Way, FL 12345</p>
-                        <p>Phone: 123-456-7890</p>
-                        <p>Email: <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a></p>
+                    <div class="textwidget"><p>Mohammod pur,<br />
+                            lorem, FL 12345</p>
+                        <p>Phone: 01781501769</p>
+                        <p>Email: <a href="mailto:info@yourwebsite.com">demo@gmail.com</a></p>
                     </div>
                 </section>
             </div>
@@ -62,7 +66,7 @@
 
         <div class="row">
             <div class="span6">
-                <p class="copyright">Copyright © 2019. All Rights Reserved.</p>
+                <p class="copyright">Copyright © 2019 Aagami.  All Rights Reserved.</p>
             </div>
             <div class="span6">
                 <p></p>

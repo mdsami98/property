@@ -32,6 +32,22 @@ class PostController extends Controller
 
     }
 
+    public function premium($id){
+        $posts = Post::where('post_type', $id)->get();
+
+        return view('admin.posts.index', [
+            'posts' => $posts,
+        ]);
+    }
+
+    public function unpublished(){
+        $posts = Post::where('publication_status', 0)->get();
+
+        return view('admin.posts.index', [
+            'posts' => $posts,
+        ]);
+    }
+
 
 
     /**

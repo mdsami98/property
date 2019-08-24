@@ -34,6 +34,12 @@
                 <span class="menu-item-label">unpublished post</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{route('agent.premium.post')}}" class="br-menu-link @if( request()->url() == route('agent.premium.post')) {{'active'}} @endif">
+            <div class="br-menu-item">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">Premium post</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">

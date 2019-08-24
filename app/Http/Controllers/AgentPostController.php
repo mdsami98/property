@@ -23,23 +23,38 @@ class AgentPostController extends Controller
      */
     public function index()
     {
+        $text = '';
         $posts = Post::orderBy('id','desc')->get();
         return view('agent.posts.index', [
             'posts' => $posts,
+            'text' => $text,
         ]);
     }
     public function myPost()
     {
+        $text = 'My';
         $posts = Post::where('user_id', Auth::user()->id)->get();
         return view('agent.posts.index', [
             'posts' => $posts,
+            'text' => $text,
         ]);
     }
     public function unpublishedPost()
     {
+        $text = 'Unpublished';
         $posts = Post::where('publication_status', 0)->orderBy('id','desc')->get();
         return view('agent.posts.index', [
             'posts' => $posts,
+            'text' => $text,
+        ]);
+    }
+    public function premium()
+    {
+        $text = 'Primium';
+        $posts = Post::where('post_type', 1)->get();
+        return view('agent.posts.index', [
+            'posts' => $posts,
+            'text' => $text,
         ]);
     }
 

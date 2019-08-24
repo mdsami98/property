@@ -64,6 +64,20 @@
 
         </ul>
 
+        <a href="{{route('admin.post.premium', $id=1)}}" class="br-menu-link @if( request()->url() == route('admin.post.premium', $id=1)) {{'active'}} @endif">
+            <div class="br-menu-item">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">Premium post</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
+        <a href="{{route('admin.post.unpublished')}}" class="br-menu-link @if( request()->url() == route('admin.post.unpublished', $id=1)) {{'active'}} @endif">
+            <div class="br-menu-item">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">Unpublished post</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
         <a href="{{route('admin.log.index')}}" class="br-menu-link @if( request()->url() == route('admin.log.index')) {{'active'}} @endif">
             <div class="br-menu-item">
                 <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
