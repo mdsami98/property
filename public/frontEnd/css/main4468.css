@@ -7985,3 +7985,8 @@ li.slider-box img.slider-img {
 .postimage img {
     width: 200px;
 }
+.payment-box .bikas input.bikash {
+    background-color: #E3106E;
+    color: #fff;
+    width: 111px;
+}

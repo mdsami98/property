@@ -7,7 +7,7 @@
             <div id="header-top" class="clearfix">
                 <h2 id="contact-email">
 
-                    Email us at :mdsami9898@gmail.com{{url()->current()}}
+                    Email us at :mdsami9898@gmail.com
                     <a href=""></a>
                 </h2>
 

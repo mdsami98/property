@@ -20,6 +20,7 @@
     <div class="container contents detail">
         <div class="row">
           <div class="span6 main-wrap">
+              <h4>For premium post you have to pay 100 tk</h4>
               <div class="payment-box">
                   <div class="bikas">
                     <form action="{{route('post.payment.bikash')}}" method="post">
@@ -51,7 +52,7 @@
 
                           <input type="hidden" name="total" value="">
 
-                        <input type="submit" value="Bikas">
+                        <input class="bikash" type="submit" value="bikash">
                       </form>
                   </div>
                   <div class="paypal">

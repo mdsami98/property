@@ -18,8 +18,8 @@ class CreateFavouritesTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('post_id')->unsigned();
             $table->string('post_title', 128);
-            $table->decimal('post_price');
-            $table->decimal('post_area');
+            $table->decimal('post_price',20,20);
+            $table->integer('post_area');
             $table->integer('post_bedroom');
             $table->integer('post_bathroom');
             $table->integer('post_garage');

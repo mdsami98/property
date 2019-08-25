@@ -184,7 +184,7 @@
 
                                 {!! Form::label('region_area', 'City:') !!} <span class="text-danger">*</span>
 
-                                {!! Form::text('region_area',null,['id' => '', 'placeholder' => 'Ex : Uttara']) !!}
+                                {!! Form::text('region_area',null,['id' => '', 'placeholder' => 'Ex : Dhaka']) !!}
 
                                 <span class="text-danger">
                                    {{$errors->has('region_area') ? $errors->first('region_area') : ''}}
@@ -207,7 +207,7 @@
                                 {!! Form::label('post_type', 'Select Type:') !!}
 
                                 <span class="selectwrap">
-                                {!! Form::select('post_type', ['1'=> 'Normal', '2'=>'Premium'], null ,['class' => 'search-select', 'id' =>'select-status']) !!}
+                                {!! Form::select('post_type', ['0'=> 'Normal', '1'=>'Premium'], null ,['class' => 'search-select', 'id' =>'select-status']) !!}
 
                                 </span>
 

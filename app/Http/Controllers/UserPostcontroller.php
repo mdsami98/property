@@ -75,7 +75,7 @@ class UserPostcontroller extends Controller
            'floor' => 'required|integer|min:1',
            'description' => 'required',
            'region' => 'required',
-           'garage' => 'integer|min:1',
+           'garage' => 'integer|min:0',
            'region_area' => 'required',
            'address' => 'required',
            'phn_number' => 'required|numeric|regex:/(01)[0-9]{9}/',
@@ -99,7 +99,7 @@ class UserPostcontroller extends Controller
 
 
 
-       if ($request->post_type == 1){
+       if ($request->post_type == 0){
 
            Post::create($formInput);
 
@@ -108,7 +108,7 @@ class UserPostcontroller extends Controller
 
 
        }
-       if ($request->post_type == 2){
+       if ($request->post_type == 1){
 
            return view('frontEnd.posts.payment', [
              'formInput' => $formInput
