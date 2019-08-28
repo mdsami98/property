@@ -11,6 +11,8 @@
       <change afterPath="$PROJECT_DIR$/public/postimages/1566710015-new-test-shop.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/postimages/1566710089-new-shop-for-rent.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/postimages/1566710152-new-shop-for-rent.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/postimages/1566710283-new-shop-for-rent.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/postimages/1566710427-new-home-demo-input.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserPostcontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserPostcontroller.php" afterDir="false" />
@@ -267,7 +269,7 @@
       <workItem from="1566653489438" duration="7981000" />
       <workItem from="1566663297904" duration="5757000" />
       <workItem from="1566675983447" duration="8688000" />
-      <workItem from="1566707162454" duration="2804000" />
+      <workItem from="1566707162454" duration="3134000" />
     </task>
     <servers />
   </component>
